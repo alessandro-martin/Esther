@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A724D7921A191BEE0041A04A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7911A191BEE0041A04A /* main.m */; };
+		A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7941A191BEE0041A04A /* AppDelegate.m */; };
+		A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7971A191BEE0041A04A /* MasterViewController.m */; };
+		A724D79B1A191BEE0041A04A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D79A1A191BEE0041A04A /* DetailViewController.m */; };
+		A724D79E1A191BEE0041A04A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A724D79C1A191BEE0041A04A /* Main.storyboard */; };
+		A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A724D79F1A191BEE0041A04A /* Images.xcassets */; };
+		A724D7A31A191BEE0041A04A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A724D7A11A191BEE0041A04A /* LaunchScreen.xib */; };
+		A724D7AF1A191BEE0041A04A /* EstherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7AE1A191BEE0041A04A /* EstherTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A724D7A91A191BEE0041A04A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A724D7841A191BEE0041A04A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A724D78B1A191BEE0041A04A;
+			remoteInfo = Esther;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A724D78C1A191BEE0041A04A /* Esther.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esther.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A724D7901A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A724D7911A191BEE0041A04A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A724D7931A191BEE0041A04A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A724D7941A191BEE0041A04A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A724D7961A191BEE0041A04A /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		A724D7971A191BEE0041A04A /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		A724D7991A191BEE0041A04A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		A724D79A1A191BEE0041A04A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A724D79D1A191BEE0041A04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A724D79F1A191BEE0041A04A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A724D7A21A191BEE0041A04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A724D7A81A191BEE0041A04A /* EstherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A724D7AD1A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A724D7AE1A191BEE0041A04A /* EstherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EstherTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A724D7891A191BEE0041A04A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A724D7A51A191BEE0041A04A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A724D7831A191BEE0041A04A = {
+			isa = PBXGroup;
+			children = (
+				A724D78E1A191BEE0041A04A /* Esther */,
+				A724D7AB1A191BEE0041A04A /* EstherTests */,
+				A724D78D1A191BEE0041A04A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A724D78D1A191BEE0041A04A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A724D78C1A191BEE0041A04A /* Esther.app */,
+				A724D7A81A191BEE0041A04A /* EstherTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A724D78E1A191BEE0041A04A /* Esther */ = {
+			isa = PBXGroup;
+			children = (
+				A724D7931A191BEE0041A04A /* AppDelegate.h */,
+				A724D7941A191BEE0041A04A /* AppDelegate.m */,
+				A724D7961A191BEE0041A04A /* MasterViewController.h */,
+				A724D7971A191BEE0041A04A /* MasterViewController.m */,
+				A724D7991A191BEE0041A04A /* DetailViewController.h */,
+				A724D79A1A191BEE0041A04A /* DetailViewController.m */,
+				A724D79C1A191BEE0041A04A /* Main.storyboard */,
+				A724D79F1A191BEE0041A04A /* Images.xcassets */,
+				A724D7A11A191BEE0041A04A /* LaunchScreen.xib */,
+				A724D78F1A191BEE0041A04A /* Supporting Files */,
+			);
+			path = Esther;
+			sourceTree = "<group>";
+		};
+		A724D78F1A191BEE0041A04A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A724D7901A191BEE0041A04A /* Info.plist */,
+				A724D7911A191BEE0041A04A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A724D7AB1A191BEE0041A04A /* EstherTests */ = {
+			isa = PBXGroup;
+			children = (
+				A724D7AE1A191BEE0041A04A /* EstherTests.m */,
+				A724D7AC1A191BEE0041A04A /* Supporting Files */,
+			);
+			path = EstherTests;
+			sourceTree = "<group>";
+		};
+		A724D7AC1A191BEE0041A04A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A724D7AD1A191BEE0041A04A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A724D78B1A191BEE0041A04A /* Esther */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A724D7B21A191BEE0041A04A /* Build configuration list for PBXNativeTarget "Esther" */;
+			buildPhases = (
+				A724D7881A191BEE0041A04A /* Sources */,
+				A724D7891A191BEE0041A04A /* Frameworks */,
+				A724D78A1A191BEE0041A04A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Esther;
+			productName = Esther;
+			productReference = A724D78C1A191BEE0041A04A /* Esther.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A724D7A71A191BEE0041A04A /* EstherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A724D7B51A191BEE0041A04A /* Build configuration list for PBXNativeTarget "EstherTests" */;
+			buildPhases = (
+				A724D7A41A191BEE0041A04A /* Sources */,
+				A724D7A51A191BEE0041A04A /* Frameworks */,
+				A724D7A61A191BEE0041A04A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A724D7AA1A191BEE0041A04A /* PBXTargetDependency */,
+			);
+			name = EstherTests;
+			productName = EstherTests;
+			productReference = A724D7A81A191BEE0041A04A /* EstherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A724D7841A191BEE0041A04A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Alessandro;
+				TargetAttributes = {
+					A724D78B1A191BEE0041A04A = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					A724D7A71A191BEE0041A04A = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = A724D78B1A191BEE0041A04A;
+					};
+				};
+			};
+			buildConfigurationList = A724D7871A191BEE0041A04A /* Build configuration list for PBXProject "Esther" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A724D7831A191BEE0041A04A;
+			productRefGroup = A724D78D1A191BEE0041A04A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A724D78B1A191BEE0041A04A /* Esther */,
+				A724D7A71A191BEE0041A04A /* EstherTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A724D78A1A191BEE0041A04A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A724D79E1A191BEE0041A04A /* Main.storyboard in Resources */,
+				A724D7A31A191BEE0041A04A /* LaunchScreen.xib in Resources */,
+				A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A724D7A61A191BEE0041A04A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A724D7881A191BEE0041A04A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */,
+				A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */,
+				A724D7921A191BEE0041A04A /* main.m in Sources */,
+				A724D79B1A191BEE0041A04A /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A724D7A41A191BEE0041A04A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A724D7AF1A191BEE0041A04A /* EstherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A724D7AA1A191BEE0041A04A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A724D78B1A191BEE0041A04A /* Esther */;
+			targetProxy = A724D7A91A191BEE0041A04A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A724D79C1A191BEE0041A04A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A724D79D1A191BEE0041A04A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A724D7A11A191BEE0041A04A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A724D7A21A191BEE0041A04A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A724D7B01A191BEE0041A04A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A724D7B11A191BEE0041A04A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A724D7B31A191BEE0041A04A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Esther/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A724D7B41A191BEE0041A04A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Esther/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A724D7B61A191BEE0041A04A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EstherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Esther.app/Esther";
+			};
+			name = Debug;
+		};
+		A724D7B71A191BEE0041A04A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EstherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Esther.app/Esther";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A724D7871A191BEE0041A04A /* Build configuration list for PBXProject "Esther" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A724D7B01A191BEE0041A04A /* Debug */,
+				A724D7B11A191BEE0041A04A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A724D7B21A191BEE0041A04A /* Build configuration list for PBXNativeTarget "Esther" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A724D7B31A191BEE0041A04A /* Debug */,
+				A724D7B41A191BEE0041A04A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A724D7B51A191BEE0041A04A /* Build configuration list for PBXNativeTarget "EstherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A724D7B61A191BEE0041A04A /* Debug */,
+				A724D7B71A191BEE0041A04A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A724D7841A191BEE0041A04A /* Project object */;
+}
