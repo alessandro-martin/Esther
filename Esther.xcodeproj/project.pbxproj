@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F2AAEC8AFCBE5369483B074 /* libPods-Esther.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */; };
 		A724D7921A191BEE0041A04A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7911A191BEE0041A04A /* main.m */; };
 		A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7941A191BEE0041A04A /* AppDelegate.m */; };
 		A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7971A191BEE0041A04A /* MasterViewController.m */; };
@@ -15,6 +16,10 @@
 		A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A724D79F1A191BEE0041A04A /* Images.xcassets */; };
 		A724D7A31A191BEE0041A04A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A724D7A11A191BEE0041A04A /* LaunchScreen.xib */; };
 		A724D7AF1A191BEE0041A04A /* EstherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7AE1A191BEE0041A04A /* EstherTests.m */; };
+		A724D7BE1A194A720041A04A /* AMTTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7BD1A194A720041A04A /* AMTTaskView.m */; };
+		A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */; };
+		A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */; };
+		A724D7C71A1954300041A04A /* SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C61A1954300041A04A /* SubTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49847BEC205CA3FBD6A72EC5 /* Pods-Esther.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esther.release.xcconfig"; path = "Pods/Target Support Files/Pods-Esther/Pods-Esther.release.xcconfig"; sourceTree = "<group>"; };
+		A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Esther.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A724D78C1A191BEE0041A04A /* Esther.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esther.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A724D7901A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A724D7911A191BEE0041A04A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +50,14 @@
 		A724D7A81A191BEE0041A04A /* EstherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A724D7AD1A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A724D7AE1A191BEE0041A04A /* EstherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EstherTests.m; sourceTree = "<group>"; };
+		A724D7BC1A194A720041A04A /* AMTTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTTaskView.h; sourceTree = "<group>"; };
+		A724D7BD1A194A720041A04A /* AMTTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTTaskView.m; sourceTree = "<group>"; };
+		A724D7BF1A194C8E0041A04A /* AMTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTCoreDataStack.h; path = ../AMTCoreDataStack.h; sourceTree = "<group>"; };
+		A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTCoreDataStack.m; path = ../AMTCoreDataStack.m; sourceTree = "<group>"; };
+		A724D7C31A194D480041A04A /* AMTEstherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AMTEstherModel.xcdatamodel; sourceTree = "<group>"; };
+		A724D7C51A1954300041A04A /* SubTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTask.h; sourceTree = "<group>"; };
+		A724D7C61A1954300041A04A /* SubTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTask.m; sourceTree = "<group>"; };
+		E961528D90D8E5BFDEA4F0BA /* Pods-Esther.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esther.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Esther/Pods-Esther.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F2AAEC8AFCBE5369483B074 /* libPods-Esther.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +85,8 @@
 				A724D78E1A191BEE0041A04A /* Esther */,
 				A724D7AB1A191BEE0041A04A /* EstherTests */,
 				A724D78D1A191BEE0041A04A /* Products */,
+				CF11E195FB1771936B2EE7A1 /* Pods */,
+				A771625C2DC3AADC89CAF0BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +142,11 @@
 		A724D7B81A191BFB0041A04A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A724D7BF1A194C8E0041A04A /* AMTCoreDataStack.h */,
+				A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */,
+				A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */,
+				A724D7C51A1954300041A04A /* SubTask.h */,
+				A724D7C61A1954300041A04A /* SubTask.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,8 +175,27 @@
 			children = (
 				A724D79C1A191BEE0041A04A /* Main.storyboard */,
 				A724D7A11A191BEE0041A04A /* LaunchScreen.xib */,
+				A724D7BC1A194A720041A04A /* AMTTaskView.h */,
+				A724D7BD1A194A720041A04A /* AMTTaskView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A771625C2DC3AADC89CAF0BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF11E195FB1771936B2EE7A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E961528D90D8E5BFDEA4F0BA /* Pods-Esther.debug.xcconfig */,
+				49847BEC205CA3FBD6A72EC5 /* Pods-Esther.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A724D7B21A191BEE0041A04A /* Build configuration list for PBXNativeTarget "Esther" */;
 			buildPhases = (
+				FFE35F60F1CE1BF51740F1BA /* Check Pods Manifest.lock */,
 				A724D7881A191BEE0041A04A /* Sources */,
 				A724D7891A191BEE0041A04A /* Frameworks */,
 				A724D78A1A191BEE0041A04A /* Resources */,
+				D26522E6747E0F7B07EF7681 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,15 +295,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D26522E6747E0F7B07EF7681 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Esther/Pods-Esther-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFE35F60F1CE1BF51740F1BA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A724D7881A191BEE0041A04A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */,
+				A724D7C71A1954300041A04A /* SubTask.m in Sources */,
 				A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */,
 				A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */,
 				A724D7921A191BEE0041A04A /* main.m in Sources */,
 				A724D79B1A191BEE0041A04A /* DetailViewController.m in Sources */,
+				A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */,
+				A724D7BE1A194A720041A04A /* AMTTaskView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +462,7 @@
 		};
 		A724D7B31A191BEE0041A04A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E961528D90D8E5BFDEA4F0BA /* Pods-Esther.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Esther/Supporting Files/Info.plist";
@@ -391,6 +473,7 @@
 		};
 		A724D7B41A191BEE0041A04A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49847BEC205CA3FBD6A72EC5 /* Pods-Esther.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Esther/Supporting Files/Info.plist";
@@ -464,6 +547,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A724D7C31A194D480041A04A /* AMTEstherModel.xcdatamodel */,
+			);
+			currentVersion = A724D7C31A194D480041A04A /* AMTEstherModel.xcdatamodel */;
+			path = AMTEstherModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A724D7841A191BEE0041A04A /* Project object */;
 }

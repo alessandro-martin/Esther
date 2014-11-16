@@ -1,0 +1,22 @@
+PODS:
+  - pop (1.0.7)
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
+  - UIColor+FlatColors (0.0.2)
+
+DEPENDENCIES:
+  - pop
+  - ReactiveCocoa
+  - UIColor+FlatColors
+
+SPEC CHECKSUMS:
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
+  UIColor+FlatColors: 15506ef6472e26a751033f2f2469283800bcb906
+
+COCOAPODS: 0.34.1
