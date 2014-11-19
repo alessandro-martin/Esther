@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E570B13E24D063D388B33811"
+               BlueprintIdentifier = "FEFB3B316B5C2D35ED56EEFB"
                BuildableName = "libPods-Esther-UIColor+FlatColors.a"
                BlueprintName = "Pods-Esther-UIColor+FlatColors"
                ReferencedContainer = "container:Pods.xcodeproj">

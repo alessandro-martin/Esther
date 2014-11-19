@@ -3,17 +3,24 @@
 @interface AMTTaskView ()
 
 @property (nonatomic, getter=isInEditMode) BOOL inEditMode;
-
+@property (nonatomic, readwrite) CGRect bounds;
 @end
 
 @implementation AMTTaskView
 
+@synthesize bounds = _bounds;
 
-- (instancetype)initWithFrame:(CGRect)frame {
-	if (self = [super initWithFrame:frame]) {
-		_inEditMode = YES;
+-(instancetype) init {
+	if (self = [super init]){
+		_bounds = CGRectMake(0, 0, 100, 100);
 	}
-	
+	return self;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame{
+	if (self = [super initWithFrame:frame]) {
+		_bounds = frame;
+	}
 	return self;
 }
 
@@ -25,4 +32,7 @@
 }
 */
 
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+	return gestureRecognizer.numberOfTouches == 2;
+}
 @end

@@ -1,21 +1,13 @@
-//
-//  SubTask.m
-//  Esther
-//
-//  Created by Alessandro on 16/11/14.
-//  Copyright (c) 2014 Alessandro. All rights reserved.
-//
-
 #import "SubTask.h"
 
+@interface SubTask ()
+
+// Private interface goes here.
+
+@end
 
 @implementation SubTask
 
-@dynamic subTaskName;
-@dynamic subTaskDescription;
-@dynamic subTaskFinancialCost;
-@dynamic subTaskTimeNeeded;
-@dynamic subTaskLongitude;
-@dynamic subTaskLatitude;
+// Custom logic goes here.
 
 @end

@@ -1,11 +1,3 @@
-//
-//  MasterViewController.m
-//  Esther
-//
-//  Created by Alessandro on 16/11/14.
-//  Copyright (c) 2014 Alessandro. All rights reserved.
-//
-
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 
@@ -32,6 +24,11 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults.dictionaryRepresentation enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+		NSLog(@"Key: %@, Value: %@", key, obj);
+	}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +51,7 @@
 	if ([[segue identifier] isEqualToString:@"showDetail"]) {
 	    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 	    NSDate *object = self.objects[indexPath.row];
-	    DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+	    DetailViewController *controller = (DetailViewController *)[segue destinationViewController] ;
 	    [controller setDetailItem:object];
 	    controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
 	    controller.navigationItem.leftItemsSupplementBackButton = YES;

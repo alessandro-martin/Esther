@@ -6,6 +6,7 @@ target "Esther" do
 	pod 'ReactiveCocoa'
 	pod 'pop'
 	pod 'UIColor+FlatColors'
+	pod 'libextobjc'
 end
 
 target "EstherTests" do

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A332BEE651C1BFE83C0CC21C"
+               BlueprintIdentifier = "1E1146E78C34D196DF7FCD49"
                BuildableName = "libPods-Esther.a"
                BlueprintName = "Pods-Esther"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		A724D7C81A1954DD0041A04A /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A724D7C91A1954DE0041A04A /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				A724D7CC1A1954E60041A04A /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8F2AAEC8AFCBE5369483B074 /* libPods-Esther.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */; };
 		A724D7921A191BEE0041A04A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7911A191BEE0041A04A /* main.m */; };
@@ -19,7 +33,11 @@
 		A724D7BE1A194A720041A04A /* AMTTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7BD1A194A720041A04A /* AMTTaskView.m */; };
 		A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */; };
 		A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */; };
-		A724D7C71A1954300041A04A /* SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C61A1954300041A04A /* SubTask.m */; };
+		A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */; };
+		A7CA23651A1CF639001F6F99 /* _MainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA235E1A1CF639001F6F99 /* _MainTask.m */; };
+		A7CA23661A1CF639001F6F99 /* _SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23601A1CF639001F6F99 /* _SubTask.m */; };
+		A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23621A1CF639001F6F99 /* MainTask.m */; };
+		A7CA23681A1CF639001F6F99 /* SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23641A1CF639001F6F99 /* SubTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +73,17 @@
 		A724D7BF1A194C8E0041A04A /* AMTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTCoreDataStack.h; path = ../AMTCoreDataStack.h; sourceTree = "<group>"; };
 		A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTCoreDataStack.m; path = ../AMTCoreDataStack.m; sourceTree = "<group>"; };
 		A724D7C31A194D480041A04A /* AMTEstherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AMTEstherModel.xcdatamodel; sourceTree = "<group>"; };
-		A724D7C51A1954300041A04A /* SubTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTask.h; sourceTree = "<group>"; };
-		A724D7C61A1954300041A04A /* SubTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTask.m; sourceTree = "<group>"; };
+		A724D7D31A1957120041A04A /* AMTEstherModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AMTEstherModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTGlobalTaskView.h; sourceTree = "<group>"; };
+		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTGlobalTaskView.m; sourceTree = "<group>"; };
+		A7CA235D1A1CF639001F6F99 /* _MainTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MainTask.h; sourceTree = "<group>"; };
+		A7CA235E1A1CF639001F6F99 /* _MainTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MainTask.m; sourceTree = "<group>"; };
+		A7CA235F1A1CF639001F6F99 /* _SubTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SubTask.h; sourceTree = "<group>"; };
+		A7CA23601A1CF639001F6F99 /* _SubTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SubTask.m; sourceTree = "<group>"; };
+		A7CA23611A1CF639001F6F99 /* MainTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTask.h; sourceTree = "<group>"; };
+		A7CA23621A1CF639001F6F99 /* MainTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTask.m; sourceTree = "<group>"; };
+		A7CA23631A1CF639001F6F99 /* SubTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTask.h; sourceTree = "<group>"; };
+		A7CA23641A1CF639001F6F99 /* SubTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTask.m; sourceTree = "<group>"; };
 		E961528D90D8E5BFDEA4F0BA /* Pods-Esther.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esther.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Esther/Pods-Esther.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,11 +169,17 @@
 		A724D7B81A191BFB0041A04A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7CA235D1A1CF639001F6F99 /* _MainTask.h */,
+				A7CA235E1A1CF639001F6F99 /* _MainTask.m */,
+				A7CA235F1A1CF639001F6F99 /* _SubTask.h */,
+				A7CA23601A1CF639001F6F99 /* _SubTask.m */,
+				A7CA23611A1CF639001F6F99 /* MainTask.h */,
+				A7CA23621A1CF639001F6F99 /* MainTask.m */,
+				A7CA23631A1CF639001F6F99 /* SubTask.h */,
+				A7CA23641A1CF639001F6F99 /* SubTask.m */,
 				A724D7BF1A194C8E0041A04A /* AMTCoreDataStack.h */,
 				A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */,
 				A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */,
-				A724D7C51A1954300041A04A /* SubTask.h */,
-				A724D7C61A1954300041A04A /* SubTask.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +210,8 @@
 				A724D7A11A191BEE0041A04A /* LaunchScreen.xib */,
 				A724D7BC1A194A720041A04A /* AMTTaskView.h */,
 				A724D7BD1A194A720041A04A /* AMTTaskView.m */,
+				A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */,
+				A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,6 +289,9 @@
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = A724D78B1A191BEE0041A04A;
 					};
+					A724D7C81A1954DD0041A04A = {
+						CreatedOnToolsVersion = 6.1;
+					};
 				};
 			};
 			buildConfigurationList = A724D7871A191BEE0041A04A /* Build configuration list for PBXProject "Esther" */;
@@ -271,6 +309,7 @@
 			targets = (
 				A724D78B1A191BEE0041A04A /* Esther */,
 				A724D7A71A191BEE0041A04A /* EstherTests */,
+				A724D7C81A1954DD0041A04A /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -296,6 +335,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A724D7CC1A1954E60041A04A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "mogenerator --template-var arc=true -O Esther/Model/ --model Esther/Model/AMTEstherModel.xcdatamodeld/";
+		};
 		D26522E6747E0F7B07EF7681 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,12 +386,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */,
-				A724D7C71A1954300041A04A /* SubTask.m in Sources */,
+				A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */,
 				A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */,
+				A7CA23661A1CF639001F6F99 /* _SubTask.m in Sources */,
 				A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */,
+				A7CA23681A1CF639001F6F99 /* SubTask.m in Sources */,
 				A724D7921A191BEE0041A04A /* main.m in Sources */,
+				A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */,
 				A724D79B1A191BEE0041A04A /* DetailViewController.m in Sources */,
 				A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */,
+				A7CA23651A1CF639001F6F99 /* _MainTask.m in Sources */,
 				A724D7BE1A194A720041A04A /* AMTTaskView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +572,20 @@
 			};
 			name = Release;
 		};
+		A724D7CA1A1954DE0041A04A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A724D7CB1A1954DE0041A04A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -546,12 +616,22 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A724D7C91A1954DE0041A04A /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A724D7CA1A1954DE0041A04A /* Debug */,
+				A724D7CB1A1954DE0041A04A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
 		A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A724D7D31A1957120041A04A /* AMTEstherModel 2.xcdatamodel */,
 				A724D7C31A194D480041A04A /* AMTEstherModel.xcdatamodel */,
 			);
 			currentVersion = A724D7C31A194D480041A04A /* AMTEstherModel.xcdatamodel */;
