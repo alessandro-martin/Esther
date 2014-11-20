@@ -19,19 +19,9 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 @property (nonatomic) CGFloat initialTaskViewHeight;
 @property (nonatomic, strong) UIDynamicItemBehavior *dynamicItemBehavior;
 
-
 @end
 
 @implementation DetailViewController
-
-- (IBAction)userTapperWithTwoFingers:(UITapGestureRecognizer *)sender {
-	[self.taskViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-		AMTTaskView *tv = (AMTTaskView *)obj;
-		if(CGRectContainsPoint(tv.frame, [sender locationInView:self.view])){
-			tv.backgroundColor = [UIColor flatAlizarinColor];
-		}
-	}];
-}
 
 - (IBAction)userTappedMainView:(UITapGestureRecognizer *)sender {
 	CGPoint center = [sender locationInView:self.view];
@@ -40,7 +30,6 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 									  self.initialTaskViewWidth,
 									  self.initialTaskViewHeight);
 	AMTTaskView *taskView = [[AMTTaskView alloc] initWithFrame:taskViewFrame];
-	taskView.backgroundColor = [UIColor flatTurquoiseColor];
 	taskView.center = center;
 	taskView.layer.cornerRadius = self.initialTaskViewWidth / TASK_VIEW_CORNER_RADIUS_RATIO;
 	taskView.layer.borderColor = [UIColor blackColor].CGColor;
@@ -49,8 +38,8 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 	[fromKVC addObject:taskView];
 	
 	[self.view addSubview:taskView];
-	[self.collisionBehavior addItem:taskView];
-	[self.dynamicItemBehavior addItem:taskView];
+//	[self.collisionBehavior addItem:taskView];
+//	[self.dynamicItemBehavior addItem:taskView];
 	POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
 	animation.springBounciness = 20;
 	animation.springSpeed = 50;
@@ -81,20 +70,21 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
 //	[RACObserve(self, taskViews) subscribeNext:^(NSMutableArray *x) {
 //		NSLog(@"%lu", x.count);
 //	}];
-	[[RACObserve(self, taskViews) filter:^BOOL(id value) {
-		return [(NSMutableArray *)value count] % 2 == 0 && [(NSMutableArray *)value count] != 0 ;
-	}] subscribeNext:^(id x) {
-		NSLog(@"Even tasks count!");
-	}];
-	
-	[[RACObserve(self, taskViews) filter:^BOOL(id value) {
-		return [(NSMutableArray *)value count] % 2 != 0 ;
-	}] subscribeNext:^(id x) {
-		NSLog(@"Odd tasks count!");
-	}];
+//	[[RACObserve(self, taskViews) filter:^BOOL(id value) {
+//		return [(NSMutableArray *)value count] % 2 == 0 && [(NSMutableArray *)value count] != 0 ;
+//	}] subscribeNext:^(id x) {
+//		NSLog(@"Even tasks count!");
+//	}];
+//	
+//	[[RACObserve(self, taskViews) filter:^BOOL(id value) {
+//		return [(NSMutableArray *)value count] % 2 != 0 ;
+//	}] subscribeNext:^(id x) {
+//		NSLog(@"Odd tasks count!");
+//	}];
 }
 
 - (void)viewDidAppear:(BOOL)animated{

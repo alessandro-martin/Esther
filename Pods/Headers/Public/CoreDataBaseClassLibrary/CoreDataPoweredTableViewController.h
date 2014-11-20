@@ -1,0 +1,1 @@
+../../../CoreDataBaseClassLibrary/CoreDataPoweredTableViewController.h

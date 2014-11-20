@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Esther-CoreDataBaseClassLibrary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Esther-ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1E1146E78C34D196DF7FCD49</key>
+		<key>33D52B2731328FAFB06B807E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80AFE9D52C7192A7654A52F3</key>
+		<key>6D90DED84AEEC8544BA64D0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3AB8EE8103AAB0E567A0B26</key>
+		<key>79ECA3FF9193C6A1BF1EE7AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC77782C5BC0323587459D4E</key>
+		<key>9326C252F0A0E13F7DE54603</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEFB3B316B5C2D35ED56EEFB</key>
+		<key>A6D4D1FF384FC1EF705FDEE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB8B7BE5F7E48D5C2A806867</key>
 		<dict>
 			<key>primary</key>
 			<true/>

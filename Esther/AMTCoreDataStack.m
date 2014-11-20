@@ -29,8 +29,7 @@
 	return self;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
 	return [self initWithPersistentStoreFileName:@"default"
 									andStoreType:NSInMemoryStoreType];
 }

@@ -6,4 +6,5 @@
 @property (nonatomic, readwrite) CGPoint center;
 @property (nonatomic, readwrite) CGAffineTransform transform;
 @property(nonatomic) BOOL cancelsTouchesInView;
+
 @end

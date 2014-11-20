@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CC77782C5BC0323587459D4E"
+               BlueprintIdentifier = "BB8B7BE5F7E48D5C2A806867"
                BuildableName = "libPods-Esther-ReactiveCocoa.a"
                BlueprintName = "Pods-Esther-ReactiveCocoa"
                ReferencedContainer = "container:Pods.xcodeproj">

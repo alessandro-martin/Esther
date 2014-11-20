@@ -34,21 +34,15 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="q7T-Ok-xAZ" appends="YES" id="zcT-RN-bRE"/>
-                            <outletCollection property="gestureRecognizers" destination="HmC-B2-jIo" appends="YES" id="jRU-I8-97b"/>
                         </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="q7T-Ok-xAZ">
+                <tapGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" id="q7T-Ok-xAZ">
                     <connections>
                         <action selector="userTappedMainView:" destination="JEX-9P-axG" id="KU4-fk-AgT"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTouchesRequired="2" id="HmC-B2-jIo">
-                    <connections>
-                        <action selector="userTapperWithTwoFingers:" destination="JEX-9P-axG" id="4yw-vd-pBA"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -105,7 +99,9 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" image="Settings-2" id="kvn-Bl-E0F"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,7 +123,10 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Settings-2" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GKi-kA-LjT"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,5 +1,11 @@
 #import "_MainTask.h"
 
 @interface MainTask : _MainTask {}
-// Custom logic goes here.
+
++ (BOOL) existsMainTaskWithName:(NSString *)mainTaskName
+					  inContext:(NSManagedObjectContext *)context;
++ (NSArray *) getMainTasksWithName:(NSString *) mainTaskName
+						 inContext:(NSManagedObjectContext *) context;
++ (NSArray *) getAllMainTasksInContext:(NSManagedObjectContext *) context;
+
 @end

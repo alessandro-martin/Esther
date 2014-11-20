@@ -29,7 +29,6 @@
 		A724D79E1A191BEE0041A04A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A724D79C1A191BEE0041A04A /* Main.storyboard */; };
 		A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A724D79F1A191BEE0041A04A /* Images.xcassets */; };
 		A724D7A31A191BEE0041A04A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A724D7A11A191BEE0041A04A /* LaunchScreen.xib */; };
-		A724D7AF1A191BEE0041A04A /* EstherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7AE1A191BEE0041A04A /* EstherTests.m */; };
 		A724D7BE1A194A720041A04A /* AMTTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7BD1A194A720041A04A /* AMTTaskView.m */; };
 		A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */; };
 		A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */; };
@@ -38,6 +37,7 @@
 		A7CA23661A1CF639001F6F99 /* _SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23601A1CF639001F6F99 /* _SubTask.m */; };
 		A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23621A1CF639001F6F99 /* MainTask.m */; };
 		A7CA23681A1CF639001F6F99 /* SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23641A1CF639001F6F99 /* SubTask.m */; };
+		A7CDA6C91A1DF7A900FBFD32 /* MainTaskCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CDA6C81A1DF7A900FBFD32 /* MainTaskCoreDataTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,6 @@
 		A724D7A21A191BEE0041A04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A724D7A81A191BEE0041A04A /* EstherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A724D7AD1A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A724D7AE1A191BEE0041A04A /* EstherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EstherTests.m; sourceTree = "<group>"; };
 		A724D7BC1A194A720041A04A /* AMTTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTTaskView.h; sourceTree = "<group>"; };
 		A724D7BD1A194A720041A04A /* AMTTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTTaskView.m; sourceTree = "<group>"; };
 		A724D7BF1A194C8E0041A04A /* AMTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTCoreDataStack.h; path = ../AMTCoreDataStack.h; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		A7CA23621A1CF639001F6F99 /* MainTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTask.m; sourceTree = "<group>"; };
 		A7CA23631A1CF639001F6F99 /* SubTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTask.h; sourceTree = "<group>"; };
 		A7CA23641A1CF639001F6F99 /* SubTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTask.m; sourceTree = "<group>"; };
+		A7CDA6C81A1DF7A900FBFD32 /* MainTaskCoreDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTaskCoreDataTests.m; sourceTree = "<group>"; };
 		E961528D90D8E5BFDEA4F0BA /* Pods-Esther.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esther.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Esther/Pods-Esther.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,8 +152,8 @@
 		A724D7AB1A191BEE0041A04A /* EstherTests */ = {
 			isa = PBXGroup;
 			children = (
-				A724D7AE1A191BEE0041A04A /* EstherTests.m */,
 				A724D7AC1A191BEE0041A04A /* Supporting Files */,
+				A7CDA6C81A1DF7A900FBFD32 /* MainTaskCoreDataTests.m */,
 			);
 			path = EstherTests;
 			sourceTree = "<group>";
@@ -169,14 +169,14 @@
 		A724D7B81A191BFB0041A04A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A7CA235D1A1CF639001F6F99 /* _MainTask.h */,
-				A7CA235E1A1CF639001F6F99 /* _MainTask.m */,
-				A7CA235F1A1CF639001F6F99 /* _SubTask.h */,
-				A7CA23601A1CF639001F6F99 /* _SubTask.m */,
 				A7CA23611A1CF639001F6F99 /* MainTask.h */,
 				A7CA23621A1CF639001F6F99 /* MainTask.m */,
+				A7CA235D1A1CF639001F6F99 /* _MainTask.h */,
+				A7CA235E1A1CF639001F6F99 /* _MainTask.m */,
 				A7CA23631A1CF639001F6F99 /* SubTask.h */,
 				A7CA23641A1CF639001F6F99 /* SubTask.m */,
+				A7CA235F1A1CF639001F6F99 /* _SubTask.h */,
+				A7CA23601A1CF639001F6F99 /* _SubTask.m */,
 				A724D7BF1A194C8E0041A04A /* AMTCoreDataStack.h */,
 				A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */,
 				A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */,
@@ -404,7 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A724D7AF1A191BEE0041A04A /* EstherTests.m in Sources */,
+				A7CDA6C91A1DF7A900FBFD32 /* MainTaskCoreDataTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

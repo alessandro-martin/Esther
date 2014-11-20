@@ -1,20 +1,19 @@
-//
-//  AppDelegate.m
-//  Esther
-//
-//  Created by Alessandro on 16/11/14.
-//  Copyright (c) 2014 Alessandro. All rights reserved.
-//
-
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "AMTCoreDataStack.h"
+
+static NSString * const MAX_MAIN_TASKS_KEY				= @"MaxMainTasks";
+static NSUInteger const MAX_MAIN_TASKS_DEFAULT_VALUE	= 5;
+static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
+static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *moc;
 
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
@@ -22,7 +21,32 @@
 	UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
 	navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
 	splitViewController.delegate = self;
+	// VERY IMPORTANT!!!!!!
+	splitViewController.presentsWithGesture = NO;
+	
+	// Preferences
+	[self setupUserDefaults];
+	
+	
+	// Core Data Stuff
+	self.moc = [[AMTCoreDataStack alloc] initWithPersistentStoreFileName:@"EstherDB.sql"
+															andStoreType:NSSQLiteStoreType].managedObjectContext;
+	
 	return YES;
+}
+
+- (void) setupUserDefaults {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSNumber *mainTasks = [defaults objectForKey:MAX_MAIN_TASKS_KEY];
+	NSNumber *subTasks = [defaults objectForKey:MAX_SUB_TASKS_KEY];
+	if (!mainTasks || !subTasks) {
+		[defaults setObject:@(MAX_MAIN_TASKS_DEFAULT_VALUE) forKey:MAX_MAIN_TASKS_KEY];
+		[defaults setObject:@(MAX_SUB_TASKS_DEFAULT_VALUE) forKey:MAX_SUB_TASKS_KEY];
+		[defaults synchronize];
+		NSLog(@"Max Main Tasks & Max Sub Tasks Defaults Initialized!");
+	} else {
+		NSLog(@"Max Main Tasks: %@, Max Sub Tasks: %@", mainTasks, subTasks);
+	}
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
