@@ -1,7 +1,11 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "MainTask.h"
+#import <UIColor+FlatColors.h>
 
-@interface MasterViewController ()
+@import QuartzCore;
+
+@interface MasterViewController () <NSFetchedResultsControllerDelegate>
 
 @property NSMutableArray *objects;
 @end
@@ -16,13 +20,26 @@
 	}
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//	CAGradientLayer *gradient = [CAGradientLayer layer];
+//	gradient.frame = self.view.bounds;
+//	gradient.colors = @[
+//						(id)[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0].CGColor,
+//						(id)[UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0].CGColor
+//						];
+//	[self.view.layer insertSublayer:gradient atIndex:0];}
+//
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	self.view.backgroundColor = [UIColor flatCloudsColor];
 	// Do any additional setup after loading the view, typically from a nib.
 	//self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-	self.navigationItem.rightBarButtonItem = addButton;
+//	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//	self.navigationItem.rightBarButtonItem = addButton;
+	self.defaultCellHeight = 120.0;
+	self.fetchRequest = [MainTask allMainTasksFetchRequestInContext:self.moc];
+	
 	self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
@@ -53,36 +70,42 @@
 	}
 }
 
-#pragma mark - Table View
+//#pragma mark - Table View
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//	return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//	return self.objects.count;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//	return cell;
+//}
+//
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//	// Return NO if you do not want the specified item to be editable.
+//	return YES;
+//}
+//
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//	if (editingStyle == UITableViewCellEditingStyleDelete) {
+//	    [self.objects removeObjectAtIndex:indexPath.row];
+//	    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//	} else if (editingStyle == UITableViewCellEditingStyleInsert) {
+//	    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//	}
+//}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 1;
+#pragma mark - Utility Methods
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+	MainTask *mainTask = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	
+	cell.textLabel.text = mainTask.mainTaskName;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.objects.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-	NSDate *object = self.objects[indexPath.row];
-	cell.textLabel.text = [object description];
-	return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-	// Return NO if you do not want the specified item to be editable.
-	return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (editingStyle == UITableViewCellEditingStyleDelete) {
-	    [self.objects removeObjectAtIndex:indexPath.row];
-	    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-	} else if (editingStyle == UITableViewCellEditingStyleInsert) {
-	    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-	}
-}
 
 @end

@@ -57,7 +57,7 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 #pragma mark - Managing the detail item
 
 - (void)configureView {
-	self.view.backgroundColor = [UIColor flatCloudsColor];
+	//self.view.backgroundColor = [UIColor flatCloudsColor];
 	self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 	self.initialTaskViewHeight = CGRectGetHeight(self.view.frame) / ((AMTGlobalTaskView *)self.view).sections / 3;
 	self.initialTaskViewWidth = self.initialTaskViewHeight / TASK_VIEW_ASPECT_RATIO;

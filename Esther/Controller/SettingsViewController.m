@@ -1,4 +1,5 @@
 #import "SettingsViewController.h"
+#import <UIColor+FlatColors.h>
 
 static NSString * const MAX_MAIN_TASKS_KEY				= @"MaxMainTasks";
 static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
@@ -15,6 +16,7 @@ static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+	self.view.backgroundColor = [UIColor flatSunFlowerColor];
 	[self displayUserDefaults];
 }
 

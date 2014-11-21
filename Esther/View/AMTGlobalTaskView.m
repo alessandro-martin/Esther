@@ -5,6 +5,17 @@
 
 @implementation AMTGlobalTaskView
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+	self = [super initWithCoder:coder];
+	if (self) {
+		NSLog(@"initwithCoder called");
+		self.sections = 3;
+		self.backgroundColor = [UIColor flatAmethystColor];
+	}
+	return self;
+}
+
 - (void)drawRect:(CGRect)rect {
 #warning SECTIONS!!!!
 	self.sections = 3;

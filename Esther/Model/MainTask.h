@@ -7,5 +7,6 @@
 + (NSArray *) getMainTasksWithName:(NSString *) mainTaskName
 						 inContext:(NSManagedObjectContext *) context;
 + (NSArray *) getAllMainTasksInContext:(NSManagedObjectContext *) context;
++ (NSFetchRequest *)allMainTasksFetchRequestInContext:(NSManagedObjectContext *)context;
 
 @end

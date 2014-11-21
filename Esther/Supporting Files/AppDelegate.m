@@ -1,6 +1,15 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "AMTCoreDataStack.h"
+#import "MasterViewController.h"
+
+#warning REMOVE THIS CRAP!
+#import "MainTask.h"
+static NSString * const MAIN_TASK_DEFAULT_NAME = @"Buy a Car";
+static NSString * const MAIN_TASK_DEFAULT_DESCRIPTION = @"Steps necessary to purchase an automobile";
+static NSString * const OTHER_MAIN_TASK_DEFAULT_NAME = @"Set Up as Freelancer";
+static NSString * const OTHER_MAIN_TASK_DEFAULT_DESCRIPTION = @"Steps necessary to independently develop apps";
+#warning UNTIL HERE!
 
 static NSString * const MAX_MAIN_TASKS_KEY				= @"MaxMainTasks";
 static NSUInteger const MAX_MAIN_TASKS_DEFAULT_VALUE	= 5;
@@ -19,6 +28,7 @@ static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 	// Override point for customization after application launch.
 	UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
 	UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+	UINavigationController *secondNavController = [splitViewController.viewControllers firstObject];
 	navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
 	splitViewController.delegate = self;
 	// VERY IMPORTANT!!!!!!
@@ -31,6 +41,8 @@ static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 	// Core Data Stuff
 	self.moc = [[AMTCoreDataStack alloc] initWithPersistentStoreFileName:@"EstherDB.sql"
 															andStoreType:NSSQLiteStoreType].managedObjectContext;
+	[(MasterViewController *)[secondNavController.viewControllers lastObject]  setMoc: self.moc];
+	[self populateDB];
 	
 	return YES;
 }
@@ -48,6 +60,45 @@ static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 		NSLog(@"Max Main Tasks: %@, Max Sub Tasks: %@", mainTasks, subTasks);
 	}
 }
+
+#warning REMOVE THIS CRAP!
+- (void) populateDB {
+	[self setupAndInsertMainTask];
+	[self setupAndInsertOtherMainTask];
+}
+
+- (BOOL)setupAndInsertMainTask {
+	if ([MainTask existsMainTaskWithName:MAIN_TASK_DEFAULT_NAME
+							   inContext:self.moc]) {
+		NSLog(@"Object mainTask already in database");
+		return NO;
+	}
+	MainTask *mainTask = [MainTask insertInManagedObjectContext:self.moc];
+	mainTask.mainTaskName = MAIN_TASK_DEFAULT_NAME;
+	mainTask.mainTaskDescription = MAIN_TASK_DEFAULT_DESCRIPTION;
+	mainTask.mainTaskCreationDate = [NSDate date];
+	mainTask.mainTaskIsVisibleValue = YES;
+	
+	[self.moc save:nil];
+	return YES;
+}
+
+- (BOOL)setupAndInsertOtherMainTask {
+	if ([MainTask existsMainTaskWithName:OTHER_MAIN_TASK_DEFAULT_NAME
+							   inContext:self.moc]) {
+		NSLog(@"Object otherMainTask already in database");
+		return NO;
+	}
+	MainTask *otherMainTask = [MainTask insertInManagedObjectContext:self.moc];
+	otherMainTask.mainTaskName = OTHER_MAIN_TASK_DEFAULT_NAME;
+	otherMainTask.mainTaskDescription = OTHER_MAIN_TASK_DEFAULT_DESCRIPTION;
+	otherMainTask.mainTaskCreationDate = [NSDate date];
+	otherMainTask.mainTaskIsVisibleValue = NO;
+	
+	[self.moc save:nil];
+	return YES;
+}
+#warning UNTIL HERE!
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

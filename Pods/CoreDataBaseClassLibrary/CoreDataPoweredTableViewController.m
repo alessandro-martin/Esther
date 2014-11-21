@@ -22,14 +22,12 @@
 				 atIndexPath:indexPath];
 		 }
 	 ];
-	
-	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 	
-	NSLog(@"You're running low on memory mate!");
+	NSLog(@"Low memory!");
 }
 
 #pragma mark - NSFetchedResultController

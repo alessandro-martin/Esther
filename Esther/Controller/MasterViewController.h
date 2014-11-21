@@ -3,7 +3,7 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : CoreDataPoweredTableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 

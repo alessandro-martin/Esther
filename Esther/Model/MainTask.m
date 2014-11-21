@@ -1,5 +1,7 @@
 #import "MainTask.h"
 
+static NSString * const TIME_STAMP_KEY = @"mainTaskCreationDate";
+
 @interface MainTask ()
 
 // Private interface goes here.
@@ -39,7 +41,9 @@
 + (NSArray *) getAllMainTasksInContext:(NSManagedObjectContext *) context {
 	NSError *error;
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[self entityName]];
-	fetchRequest.predicate = [NSPredicate predicateWithValue:YES];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:TIME_STAMP_KEY
+																   ascending:YES];
+	[fetchRequest setSortDescriptors:@[sortDescriptor]];
 	NSArray *mainTasks = [context executeFetchRequest:fetchRequest
 												error:&error];
 	if (error) {
@@ -47,5 +51,18 @@
 		abort();
 	}
 	return mainTasks;
+}
+
++ (NSFetchRequest *)allMainTasksFetchRequestInContext:(NSManagedObjectContext *)context {
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	[fetchRequest setEntity:[self entityInManagedObjectContext:context]];
+	
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:TIME_STAMP_KEY
+																   ascending:YES];
+	NSArray *sortDescriptors = @[sortDescriptor];
+	
+	[fetchRequest setSortDescriptors:sortDescriptors];
+	
+	return fetchRequest;
 }
 @end
