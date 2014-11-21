@@ -62,6 +62,55 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-329.99999999999994"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="5oW-ty-XAw">
+            <objects>
+                <viewController id="on1-V0-rqR" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cjG-oG-OvC"/>
+                        <viewControllerLayoutGuide type="bottom" id="aIK-9m-ePO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZJp-OD-m9X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum Main Tasks:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1A-JH-cZj">
+                                <rect key="frame" x="215" y="106" width="171" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="XlC-ck-6fK"/>
+                                    <constraint firstAttribute="height" constant="21" id="nNR-WC-hzX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Maximum Sub Tasks:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbe-6H-knk">
+                                <rect key="frame" x="218" y="322" width="164" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rxk-D7-Q2r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="s1A-JH-cZj" secondAttribute="centerX" id="e5H-D4-i6a"/>
+                            <constraint firstItem="s1A-JH-cZj" firstAttribute="top" secondItem="cjG-oG-OvC" secondAttribute="bottom" constant="86" id="gPU-HM-4Af"/>
+                            <constraint firstAttribute="centerX" secondItem="sbe-6H-knk" secondAttribute="centerX" id="wD5-p7-FJt"/>
+                            <constraint firstItem="aIK-9m-ePO" firstAttribute="top" secondItem="sbe-6H-knk" secondAttribute="bottom" constant="257" id="z9B-CE-5nU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="maximumMainTasksLabel" destination="s1A-JH-cZj" id="8ie-BR-RoD"/>
+                        <outlet property="maximumSubTasksLabel" destination="sbe-6H-knk" id="wTD-RH-9ww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zbe-HF-Rg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="-1352"/>
+        </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
@@ -70,6 +119,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="3R1-P1-R8k">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -100,7 +154,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" image="Settings-2" id="kvn-Bl-E0F"/>
+                        <barButtonItem key="leftBarButtonItem" image="Settings-2" id="kvn-Bl-E0F">
+                            <connections>
+                                <segue destination="on1-V0-rqR" kind="popoverPresentation" popoverAnchorBarButtonItem="kvn-Bl-E0F" id="yDL-ci-KWr">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>

@@ -1,4 +1,5 @@
 @import UIKit;
+#import <CoreDataPoweredTableViewController.h>
 
 @class DetailViewController;
 

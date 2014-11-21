@@ -33,6 +33,7 @@
 		A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */; };
 		A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */; };
 		A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */; };
+		A78B2B051A1EBFD400D6E0C4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */; };
 		A7CA23651A1CF639001F6F99 /* _MainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA235E1A1CF639001F6F99 /* _MainTask.m */; };
 		A7CA23661A1CF639001F6F99 /* _SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23601A1CF639001F6F99 /* _SubTask.m */; };
 		A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23621A1CF639001F6F99 /* MainTask.m */; };
@@ -75,6 +76,8 @@
 		A724D7D31A1957120041A04A /* AMTEstherModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AMTEstherModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTGlobalTaskView.h; sourceTree = "<group>"; };
 		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTGlobalTaskView.m; sourceTree = "<group>"; };
+		A78B2B031A1EBFD400D6E0C4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A7CA235D1A1CF639001F6F99 /* _MainTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MainTask.h; sourceTree = "<group>"; };
 		A7CA235E1A1CF639001F6F99 /* _MainTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MainTask.m; sourceTree = "<group>"; };
 		A7CA235F1A1CF639001F6F99 /* _SubTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SubTask.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				A724D7971A191BEE0041A04A /* MasterViewController.m */,
 				A724D7991A191BEE0041A04A /* DetailViewController.h */,
 				A724D79A1A191BEE0041A04A /* DetailViewController.m */,
+				A78B2B031A1EBFD400D6E0C4 /* SettingsViewController.h */,
+				A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */,
 				A7CA23651A1CF639001F6F99 /* _MainTask.m in Sources */,
 				A724D7BE1A194A720041A04A /* AMTTaskView.m in Sources */,
+				A78B2B051A1EBFD400D6E0C4 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
