@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "DetailViewController.h"
 #import "AMTCoreDataStack.h"
 #import "MasterViewController.h"
 
@@ -16,7 +15,7 @@ static NSUInteger const MAX_MAIN_TASKS_DEFAULT_VALUE	= 5;
 static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
 static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 
-@interface AppDelegate () <UISplitViewControllerDelegate>
+@interface AppDelegate () //<UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *moc;
 
@@ -25,23 +24,15 @@ static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
-	UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-	UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-	UINavigationController *secondNavController = [splitViewController.viewControllers firstObject];
-	navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-	splitViewController.delegate = self;
-	// VERY IMPORTANT!!!!!!
-	splitViewController.presentsWithGesture = NO;
-	
+	UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+	MasterViewController *masterController = (MasterViewController *)navigationController.topViewController;
 	// Preferences
 	[self setupUserDefaults];
-	
-	
 	// Core Data Stuff
 	self.moc = [[AMTCoreDataStack alloc] initWithPersistentStoreFileName:@"EstherDB.sql"
 															andStoreType:NSSQLiteStoreType].managedObjectContext;
-	[(MasterViewController *)[secondNavController.viewControllers lastObject]  setMoc: self.moc];
+	[masterController setMoc: self.moc];
+
 	[self populateDB];
 	
 	return YES;
@@ -120,17 +111,6 @@ static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-#pragma mark - Split view
-
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
-        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return YES;
-    } else {
-        return NO;
-    }
 }
 
 @end

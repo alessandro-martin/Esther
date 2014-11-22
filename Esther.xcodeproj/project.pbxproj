@@ -35,6 +35,13 @@
 		A7320FC31A1F6D8B00C3A125 /* NewMainTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7320FC21A1F6D8B00C3A125 /* NewMainTaskViewController.m */; };
 		A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */; };
 		A78B2B051A1EBFD400D6E0C4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */; };
+		A7C802B91A21350A00D8180E /* Custom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C802B81A21350A00D8180E /* Custom.storyboard */; };
+		A7C802BC1A213FA500D8180E /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802BB1A213FA500D8180E /* Cell.m */; };
+		A7C802CA1A213FB000D8180E /* LSCollectionViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802C01A213FB000D8180E /* LSCollectionViewHelper.m */; };
+		A7C802CB1A213FB000D8180E /* LSCollectionViewLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802C21A213FB000D8180E /* LSCollectionViewLayoutHelper.m */; };
+		A7C802CC1A213FB000D8180E /* DraggableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802C51A213FB000D8180E /* DraggableCollectionViewFlowLayout.m */; };
+		A7C802CD1A213FB000D8180E /* UICollectionView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802C71A213FB000D8180E /* UICollectionView+Draggable.m */; };
+		A7C802D01A213FC300D8180E /* MainTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802CF1A213FC300D8180E /* MainTaskViewController.m */; };
 		A7CA23651A1CF639001F6F99 /* _MainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA235E1A1CF639001F6F99 /* _MainTask.m */; };
 		A7CA23661A1CF639001F6F99 /* _SubTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23601A1CF639001F6F99 /* _SubTask.m */; };
 		A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CA23621A1CF639001F6F99 /* MainTask.m */; };
@@ -81,6 +88,21 @@
 		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTGlobalTaskView.m; sourceTree = "<group>"; };
 		A78B2B031A1EBFD400D6E0C4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		A7C802B81A21350A00D8180E /* Custom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Custom.storyboard; sourceTree = "<group>"; };
+		A7C802BA1A213FA500D8180E /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		A7C802BB1A213FA500D8180E /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		A7C802BF1A213FB000D8180E /* LSCollectionViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCollectionViewHelper.h; sourceTree = "<group>"; };
+		A7C802C01A213FB000D8180E /* LSCollectionViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCollectionViewHelper.m; sourceTree = "<group>"; };
+		A7C802C11A213FB000D8180E /* LSCollectionViewLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCollectionViewLayoutHelper.h; sourceTree = "<group>"; };
+		A7C802C21A213FB000D8180E /* LSCollectionViewLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCollectionViewLayoutHelper.m; sourceTree = "<group>"; };
+		A7C802C41A213FB000D8180E /* DraggableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		A7C802C51A213FB000D8180E /* DraggableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		A7C802C61A213FB000D8180E /* UICollectionView+Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Draggable.h"; sourceTree = "<group>"; };
+		A7C802C71A213FB000D8180E /* UICollectionView+Draggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Draggable.m"; sourceTree = "<group>"; };
+		A7C802C81A213FB000D8180E /* UICollectionViewDataSource_Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDataSource_Draggable.h; sourceTree = "<group>"; };
+		A7C802C91A213FB000D8180E /* UICollectionViewLayout_Warpable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLayout_Warpable.h; sourceTree = "<group>"; };
+		A7C802CE1A213FC300D8180E /* MainTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTaskViewController.h; sourceTree = "<group>"; };
+		A7C802CF1A213FC300D8180E /* MainTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTaskViewController.m; sourceTree = "<group>"; };
 		A7CA235D1A1CF639001F6F99 /* _MainTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MainTask.h; sourceTree = "<group>"; };
 		A7CA235E1A1CF639001F6F99 /* _MainTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MainTask.m; sourceTree = "<group>"; };
 		A7CA235F1A1CF639001F6F99 /* _SubTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SubTask.h; sourceTree = "<group>"; };
@@ -135,6 +157,7 @@
 		A724D78E1A191BEE0041A04A /* Esther */ = {
 			isa = PBXGroup;
 			children = (
+				A7C802BD1A213FB000D8180E /* DraggableCollectionView */,
 				A724D7B81A191BFB0041A04A /* Model */,
 				A724D7B91A191C0D0041A04A /* Controller */,
 				A724D7BB1A191C280041A04A /* View */,
@@ -147,6 +170,7 @@
 		A724D78F1A191BEE0041A04A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A724D79C1A191BEE0041A04A /* Main.storyboard */,
 				A724D7931A191BEE0041A04A /* AppDelegate.h */,
 				A724D7941A191BEE0041A04A /* AppDelegate.m */,
 				A724D7901A191BEE0041A04A /* Info.plist */,
@@ -193,6 +217,8 @@
 		A724D7B91A191C0D0041A04A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A7C802CE1A213FC300D8180E /* MainTaskViewController.h */,
+				A7C802CF1A213FC300D8180E /* MainTaskViewController.m */,
 				A724D7961A191BEE0041A04A /* MasterViewController.h */,
 				A724D7971A191BEE0041A04A /* MasterViewController.m */,
 				A724D7991A191BEE0041A04A /* DetailViewController.h */,
@@ -216,7 +242,9 @@
 		A724D7BB1A191C280041A04A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A724D79C1A191BEE0041A04A /* Main.storyboard */,
+				A7C802BA1A213FA500D8180E /* Cell.h */,
+				A7C802BB1A213FA500D8180E /* Cell.m */,
+				A7C802B81A21350A00D8180E /* Custom.storyboard */,
 				A724D7A11A191BEE0041A04A /* LaunchScreen.xib */,
 				A724D7BC1A194A720041A04A /* AMTTaskView.h */,
 				A724D7BD1A194A720041A04A /* AMTTaskView.m */,
@@ -232,6 +260,39 @@
 				A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7C802BD1A213FB000D8180E /* DraggableCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				A7C802BE1A213FB000D8180E /* Helpers */,
+				A7C802C31A213FB000D8180E /* Layout */,
+				A7C802C61A213FB000D8180E /* UICollectionView+Draggable.h */,
+				A7C802C71A213FB000D8180E /* UICollectionView+Draggable.m */,
+				A7C802C81A213FB000D8180E /* UICollectionViewDataSource_Draggable.h */,
+				A7C802C91A213FB000D8180E /* UICollectionViewLayout_Warpable.h */,
+			);
+			path = DraggableCollectionView;
+			sourceTree = "<group>";
+		};
+		A7C802BE1A213FB000D8180E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A7C802BF1A213FB000D8180E /* LSCollectionViewHelper.h */,
+				A7C802C01A213FB000D8180E /* LSCollectionViewHelper.m */,
+				A7C802C11A213FB000D8180E /* LSCollectionViewLayoutHelper.h */,
+				A7C802C21A213FB000D8180E /* LSCollectionViewLayoutHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A7C802C31A213FB000D8180E /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				A7C802C41A213FB000D8180E /* DraggableCollectionViewFlowLayout.h */,
+				A7C802C51A213FB000D8180E /* DraggableCollectionViewFlowLayout.m */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		CF11E195FB1771936B2EE7A1 /* Pods */ = {
@@ -332,6 +393,7 @@
 				A724D79E1A191BEE0041A04A /* Main.storyboard in Resources */,
 				A724D7A31A191BEE0041A04A /* LaunchScreen.xib in Resources */,
 				A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */,
+				A7C802B91A21350A00D8180E /* Custom.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,14 +457,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C802CD1A213FB000D8180E /* UICollectionView+Draggable.m in Sources */,
 				A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */,
+				A7C802D01A213FC300D8180E /* MainTaskViewController.m in Sources */,
 				A7320FC31A1F6D8B00C3A125 /* NewMainTaskViewController.m in Sources */,
 				A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */,
 				A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */,
 				A7CA23661A1CF639001F6F99 /* _SubTask.m in Sources */,
+				A7C802BC1A213FA500D8180E /* Cell.m in Sources */,
+				A7C802CC1A213FB000D8180E /* DraggableCollectionViewFlowLayout.m in Sources */,
 				A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */,
 				A7CA23681A1CF639001F6F99 /* SubTask.m in Sources */,
 				A724D7921A191BEE0041A04A /* main.m in Sources */,
+				A7C802CB1A213FB000D8180E /* LSCollectionViewLayoutHelper.m in Sources */,
+				A7C802CA1A213FB000D8180E /* LSCollectionViewHelper.m in Sources */,
 				A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */,
 				A724D79B1A191BEE0041A04A /* DetailViewController.m in Sources */,
 				A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */,
@@ -437,6 +505,7 @@
 				A724D79D1A191BEE0041A04A /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../View;
 			sourceTree = "<group>";
 		};
 		A724D7A11A191BEE0041A04A /* LaunchScreen.xib */ = {

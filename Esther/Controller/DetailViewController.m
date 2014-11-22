@@ -13,11 +13,12 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 @interface DetailViewController ()
 
 @property (nonatomic, strong) NSMutableArray *taskViews;
-@property (nonatomic, strong) UIDynamicAnimator *animator;
-@property (nonatomic, strong) UICollisionBehavior *collisionBehavior;
+//@property (nonatomic, strong) UIDynamicAnimator *animator;
+//@property (nonatomic, strong) UICollisionBehavior *collisionBehavior;
+//@property (nonatomic, strong) UIDynamicItemBehavior *dynamicItemBehavior;
 @property (nonatomic) CGFloat initialTaskViewWidth;
 @property (nonatomic) CGFloat initialTaskViewHeight;
-@property (nonatomic, strong) UIDynamicItemBehavior *dynamicItemBehavior;
+
 
 @end
 
@@ -58,14 +59,14 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 
 - (void)configureView {
 	//self.view.backgroundColor = [UIColor flatCloudsColor];
-	self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+//	self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 	self.initialTaskViewHeight = CGRectGetHeight(self.view.frame) / ((AMTGlobalTaskView *)self.view).sections / 3;
 	self.initialTaskViewWidth = self.initialTaskViewHeight / TASK_VIEW_ASPECT_RATIO;
-	self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.taskViews];
-	self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
-	self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.taskViews];
-	self.dynamicItemBehavior.allowsRotation = NO;
-	[self.animator addBehavior:self.collisionBehavior];
+//	self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.taskViews];
+//	self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+//	self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.taskViews];
+//	self.dynamicItemBehavior.allowsRotation = NO;
+//	[self.animator addBehavior:self.collisionBehavior];
 }
 
 - (void)viewDidLoad {
@@ -97,6 +98,12 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 	// Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UISplitViewControllerDelegate
+- (BOOL) splitViewController:(UISplitViewController *)splitViewController
+	shouldHideViewController:(UIViewController *)vc
+			   inOrientation:(UIInterfaceOrientation)orientation{
+	return YES;
+}
 #pragma mark - Utility Methods
 
 @end

@@ -16,7 +16,7 @@
 	
 	self.helper =
 	[[CoreDataPoweredFetchedResultsControllerHelper alloc]
-	 initWithTableView:self.tableView
+		 initWithTableView:self.tableView
 	 andBlockToUpdateCells:^(NSIndexPath *indexPath) {
 		 [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath]
 				 atIndexPath:indexPath];
