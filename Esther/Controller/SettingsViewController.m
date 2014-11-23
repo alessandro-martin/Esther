@@ -16,7 +16,7 @@ static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-	self.view.backgroundColor = [UIColor flatSunFlowerColor];
+	self.view.backgroundColor = [UIColor flatNephritisColor];
 	[self displayUserDefaults];
 }
 

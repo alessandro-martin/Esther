@@ -61,19 +61,22 @@
 	return [self.fetchedResultsController sections].count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
 	id<NSFetchedResultsSectionInfo> info = [self.fetchedResultsController sections][section];
 	return [info numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+		 cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 	[self configureCell:cell atIndexPath:indexPath];
 	
 	return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView
+canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
 }
 
@@ -84,11 +87,13 @@
 	}
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSAssert(self.defaultCellHeight != 0.0, @"Cell Height is 0!!!");
 	return self.defaultCellHeight;
 }
 
-- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void) configureCell:(UITableViewCell *)cell
+		   atIndexPath:(NSIndexPath *)indexPath {
 }
 @end

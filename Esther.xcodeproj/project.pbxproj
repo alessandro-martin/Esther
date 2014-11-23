@@ -69,8 +69,8 @@
 		A724D7941A191BEE0041A04A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A724D7961A191BEE0041A04A /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		A724D7971A191BEE0041A04A /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		A724D7991A191BEE0041A04A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		A724D79A1A191BEE0041A04A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A724D7991A191BEE0041A04A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../Controller/DetailViewController.h; sourceTree = "<group>"; };
+		A724D79A1A191BEE0041A04A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../Controller/DetailViewController.m; sourceTree = "<group>"; };
 		A724D79D1A191BEE0041A04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A724D79F1A191BEE0041A04A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A724D7A21A191BEE0041A04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -170,6 +170,8 @@
 		A724D78F1A191BEE0041A04A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A724D7991A191BEE0041A04A /* DetailViewController.h */,
+				A724D79A1A191BEE0041A04A /* DetailViewController.m */,
 				A724D79C1A191BEE0041A04A /* Main.storyboard */,
 				A724D7931A191BEE0041A04A /* AppDelegate.h */,
 				A724D7941A191BEE0041A04A /* AppDelegate.m */,
@@ -221,8 +223,6 @@
 				A7C802CF1A213FC300D8180E /* MainTaskViewController.m */,
 				A724D7961A191BEE0041A04A /* MasterViewController.h */,
 				A724D7971A191BEE0041A04A /* MasterViewController.m */,
-				A724D7991A191BEE0041A04A /* DetailViewController.h */,
-				A724D79A1A191BEE0041A04A /* DetailViewController.m */,
 				A78B2B031A1EBFD400D6E0C4 /* SettingsViewController.h */,
 				A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */,
 				A7320FC11A1F6D8B00C3A125 /* NewMainTaskViewController.h */,

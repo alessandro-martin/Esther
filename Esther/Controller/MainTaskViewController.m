@@ -1,12 +1,15 @@
 #import "MainTaskViewController.h"
 #import "Cell.h"
+#import <UIColor+FlatColors.h>
 
 #define SECTION_COUNT 3
 #define ITEM_COUNT 5
 
-@interface MainTaskViewController () <UISplitViewControllerDelegate> {
-    NSMutableArray *sections;
-}
+@interface MainTaskViewController () <UISplitViewControllerDelegate>
+
+@property (nonatomic, strong) NSMutableArray *sections;
+@property (nonatomic) NSUInteger sectionsCount;
+
 @end
 
 @implementation MainTaskViewController
@@ -15,41 +18,53 @@
 {
     [super viewDidLoad];
 	
-    sections = [[NSMutableArray alloc] initWithCapacity:SECTION_COUNT];
-    for(int s = 0; s < SECTION_COUNT; s++) {
-        NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:ITEM_COUNT];
-		//int itemCount = arc4random() % ITEM_COUNT;
-        for(int i = 0; i < ITEM_COUNT; i++) {
-            [data addObject:[NSString stringWithFormat:@"%c %@", 65+s, @(i)]];
-        }
-        [sections addObject:data];
-    }
+	self.view.backgroundColor = [UIColor flatSilverColor];
+	
+//    for(int s = 0; s < SECTION_COUNT; s++) {
+//        NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:ITEM_COUNT];
+//		//int itemCount = arc4random() % ITEM_COUNT;
+//        for(int i = 0; i < ITEM_COUNT; i++) {
+//            [data addObject:[NSString stringWithFormat:@"%c %@", 65+s, @(i)]];
+//        }
+//        [self.sections addObject:data];
+//    }
+}
+
+-(NSMutableArray *)sections {
+	if (!_sections) {
+		_sections = [NSMutableArray array];
+	}
+	
+	return _sections;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return sections.count;
+    return self.sections.count;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+	 numberOfItemsInSection:(NSInteger)section
 {
-    return [[sections objectAtIndex:section] count];
+    return [[self.sections objectAtIndex:section] count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+				  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    Cell *cell = (Cell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    NSMutableArray *data = [sections objectAtIndex:indexPath.section];
+    Cell *cell = (Cell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell"
+																  forIndexPath:indexPath];
+    NSMutableArray *data = [self.sections objectAtIndex:indexPath.section];
     
     cell.label.text = [data objectAtIndex:indexPath.item];
-    
+	cell.backgroundColor = [UIColor flatAsbestosColor];
     return cell;
 }
 
 - (BOOL)collectionView:(LSCollectionViewHelper *)collectionView
 canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.row >= [sections[indexPath.section] count]) {
+	if (indexPath.row >= [self.sections[indexPath.section] count]) {
 		return NO;
 	}
 
@@ -71,8 +86,8 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
    moveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 		   toIndexPath:(NSIndexPath *)toIndexPath
 {
-    NSMutableArray *data1 = [sections objectAtIndex:fromIndexPath.section];
-    NSMutableArray *data2 = [sections objectAtIndex:toIndexPath.section];
+    NSMutableArray *data1 = [self.sections objectAtIndex:fromIndexPath.section];
+    NSMutableArray *data2 = [self.sections objectAtIndex:toIndexPath.section];
 	
 	NSString *index = [data1 objectAtIndex:fromIndexPath.item];
 	

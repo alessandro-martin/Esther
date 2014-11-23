@@ -5,6 +5,4 @@
 
 @interface MasterViewController : CoreDataPoweredTableViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
-
 @end

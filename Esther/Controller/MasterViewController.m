@@ -2,6 +2,7 @@
 //#import "DetailViewController.h"
 #import "MainTaskViewController.h"
 #import "MainTask.h"
+#import "NewMainTaskViewController.h"
 #import <UIColor+FlatColors.h>
 
 @import QuartzCore;
@@ -15,7 +16,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.view.backgroundColor = [UIColor flatCloudsColor];
-	self.defaultCellHeight = 120.0;
+	self.defaultCellHeight = CGRectGetHeight(self.view.frame) /  6.0;
 	self.fetchRequest = [MainTask allMainTasksFetchRequestInContext:self.moc];
 }
 
@@ -24,11 +25,11 @@
 	// Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
-	NSLog(@"Do Something!!!");
+//- (void)insertNewObject:(id)sender {
+//	NSLog(@"Do Something!!!");
 //	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //	[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//}
 
 #pragma mark - Segues
 
@@ -38,6 +39,11 @@
 	    MainTask *mainTask = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	    MainTaskViewController *controller = (MainTaskViewController *)[segue destinationViewController] ;
 	    [controller setDetailItem:mainTask];
+	}
+	
+	if ([[segue identifier] isEqualToString:@"newMainTask"]){
+		NewMainTaskViewController *controller = (NewMainTaskViewController *)[segue destinationViewController];
+		[controller setMoc:self.moc];
 	}
 }
 
@@ -72,7 +78,8 @@
 
 #pragma mark - Utility Methods
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(UITableViewCell *)cell
+		  atIndexPath:(NSIndexPath *)indexPath {
 	MainTask *mainTask = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	
 	cell.textLabel.text = mainTask.mainTaskName;

@@ -98,12 +98,12 @@ static NSString * const TASK_VIEW_CREATED_ANIMATION_KEY = @"taskCreated";
 	// Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UISplitViewControllerDelegate
-- (BOOL) splitViewController:(UISplitViewController *)splitViewController
-	shouldHideViewController:(UIViewController *)vc
-			   inOrientation:(UIInterfaceOrientation)orientation{
-	return YES;
-}
+//#pragma mark - UISplitViewControllerDelegate
+//- (BOOL) splitViewController:(UISplitViewController *)splitViewController
+//	shouldHideViewController:(UIViewController *)vc
+//			   inOrientation:(UIInterfaceOrientation)orientation{
+//	return YES;
+//}
 #pragma mark - Utility Methods
 
 @end
