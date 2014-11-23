@@ -38,7 +38,8 @@
 	    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 	    MainTask *mainTask = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	    MainTaskViewController *controller = (MainTaskViewController *)[segue destinationViewController] ;
-	    [controller setDetailItem:mainTask];
+	    [controller setMainTask:mainTask];
+		[controller setMoc:self.moc];
 	}
 	
 	if ([[segue identifier] isEqualToString:@"newMainTask"]){

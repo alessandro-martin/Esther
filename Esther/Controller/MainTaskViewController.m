@@ -1,14 +1,16 @@
 #import "MainTaskViewController.h"
 #import "Cell.h"
 #import <UIColor+FlatColors.h>
+#import "SubTask.h"
 
-#define SECTION_COUNT 3
-#define ITEM_COUNT 5
+//#define SECTION_COUNT 3
+//#define ITEM_COUNT 5
 
-@interface MainTaskViewController () <UISplitViewControllerDelegate>
+@interface MainTaskViewController () <UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray *sections;
 @property (nonatomic) NSUInteger sectionsCount;
+@property (nonatomic, strong) NSMutableSet *subTasks;
 
 @end
 
@@ -18,16 +20,81 @@
 {
     [super viewDidLoad];
 	
-	self.view.backgroundColor = [UIColor flatSilverColor];
+	[self setupView];
+	[self setupSections];
+
+	NSLog(@"%@", self.sections);
 	
-//    for(int s = 0; s < SECTION_COUNT; s++) {
-//        NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:ITEM_COUNT];
-//		//int itemCount = arc4random() % ITEM_COUNT;
-//        for(int i = 0; i < ITEM_COUNT; i++) {
-//            [data addObject:[NSString stringWithFormat:@"%c %@", 65+s, @(i)]];
-//        }
-//        [self.sections addObject:data];
-//    }
+	
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+	CGFloat cellSide = CGRectGetWidth(self.view.frame) / 8;
+	return CGSizeMake(cellSide, cellSide);
+}
+
+- (IBAction)mainViewTapped:(UITapGestureRecognizer *)sender {
+	NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+	if (!indexPath) {
+		[self addNewSubTask:indexPath];
+	} else {
+		NSLog(@"Here I should Edit the Subtask at %@", indexPath);
+	}
+}
+
+#warning  GROSS IMPLEMENTATION
+- (void) addNewSubTask:(NSIndexPath *)indexPath {
+	NSLog(@"%@", self.sections);
+	SubTask *subTask = [SubTask insertInManagedObjectContext:self.moc];
+	[self.subTasks addObject:subTask];
+	subTask.subTaskName = [NSString stringWithFormat:@"%lu", self.subTasks.count];
+	subTask.subTaskIsCompletedValue = NO;
+	subTask.subTaskIsVisibleValue = YES;
+	subTask.subTaskColor = [UIColor flatCarrotColor];
+	if (!indexPath) {
+		indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	}
+#warning INCONSISTENCY
+	subTask.subTaskScreenPositionXValue =
+	((NSMutableArray *)self.sections[indexPath.section]).count - 1;
+	subTask.subTaskScreenPositionYValue = indexPath.section;
+	subTask.mainTask = self.mainTask;
+	NSLog(@"%@", indexPath);
+	NSError *error;
+	if ([self.moc hasChanges] && ![self.moc save:&error]) {
+		NSLog(@"Fatal Error: \n%@", error.localizedDescription);
+		abort();
+	}
+	NSLog(@"Saved");
+	[self setupSections];
+	NSLog(@"%@", self.sections);
+	NSLog(@"%lu", self.sectionsCount);
+}
+
+- (void) setupView {
+	self.view.backgroundColor = [UIColor flatSilverColor];
+	self.title = self.mainTask.mainTaskName;
+}
+
+- (void) setupSections {
+	int currentNumberOfSections = (int)self.sectionsCount;
+	self.sections = nil;
+	for(int i = 0; i < currentNumberOfSections; i++) {
+		NSMutableArray *data = [NSMutableArray array];
+		[self.sections addObject:data];
+	}
+	NSLog(@"%lu", self.sectionsCount);
+	[self.subTasks enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+		SubTask *s = (SubTask *)obj;
+		int x = [[s subTaskScreenPositionX] intValue];
+		int y = [[s subTaskScreenPositionY] intValue];
+		int yCount = (int)((NSMutableArray*)self.sections[y]).count;
+		if (y >= yCount) {
+			[self.sections[y] addObject:s];
+		} else {
+			[self.sections[y] insertObject:s atIndex:x];
+		}
+	}];
 }
 
 -(NSMutableArray *)sections {
@@ -36,6 +103,26 @@
 	}
 	
 	return _sections;
+}
+
+-(NSMutableSet *)subTasks {
+	if (!_subTasks) {
+		_subTasks = [[self.mainTask subTasks] mutableCopy];
+	}
+	
+	return _subTasks;
+}
+
+-(NSUInteger)sectionsCount {
+	_sectionsCount = 0;
+	[self.subTasks enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+		SubTask *subTask = (SubTask *)obj;
+		int y = [subTask.subTaskScreenPositionY intValue];
+		_sectionsCount = (y > _sectionsCount) ? y : _sectionsCount;
+	}];
+	
+	_sectionsCount++;
+	return _sectionsCount;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -55,9 +142,9 @@
     Cell *cell = (Cell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell"
 																  forIndexPath:indexPath];
     NSMutableArray *data = [self.sections objectAtIndex:indexPath.section];
-    
-    cell.label.text = [data objectAtIndex:indexPath.item];
-	cell.backgroundColor = [UIColor flatAsbestosColor];
+	SubTask *subTask = (SubTask *)[data objectAtIndex:indexPath.item];
+	cell.label.text = subTask.subTaskName;
+	cell.backgroundColor = subTask.subTaskColor;
     return cell;
 }
 

@@ -80,10 +80,17 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		self.moc = [self.fetchedResultsController managedObjectContext];
 		[self.moc deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+		
+		NSError *error;
+		if ([self.moc hasChanges] && ![self.moc save:&error]) {
+			NSLog(@"Fatal Error: \n%@", error.localizedDescription);
+		}
 	}
 }
 

@@ -43,5 +43,4 @@
 {
     [self getHelper].scrollingSpeed = scrollingSpeed;
 }
-
 @end

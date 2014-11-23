@@ -7,6 +7,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (strong, nonatomic) MainTask *detailItem;
+@property (strong, nonatomic) MainTask *mainTask;
+@property (nonatomic, strong) NSManagedObjectContext *moc;
 
 @end
