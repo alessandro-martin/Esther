@@ -22,10 +22,6 @@
 	
 	[self setupView];
 	[self setupSections];
-
-	NSLog(@"%@", self.sections);
-	
-	
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -35,6 +31,7 @@
 
 - (IBAction)mainViewTapped:(UITapGestureRecognizer *)sender {
 	NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+	NSLog(@"%@", indexPath);
 	if (!indexPath) {
 		[self addNewSubTask:indexPath];
 	} else {
@@ -42,9 +39,8 @@
 	}
 }
 
-#warning  GROSS IMPLEMENTATION
+#warning  GROSS IMPLEMENTATION ADDS SUBTASK DIRECTLY!!!
 - (void) addNewSubTask:(NSIndexPath *)indexPath {
-	NSLog(@"%@", self.sections);
 	SubTask *subTask = [SubTask insertInManagedObjectContext:self.moc];
 	[self.subTasks addObject:subTask];
 	subTask.subTaskName = [NSString stringWithFormat:@"%lu", self.subTasks.count];
@@ -54,21 +50,17 @@
 	if (!indexPath) {
 		indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	}
-#warning INCONSISTENCY
 	subTask.subTaskScreenPositionXValue =
-	((NSMutableArray *)self.sections[indexPath.section]).count - 1;
+	((NSMutableArray *)self.sections[indexPath.section]).count;
 	subTask.subTaskScreenPositionYValue = indexPath.section;
 	subTask.mainTask = self.mainTask;
-	NSLog(@"%@", indexPath);
 	NSError *error;
 	if ([self.moc hasChanges] && ![self.moc save:&error]) {
 		NSLog(@"Fatal Error: \n%@", error.localizedDescription);
 		abort();
 	}
-	NSLog(@"Saved");
 	[self setupSections];
-	NSLog(@"%@", self.sections);
-	NSLog(@"%lu", self.sectionsCount);
+	[self.collectionView reloadData];
 }
 
 - (void) setupView {
@@ -83,17 +75,14 @@
 		NSMutableArray *data = [NSMutableArray array];
 		[self.sections addObject:data];
 	}
-	NSLog(@"%lu", self.sectionsCount);
 	[self.subTasks enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
 		SubTask *s = (SubTask *)obj;
-		int x = [[s subTaskScreenPositionX] intValue];
-		int y = [[s subTaskScreenPositionY] intValue];
-		int yCount = (int)((NSMutableArray*)self.sections[y]).count;
-		if (y >= yCount) {
-			[self.sections[y] addObject:s];
-		} else {
-			[self.sections[y] insertObject:s atIndex:x];
-		}
+		int y = s.subTaskScreenPositionYValue;
+		[self.sections[y] addObject:s];
+		[(NSMutableArray *)self.sections[y] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+			return ((SubTask *)obj1).subTaskScreenPositionXValue >
+				   ((SubTask *)obj2).subTaskScreenPositionXValue;
+		}];
 	}];
 }
 

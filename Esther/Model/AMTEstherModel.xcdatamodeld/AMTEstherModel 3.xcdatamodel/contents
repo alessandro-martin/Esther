@@ -19,14 +19,14 @@
         <attribute name="subTaskLatitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="subTaskLongitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="subTaskName" attributeType="String" minValueString="1" defaultValueString="The Task" syncable="YES"/>
-        <attribute name="subTaskScreenPositionX" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="subTaskScreenPositionY" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="subTaskScreenPositionX" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="subTaskScreenPositionY" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="subTaskTimeNeeded" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="mainTask" maxCount="1" deletionRule="Nullify" destinationEntity="MainTask" inverseName="subTasks" inverseEntity="MainTask" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubTask" inverseName="parent" inverseEntity="SubTask" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MainTask" positionX="304" positionY="137" width="128" height="163"/>
         <element name="SubTask" positionX="-144" positionY="-27" width="128" height="238"/>
+        <element name="MainTask" positionX="304" positionY="137" width="128" height="163"/>
     </elements>
 </model>

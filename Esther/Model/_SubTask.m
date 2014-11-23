@@ -177,42 +177,42 @@ const struct SubTaskRelationships SubTaskRelationships = {
 
 @dynamic subTaskScreenPositionX;
 
-- (float)subTaskScreenPositionXValue {
+- (int16_t)subTaskScreenPositionXValue {
 	NSNumber *result = [self subTaskScreenPositionX];
-	return [result floatValue];
+	return [result shortValue];
 }
 
-- (void)setSubTaskScreenPositionXValue:(float)value_ {
-	[self setSubTaskScreenPositionX:[NSNumber numberWithFloat:value_]];
+- (void)setSubTaskScreenPositionXValue:(int16_t)value_ {
+	[self setSubTaskScreenPositionX:[NSNumber numberWithShort:value_]];
 }
 
-- (float)primitiveSubTaskScreenPositionXValue {
+- (int16_t)primitiveSubTaskScreenPositionXValue {
 	NSNumber *result = [self primitiveSubTaskScreenPositionX];
-	return [result floatValue];
+	return [result shortValue];
 }
 
-- (void)setPrimitiveSubTaskScreenPositionXValue:(float)value_ {
-	[self setPrimitiveSubTaskScreenPositionX:[NSNumber numberWithFloat:value_]];
+- (void)setPrimitiveSubTaskScreenPositionXValue:(int16_t)value_ {
+	[self setPrimitiveSubTaskScreenPositionX:[NSNumber numberWithShort:value_]];
 }
 
 @dynamic subTaskScreenPositionY;
 
-- (float)subTaskScreenPositionYValue {
+- (int16_t)subTaskScreenPositionYValue {
 	NSNumber *result = [self subTaskScreenPositionY];
-	return [result floatValue];
+	return [result shortValue];
 }
 
-- (void)setSubTaskScreenPositionYValue:(float)value_ {
-	[self setSubTaskScreenPositionY:[NSNumber numberWithFloat:value_]];
+- (void)setSubTaskScreenPositionYValue:(int16_t)value_ {
+	[self setSubTaskScreenPositionY:[NSNumber numberWithShort:value_]];
 }
 
-- (float)primitiveSubTaskScreenPositionYValue {
+- (int16_t)primitiveSubTaskScreenPositionYValue {
 	NSNumber *result = [self primitiveSubTaskScreenPositionY];
-	return [result floatValue];
+	return [result shortValue];
 }
 
-- (void)setPrimitiveSubTaskScreenPositionYValue:(float)value_ {
-	[self setPrimitiveSubTaskScreenPositionY:[NSNumber numberWithFloat:value_]];
+- (void)setPrimitiveSubTaskScreenPositionYValue:(int16_t)value_ {
+	[self setPrimitiveSubTaskScreenPositionY:[NSNumber numberWithShort:value_]];
 }
 
 @dynamic subTaskTimeNeeded;

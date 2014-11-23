@@ -86,17 +86,17 @@ extern const struct SubTaskRelationships {
 
 @property (nonatomic, strong) NSNumber* subTaskScreenPositionX;
 
-@property (atomic) float subTaskScreenPositionXValue;
-- (float)subTaskScreenPositionXValue;
-- (void)setSubTaskScreenPositionXValue:(float)value_;
+@property (atomic) int16_t subTaskScreenPositionXValue;
+- (int16_t)subTaskScreenPositionXValue;
+- (void)setSubTaskScreenPositionXValue:(int16_t)value_;
 
 //- (BOOL)validateSubTaskScreenPositionX:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* subTaskScreenPositionY;
 
-@property (atomic) float subTaskScreenPositionYValue;
-- (float)subTaskScreenPositionYValue;
-- (void)setSubTaskScreenPositionYValue:(float)value_;
+@property (atomic) int16_t subTaskScreenPositionYValue;
+- (int16_t)subTaskScreenPositionYValue;
+- (void)setSubTaskScreenPositionYValue:(int16_t)value_;
 
 //- (BOOL)validateSubTaskScreenPositionY:(id*)value_ error:(NSError**)error_;
 
@@ -159,14 +159,14 @@ extern const struct SubTaskRelationships {
 - (NSNumber*)primitiveSubTaskScreenPositionX;
 - (void)setPrimitiveSubTaskScreenPositionX:(NSNumber*)value;
 
-- (float)primitiveSubTaskScreenPositionXValue;
-- (void)setPrimitiveSubTaskScreenPositionXValue:(float)value_;
+- (int16_t)primitiveSubTaskScreenPositionXValue;
+- (void)setPrimitiveSubTaskScreenPositionXValue:(int16_t)value_;
 
 - (NSNumber*)primitiveSubTaskScreenPositionY;
 - (void)setPrimitiveSubTaskScreenPositionY:(NSNumber*)value;
 
-- (float)primitiveSubTaskScreenPositionYValue;
-- (void)setPrimitiveSubTaskScreenPositionYValue:(float)value_;
+- (int16_t)primitiveSubTaskScreenPositionYValue;
+- (void)setPrimitiveSubTaskScreenPositionYValue:(int16_t)value_;
 
 - (NSNumber*)primitiveSubTaskTimeNeeded;
 - (void)setPrimitiveSubTaskTimeNeeded:(NSNumber*)value;
