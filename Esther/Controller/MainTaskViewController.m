@@ -41,6 +41,8 @@
 
 #warning  GROSS IMPLEMENTATION ADDS SUBTASK DIRECTLY!!!
 - (void) addNewSubTask:(NSIndexPath *)indexPath {
+	[self performSegueWithIdentifier:@"newSubTask" sender:self];
+	return;
 	SubTask *subTask = [SubTask insertInManagedObjectContext:self.moc];
 	[self.subTasks addObject:subTask];
 	subTask.subTaskName = [NSString stringWithFormat:@"%lu", self.subTasks.count];
@@ -171,4 +173,7 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
     [data2 insertObject:index atIndex:toIndexPath.item];
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	NSLog(@"Preparing for segue %@", [segue description]);
+}
 @end

@@ -34,6 +34,9 @@
 		A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */; };
 		A7320FC31A1F6D8B00C3A125 /* NewMainTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7320FC21A1F6D8B00C3A125 /* NewMainTaskViewController.m */; };
 		A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */; };
+		A77D0A611A2349EB00F5216D /* NewSubTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */; };
+		A77D0A641A2353C200F5216D /* AMTTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A631A2353C200F5216D /* AMTTimePickerView.m */; };
+		A77D0A661A23788700F5216D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77D0A651A23788700F5216D /* MapKit.framework */; };
 		A78B2B051A1EBFD400D6E0C4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */; };
 		A7C802B91A21350A00D8180E /* Custom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C802B81A21350A00D8180E /* Custom.storyboard */; };
 		A7C802BC1A213FA500D8180E /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802BB1A213FA500D8180E /* Cell.m */; };
@@ -87,6 +90,11 @@
 		A738000E1A225DE8009A27B5 /* AMTEstherModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AMTEstherModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTGlobalTaskView.h; sourceTree = "<group>"; };
 		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTGlobalTaskView.m; sourceTree = "<group>"; };
+		A77D0A5F1A2349EB00F5216D /* NewSubTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSubTaskViewController.h; sourceTree = "<group>"; };
+		A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSubTaskViewController.m; sourceTree = "<group>"; };
+		A77D0A621A2353C200F5216D /* AMTTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTTimePickerView.h; sourceTree = "<group>"; };
+		A77D0A631A2353C200F5216D /* AMTTimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTTimePickerView.m; sourceTree = "<group>"; };
+		A77D0A651A23788700F5216D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A78B2B031A1EBFD400D6E0C4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A7C802B81A21350A00D8180E /* Custom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Custom.storyboard; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77D0A661A23788700F5216D /* MapKit.framework in Frameworks */,
 				8F2AAEC8AFCBE5369483B074 /* libPods-Esther.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +237,8 @@
 				A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */,
 				A7320FC11A1F6D8B00C3A125 /* NewMainTaskViewController.h */,
 				A7320FC21A1F6D8B00C3A125 /* NewMainTaskViewController.m */,
+				A77D0A5F1A2349EB00F5216D /* NewSubTaskViewController.h */,
+				A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -251,6 +262,8 @@
 				A724D7BD1A194A720041A04A /* AMTTaskView.m */,
 				A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */,
 				A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */,
+				A77D0A621A2353C200F5216D /* AMTTimePickerView.h */,
+				A77D0A631A2353C200F5216D /* AMTTimePickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +271,7 @@
 		A771625C2DC3AADC89CAF0BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A77D0A651A23788700F5216D /* MapKit.framework */,
 				A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */,
 			);
 			name = Frameworks;
@@ -356,6 +370,11 @@
 				TargetAttributes = {
 					A724D78B1A191BEE0041A04A = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A724D7A71A191BEE0041A04A = {
 						CreatedOnToolsVersion = 6.1;
@@ -465,12 +484,14 @@
 				A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */,
 				A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */,
 				A7CA23661A1CF639001F6F99 /* _SubTask.m in Sources */,
+				A77D0A611A2349EB00F5216D /* NewSubTaskViewController.m in Sources */,
 				A7C802BC1A213FA500D8180E /* Cell.m in Sources */,
 				A7C802CC1A213FB000D8180E /* DraggableCollectionViewFlowLayout.m in Sources */,
 				A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */,
 				A7CA23681A1CF639001F6F99 /* SubTask.m in Sources */,
 				A724D7921A191BEE0041A04A /* main.m in Sources */,
 				A7C802CB1A213FB000D8180E /* LSCollectionViewLayoutHelper.m in Sources */,
+				A77D0A641A2353C200F5216D /* AMTTimePickerView.m in Sources */,
 				A7C802CA1A213FB000D8180E /* LSCollectionViewHelper.m in Sources */,
 				A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */,
 				A724D79B1A191BEE0041A04A /* DetailViewController.m in Sources */,
