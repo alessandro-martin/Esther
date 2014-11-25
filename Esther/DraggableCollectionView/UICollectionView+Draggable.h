@@ -8,4 +8,6 @@
 @property (nonatomic, assign) UIEdgeInsets scrollingEdgeInsets;
 @property (nonatomic, assign) CGFloat scrollingSpeed;
 
+- (LSCollectionViewHelper *)getHelper;
+
 @end

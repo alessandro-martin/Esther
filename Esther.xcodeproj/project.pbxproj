@@ -33,6 +33,7 @@
 		A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */; };
 		A724D7C41A194D480041A04A /* AMTEstherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A724D7C21A194D480041A04A /* AMTEstherModel.xcdatamodeld */; };
 		A7320FC31A1F6D8B00C3A125 /* NewMainTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7320FC21A1F6D8B00C3A125 /* NewMainTaskViewController.m */; };
+		A73F66C61A24B9D600D98F6D /* Esther_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A73F66C51A24B9D600D98F6D /* Esther_Logo.png */; };
 		A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */; };
 		A77D0A611A2349EB00F5216D /* NewSubTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */; };
 		A77D0A641A2353C200F5216D /* AMTTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A631A2353C200F5216D /* AMTTimePickerView.m */; };
@@ -88,6 +89,7 @@
 		A7320FC11A1F6D8B00C3A125 /* NewMainTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMainTaskViewController.h; sourceTree = "<group>"; };
 		A7320FC21A1F6D8B00C3A125 /* NewMainTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMainTaskViewController.m; sourceTree = "<group>"; };
 		A738000E1A225DE8009A27B5 /* AMTEstherModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AMTEstherModel 3.xcdatamodel"; sourceTree = "<group>"; };
+		A73F66C51A24B9D600D98F6D /* Esther_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Esther_Logo.png; sourceTree = "<group>"; };
 		A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTGlobalTaskView.h; sourceTree = "<group>"; };
 		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTGlobalTaskView.m; sourceTree = "<group>"; };
 		A77D0A5F1A2349EB00F5216D /* NewSubTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSubTaskViewController.h; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		A724D7BA1A191C1E0041A04A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A73F66C51A24B9D600D98F6D /* Esther_Logo.png */,
 				A724D79F1A191BEE0041A04A /* Images.xcassets */,
 			);
 			path = Resources;
@@ -410,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A73F66C61A24B9D600D98F6D /* Esther_Logo.png in Resources */,
 				A724D79E1A191BEE0041A04A /* Main.storyboard in Resources */,
 				A724D7A31A191BEE0041A04A /* LaunchScreen.xib in Resources */,
 				A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */,

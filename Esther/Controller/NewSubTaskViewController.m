@@ -1,4 +1,3 @@
-#import <UIColor+FlatColors.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import "NewSubTaskViewController.h"
@@ -19,6 +18,7 @@ static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
 @property (weak, nonatomic) IBOutlet AMTTimePickerView *pkrTimePickerView;
 @property (weak, nonatomic) IBOutlet UITextField *txtEstimatedCost;
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
+@property (weak, nonatomic) IBOutlet UILabel *lblMainTaskName;
 
 @property (nonatomic, strong) NSArray *pickerData;
 
@@ -76,22 +76,35 @@ static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
 }
 
 - (IBAction)btnDonePressed:(id)sender {
-//	MainTask *mainTask = [MainTask insertInManagedObjectContext:self.moc];
-//	mainTask.mainTaskCreationDate = [NSDate date];
-//	mainTask.mainTaskDescription = [self.txvMainTaskDescription.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//	mainTask.mainTaskImageURL = nil;
-//	mainTask.mainTaskIsVisibleValue = YES;
-//	mainTask.mainTaskName = [self.txtMainTaskName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-//	mainTask.mainTaskTotalCost = 0;
-//	mainTask.mainTaskTotalTimeValue = 0;
+	SubTask *subTask = [SubTask insertInManagedObjectContext:self.moc];
+	subTask.subTaskName =
+	[self.txtSubTaskName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	subTask.subTaskDescription =
+	[self.txvSubTaskDescription.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	subTask.subTaskFinancialCost = [self costValueFromTextField];
+	subTask.subTaskTimeNeededValue = [self timeIntervalFromPicker];
+	subTask.subTaskColor = self.subTaskColor;
+#warning Placeholder values for Lat and Long
+	subTask.subTaskLatitudeValue = 0.0f;
+	subTask.subTaskLongitudeValue = 0.0f;
+	subTask.subTaskIsCompletedValue = NO;
+	subTask.subTaskIsVisibleValue = YES;
+	subTask.subTaskScreenPositionXValue = [self.indexPath indexAtPosition:1];
+	subTask.subTaskScreenPositionYValue = [self.indexPath indexAtPosition:0];
+	subTask.mainTask = self.mainTask;
 	
 	NSError *error;
-	
 	if ([self.moc hasChanges] && ![self.moc save:&error]) {
-		NSLog(@"Fatal Error:\n%@", error.localizedDescription);
+		NSLog(@"Fatal Error: \n%@", error.localizedDescription);
+		abort();
 	}
 	
-	[self dismissViewControllerAnimated:YES completion:nil];
+	[self dismissViewControllerAnimated:YES completion:^{
+		if ([self.delegate respondsToSelector:@selector(updateMainTask)]) {
+			[self.delegate updateMainTask];
+		}
+	}];
+	
 }
 
 - (void) setupView {
@@ -102,7 +115,9 @@ static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
 	self.txvSubTaskDescription.backgroundColor = [UIColor flatCloudsColor];
 	self.pkrTimePickerView.backgroundColor = [UIColor flatCloudsColor];
 	self.lblTime.backgroundColor = [UIColor flatCloudsColor];
-//	self.pkrTimePickerView.transform = CGAffineTransformMakeScale(1.0, 0.5);
+	self.lblMainTaskName.text =
+	[NSString stringWithFormat:@"Main Task: %@", self.mainTask.mainTaskName];
+	self.lblMainTaskName.backgroundColor = [UIColor flatWisteriaColor];
 	
 	[[self.txtSubTaskName.rac_textSignal
 	  map:^id(NSString *text) {
@@ -120,10 +135,38 @@ static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
 	 }];
 }
 
--(BOOL) isValidName:(NSString *)name {
+- (BOOL) isValidName:(NSString *)name {
 	name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 	return name.length > 0;// && ![SubTask existsSubTaskWithName:name
 							//						inContext:self.moc];
+}
+
+- (NSDecimalNumber *)costValueFromTextField {
+	NSScanner *costScanner = [NSScanner scannerWithString:self.txtEstimatedCost.text];
+	NSDecimal costValue;
+	NSDecimalNumber *cost;
+	if ([costScanner scanDecimal:&costValue]) {
+		cost = [NSDecimalNumber decimalNumberWithDecimal:costValue];
+	} else {
+		cost = [NSDecimalNumber decimalNumberWithString:@"0.0"];
+	}
+	
+	return cost;
+}
+
+- (double) timeIntervalFromPicker {
+	int days = [[self pickerView:self.pkrTimePickerView
+					titleForRow:[self.pkrTimePickerView selectedRowInComponent:0]
+				   forComponent:0] intValue];
+	int hours = [[self pickerView:self.pkrTimePickerView
+					  titleForRow:[self.pkrTimePickerView selectedRowInComponent:1]
+					 forComponent:1] intValue];;
+	int minutes = [[self pickerView:self.pkrTimePickerView
+						titleForRow:[self.pkrTimePickerView selectedRowInComponent:2]
+					   forComponent:2] intValue];
+	int timeInSeconds = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60);
+	
+	return timeInSeconds;
 }
 
 /*
@@ -161,8 +204,6 @@ numberOfRowsInComponent:(NSInteger)component {
 							  inComponent:component
 								 animated:YES];
 	}
-	// Selection Logic
-	NSLog(@"%lu %lu", [self. pkrTimePickerView selectedRowInComponent:component], component);
 }
 
 //-(CGFloat) pickerView:(UIPickerView *)pickerView

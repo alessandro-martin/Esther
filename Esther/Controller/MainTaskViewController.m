@@ -2,15 +2,17 @@
 #import "Cell.h"
 #import <UIColor+FlatColors.h>
 #import "SubTask.h"
-
-//#define SECTION_COUNT 3
-//#define ITEM_COUNT 5
+#import "LSCollectionViewHelper.h"
 
 @interface MainTaskViewController () <UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray *sections;
 @property (nonatomic) NSUInteger sectionsCount;
 @property (nonatomic, strong) NSMutableSet *subTasks;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *singleTapGestureRecognizer;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *doubleTapGestureRecognizer;
+
+@property (strong, nonatomic) NSIndexPath *indexPath;
 
 @end
 
@@ -24,50 +26,64 @@
 	[self setupSections];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-	CGFloat cellSide = CGRectGetWidth(self.view.frame) / 8;
-	return CGSizeMake(cellSide, cellSide);
++ (NSArray *)subTaskColors {
+	return @[
+			 [UIColor flatTurquoiseColor],
+			 [UIColor flatPeterRiverColor],
+			 [UIColor flatAmethystColor],
+			 [UIColor flatWetAsphaltColor],
+			 [UIColor flatSunFlowerColor],
+			 [UIColor flatOrangeColor],
+			 [UIColor flatEmeraldColor],
+			 [UIColor flatBelizeHoleColor],
+			 [UIColor flatWisteriaColor],
+			 [UIColor flatAlizarinColor]
+			 ];
+}
+
+- (IBAction)mainViewDoubleTapped:(id)sender {
+	self.indexPath =[NSIndexPath indexPathForRow: 0
+									   inSection:self.sectionsCount];
+	[self performSegueWithIdentifier:@"newSubTask" sender:self];
 }
 
 - (IBAction)mainViewTapped:(UITapGestureRecognizer *)sender {
-	NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-	NSLog(@"%@", indexPath);
-	if (!indexPath) {
-		[self addNewSubTask:indexPath];
+	self.indexPath =
+	[self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+	if (!self.indexPath) {
+		LSCollectionViewHelper *helper = [self.collectionView getHelper];
+		self.indexPath = [helper indexPathForItemClosestToPoint:[sender locationInView:self.collectionView]];
+		[self addNewSubTask];
 	} else {
-		NSLog(@"Here I should Edit the Subtask at %@", indexPath);
+		NSLog(@"Here I should Edit the Subtask at %@", self.indexPath);
 	}
 }
 
-#warning  GROSS IMPLEMENTATION ADDS SUBTASK DIRECTLY!!!
-- (void) addNewSubTask:(NSIndexPath *)indexPath {
+- (void) addNewSubTask {
+	self.indexPath = [NSIndexPath indexPathForRow:((NSArray *)self.sections[[self.indexPath indexAtPosition:0]]).count
+										inSection:[self.indexPath indexAtPosition:0]];
 	[self performSegueWithIdentifier:@"newSubTask" sender:self];
-	return;
-	SubTask *subTask = [SubTask insertInManagedObjectContext:self.moc];
-	[self.subTasks addObject:subTask];
-	subTask.subTaskName = [NSString stringWithFormat:@"%lu", self.subTasks.count];
-	subTask.subTaskIsCompletedValue = NO;
-	subTask.subTaskIsVisibleValue = YES;
-	subTask.subTaskColor = [UIColor flatCarrotColor];
-	if (!indexPath) {
-		indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue
+				 sender:(id)sender {
+	if ([[segue identifier] isEqualToString:@"newSubTask"]) {
+		NewSubTaskViewController *controller = (NewSubTaskViewController *)[segue destinationViewController];
+		
+		UIColor *subTaskColor = [MainTaskViewController subTaskColors][[self.indexPath indexAtPosition:0]];
+		controller.subTaskColor = subTaskColor;
+		controller.moc = self.moc;
+		controller.mainTask = self.mainTask;
+		controller.indexPath = self.indexPath;
+		controller.delegate = self;
 	}
-	subTask.subTaskScreenPositionXValue =
-	((NSMutableArray *)self.sections[indexPath.section]).count;
-	subTask.subTaskScreenPositionYValue = indexPath.section;
-	subTask.mainTask = self.mainTask;
-	NSError *error;
-	if ([self.moc hasChanges] && ![self.moc save:&error]) {
-		NSLog(@"Fatal Error: \n%@", error.localizedDescription);
-		abort();
-	}
-	[self setupSections];
-	[self.collectionView reloadData];
 }
 
 - (void) setupView {
 	self.view.backgroundColor = [UIColor flatSilverColor];
 	self.title = self.mainTask.mainTaskName;
+	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
+	
 }
 
 - (void) setupSections {
@@ -97,10 +113,12 @@
 }
 
 -(NSMutableSet *)subTasks {
-	if (!_subTasks) {
-		_subTasks = [[self.mainTask subTasks] mutableCopy];
-	}
-	
+//	if (!_subTasks) {
+//		_subTasks = [[self.mainTask subTasks] mutableCopy];
+//	}
+//	
+//	return _subTasks;
+	_subTasks = [[self.mainTask subTasks] mutableCopy];
 	return _subTasks;
 }
 
@@ -114,6 +132,13 @@
 	
 	_sectionsCount++;
 	return _sectionsCount;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+				  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+	CGFloat cellSide = CGRectGetWidth(self.view.frame) / 8;
+	return CGSizeMake(cellSide, cellSide);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -173,7 +198,11 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
     [data2 insertObject:index atIndex:toIndexPath.item];
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	NSLog(@"Preparing for segue %@", [segue description]);
+#pragma mark - NewSubTaskViewController Delegate Method
+
+- (void) updateMainTask {
+	[self setupSections];
+	[self.collectionView reloadData];
 }
+
 @end

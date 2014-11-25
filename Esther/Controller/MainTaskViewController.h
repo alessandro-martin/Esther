@@ -2,8 +2,9 @@
 
 #import "MainTask.h"
 #import "UICollectionView+Draggable.h"
+#import "NewSubTaskViewController.h"
 
-@interface MainTaskViewController : UIViewController <UICollectionViewDataSource_Draggable, UICollectionViewDelegate>
+@interface MainTaskViewController : UIViewController <UICollectionViewDataSource_Draggable, UICollectionViewDelegate, NewSubTaskViewControllerDone>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

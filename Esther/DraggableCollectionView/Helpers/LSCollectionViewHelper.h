@@ -4,6 +4,9 @@
 
 - (id)initWithCollectionView:(UICollectionView *)collectionView;
 
+#warning MY ADDENDUM
+- (NSIndexPath *)indexPathForItemClosestToPoint:(CGPoint)point;
+
 @property (nonatomic, readonly) UICollectionView *collectionView;
 @property (nonatomic, readonly) UILongPressGestureRecognizer *longPressGestureRecognizer;
 @property (nonatomic, readonly) UIPanGestureRecognizer *panPressGestureRecognizer;
