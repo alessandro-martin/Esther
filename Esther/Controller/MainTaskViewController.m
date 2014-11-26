@@ -42,7 +42,7 @@
 }
 
 - (IBAction)mainViewDoubleTapped:(id)sender {
-	self.indexPath =[NSIndexPath indexPathForRow: 0
+	self.indexPath =[NSIndexPath indexPathForRow:0
 									   inSection:self.sectionsCount];
 	[self performSegueWithIdentifier:@"newSubTask" sender:self];
 }
@@ -83,7 +83,8 @@
 	self.view.backgroundColor = [UIColor flatSilverColor];
 	self.title = self.mainTask.mainTaskName;
 	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
-	
+//	self.collectionView.dataSource = self;
+//	self.collectionView.delegate = self;
 }
 
 - (void) setupSections {
@@ -113,11 +114,6 @@
 }
 
 -(NSMutableSet *)subTasks {
-//	if (!_subTasks) {
-//		_subTasks = [[self.mainTask subTasks] mutableCopy];
-//	}
-//	
-//	return _subTasks;
 	_subTasks = [[self.mainTask subTasks] mutableCopy];
 	return _subTasks;
 }
@@ -136,25 +132,23 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
 				  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+#warning Cell Size Could Depend on Time, Cost, Etc...
 	CGFloat cellSide = CGRectGetWidth(self.view.frame) / 8;
 	return CGSizeMake(cellSide, cellSide);
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self.sections.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
-	 numberOfItemsInSection:(NSInteger)section
-{
+	 numberOfItemsInSection:(NSInteger)section {
     return [[self.sections objectAtIndex:section] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-				  cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+				  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     Cell *cell = (Cell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell"
 																  forIndexPath:indexPath];
     NSMutableArray *data = [self.sections objectAtIndex:indexPath.section];
@@ -165,8 +159,7 @@
 }
 
 - (BOOL)collectionView:(LSCollectionViewHelper *)collectionView
-canMoveItemAtIndexPath:(NSIndexPath *)indexPath
-{
+canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.row >= [self.sections[indexPath.section] count]) {
 		return NO;
 	}
@@ -176,8 +169,7 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 
 - (BOOL)collectionView:(UICollectionView *)collectionView
 canMoveItemAtIndexPath:(NSIndexPath *)indexPath
-		   toIndexPath:(NSIndexPath *)toIndexPath
-{
+		   toIndexPath:(NSIndexPath *)toIndexPath {
 // Prevent item from being moved to index 0
 //    if (toIndexPath.item == 0) {
 //        return NO;
@@ -187,20 +179,73 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)collectionView:(LSCollectionViewHelper *)collectionView
    moveItemAtIndexPath:(NSIndexPath *)fromIndexPath
-		   toIndexPath:(NSIndexPath *)toIndexPath
-{
+		   toIndexPath:(NSIndexPath *)toIndexPath {
+	// From section and to section, might just be the same, of course
     NSMutableArray *data1 = [self.sections objectAtIndex:fromIndexPath.section];
     NSMutableArray *data2 = [self.sections objectAtIndex:toIndexPath.section];
 	
-	NSString *index = [data1 objectAtIndex:fromIndexPath.item];
+	SubTask *movingTask = [data1 objectAtIndex:fromIndexPath.item];
 	
     [data1 removeObjectAtIndex:fromIndexPath.item];
-    [data2 insertObject:index atIndex:toIndexPath.item];
+    [data2 insertObject:movingTask atIndex:toIndexPath.item];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
+		   toIndexPath:(NSIndexPath *)toIndexPath {
+	NSUInteger fromIndex = fromIndexPath.section;
+	NSUInteger toIndex = toIndexPath.section;
+	NSMutableArray *data1 = [self.sections objectAtIndex:fromIndex];
+	NSMutableArray *data2 = [self.sections objectAtIndex:toIndex];
+	BOOL isFromSectionEmpty = NO;
+	
+	if (data1.count == 0) {
+		isFromSectionEmpty = YES;
+	} else {
+		[self updateStorageFromData:data1 atSection:fromIndex];
+	}
+	
+	// Iterate through destination only if it's not the same as origin
+	if (fromIndex != toIndex) {
+		if (isFromSectionEmpty) {
+			NSUInteger didPassEmptySection = 0;
+			for (int i = 0; i < self.sections.count; i++) {
+				if (i == fromIndex) {
+					didPassEmptySection = 1;
+					continue;
+				}
+				NSMutableArray *data = [self.sections objectAtIndex:i];
+				[self updateStorageFromData:data atSection:i - didPassEmptySection];
+			}
+			[self.sections removeObjectAtIndex:fromIndex];
+		} else {
+			[self updateStorageFromData:data2 atSection:toIndex];
+		}
+	}
+	
+	[self updateMainTask];
+}
+
+- (void) updateStorageFromData:(NSArray *)data
+					 atSection:(NSUInteger)section {
+	[data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		SubTask *s = (SubTask *)obj;
+		s.subTaskColor = [MainTaskViewController subTaskColors][section];
+		s.subTaskScreenPositionXValue = idx;
+		s.subTaskScreenPositionYValue = section;
+		
+		NSError *error;
+		if ([self.moc hasChanges] && ![self.moc save:&error]) {
+			NSLog(@"Fatal Error: \n%@", error.localizedDescription);
+			abort();
+		}
+	}];
 }
 
 #pragma mark - NewSubTaskViewController Delegate Method
 
 - (void) updateMainTask {
+	[self.collectionView.collectionViewLayout invalidateLayout]; // YESSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!
 	[self setupSections];
 	[self.collectionView reloadData];
 }
