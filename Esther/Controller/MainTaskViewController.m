@@ -83,8 +83,6 @@
 	self.view.backgroundColor = [UIColor flatSilverColor];
 	self.title = self.mainTask.mainTaskName;
 	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
-//	self.collectionView.dataSource = self;
-//	self.collectionView.delegate = self;
 }
 
 - (void) setupSections {

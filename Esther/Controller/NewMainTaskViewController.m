@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnDiscardImage;
 
 @property (strong, nonatomic) UIPopoverController *imagePopOverController;
+@property (nonatomic, strong) UIImage *mainTaskImage;
 
 @end
 
@@ -34,18 +35,28 @@
 
 - (IBAction)btnDiscardImagePressed:(id)sender {
 #warning btnDiscardImage color not flat :D
-	[UIView animateWithDuration:0.5 animations:^{
+	self.btnSetImage.hidden = NO;
+	self.btnSetImage.alpha = 0.0;
+	[UIView animateWithDuration:0.7 animations:^{
 		self.imgMainTaskImage.alpha = 0.0;
+		self.btnDiscardImage.alpha = 0.0;
+		self.btnSetImage.alpha = 1.0;
 	} completion:^(BOOL finished) {
 		self.imgMainTaskImage.image = nil;
-		self.btnSetImage.hidden = NO;
+		self.mainTaskImage = nil;
 		self.btnDiscardImage.hidden = YES;
-		self.imgMainTaskImage.alpha = 1.0;
+		self.btnDiscardImage.alpha = 1.0;
+		[UIView animateWithDuration:0.3
+						 animations:^{
+							 self.imgMainTaskImage.alpha = 1.0;
+						 } completion:nil
+		 ];
 	}];
 }
 
 - (IBAction)btnAddImagePressed:(UIButton *)sender {
 #warning Check Why Real Size and Position Don't match coords CGRect
+	[self dismissKeyboard];
 	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 	[picker setMediaTypes:@[(id)kUTTypeImage]];
 	[picker setDelegate:self];
@@ -53,6 +64,7 @@
 							   0,
 							   CGRectGetWidth(self.view.bounds) / 2,
 							   CGRectGetHeight(self.view.bounds));
+#warning iPAD ONLY!!!
 	self.imagePopOverController = [[UIPopoverController alloc] initWithContentViewController:picker];
 	self.imagePopOverController.delegate = self;
 	[self.imagePopOverController presentPopoverFromRect:coords
@@ -61,9 +73,6 @@
 											   animated:YES];
 	self.imagePopOverController.popoverContentSize = CGSizeMake(coords.size.width,
 																coords.size.height);
-	
-	
-	
 }
 
 - (IBAction)btnCancelPressed:(id)sender {
@@ -74,9 +83,11 @@
 	MainTask *mainTask = [MainTask insertInManagedObjectContext:self.moc];
 	mainTask.mainTaskCreationDate = [NSDate date];
 	mainTask.mainTaskDescription = [self.txvMainTaskDescription.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	mainTask.mainTaskImageURL = nil;
 	mainTask.mainTaskIsVisibleValue = YES;
 	mainTask.mainTaskName = [self.txtMainTaskName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	NSString *imageFileName = [self imageUrlForMainTaskName:mainTask.mainTaskName];
+	mainTask.mainTaskImageURL = imageFileName;
+	[self saveImage:imageFileName];
 	mainTask.mainTaskTotalCost = 0;
 	mainTask.mainTaskTotalTimeValue = 0;
 	
@@ -87,6 +98,19 @@
 	}
 	
 	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) saveImage:(NSString *)filePath {
+	NSData *pngData = UIImagePNGRepresentation(self.mainTaskImage);
+	[pngData writeToFile:filePath atomically:YES];
+}
+
+- (NSString *)imageUrlForMainTaskName:(NSString *)mainTaskName {
+	NSCharacterSet * illegalFileNameCharacters = [NSCharacterSet characterSetWithCharactersInString:@"/\\?%*|\"<>"];
+	NSString *sanitizedFileName =
+	[[mainTaskName componentsSeparatedByCharactersInSet:illegalFileNameCharacters] componentsJoinedByString:@""];
+	NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	return [[documentsPath stringByAppendingPathComponent:sanitizedFileName] stringByAppendingString:@".png"];
 }
 
 - (void) setupView {
@@ -134,12 +158,37 @@
 }
 */
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[self dismissKeyboard];
+}
+
+- (void) dismissKeyboard {
+	[[self.view subviews] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		UIView *v = (UIView *)obj;
+		if ([v isFirstResponder]) {
+			[v resignFirstResponder];
+			*stop = YES;
+		}
+	}];
+}
+
 #pragma mark - UIImagePickerControllerDelegate
 -(void) imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	self.imgMainTaskImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-	self.btnSetImage.hidden = YES;
-	self.btnDiscardImage.hidden = NO;
+	[self.imagePopOverController dismissPopoverAnimated:YES];
+	self.imgMainTaskImage.alpha = 0.0;
+    self.btnDiscardImage.hidden = NO;
+	self.btnDiscardImage.alpha = 0.0;
+	self.mainTaskImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+	self.imgMainTaskImage.image = self.mainTaskImage;
+	[UIView animateWithDuration:0.7
+					 animations:^{
+						 self.imgMainTaskImage.alpha = 1.0;
+						 self.btnSetImage.alpha = 0.0;
+						 self.btnDiscardImage.alpha = 1.0;
+					 } completion:^(BOOL finished) {
+						 self.btnSetImage.hidden = YES;
+					 }];
 }
 
 @end

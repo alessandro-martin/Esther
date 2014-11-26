@@ -82,8 +82,8 @@
 		A724D7A21A191BEE0041A04A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A724D7A81A191BEE0041A04A /* EstherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A724D7AD1A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A724D7BC1A194A720041A04A /* AMTTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTTaskView.h; sourceTree = "<group>"; };
-		A724D7BD1A194A720041A04A /* AMTTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTTaskView.m; sourceTree = "<group>"; };
+		A724D7BC1A194A720041A04A /* AMTTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTTaskView.h; path = ../View/AMTTaskView.h; sourceTree = "<group>"; };
+		A724D7BD1A194A720041A04A /* AMTTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTTaskView.m; path = ../View/AMTTaskView.m; sourceTree = "<group>"; };
 		A724D7BF1A194C8E0041A04A /* AMTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTCoreDataStack.h; path = ../AMTCoreDataStack.h; sourceTree = "<group>"; };
 		A724D7C01A194C8E0041A04A /* AMTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTCoreDataStack.m; path = ../AMTCoreDataStack.m; sourceTree = "<group>"; };
 		A724D7C31A194D480041A04A /* AMTEstherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AMTEstherModel.xcdatamodel; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 		A7320FC21A1F6D8B00C3A125 /* NewMainTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMainTaskViewController.m; sourceTree = "<group>"; };
 		A738000E1A225DE8009A27B5 /* AMTEstherModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AMTEstherModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		A73F66C51A24B9D600D98F6D /* Esther_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Esther_Logo.png; sourceTree = "<group>"; };
-		A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTGlobalTaskView.h; sourceTree = "<group>"; };
-		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTGlobalTaskView.m; sourceTree = "<group>"; };
+		A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTGlobalTaskView.h; path = ../View/AMTGlobalTaskView.h; sourceTree = "<group>"; };
+		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTGlobalTaskView.m; path = ../View/AMTGlobalTaskView.m; sourceTree = "<group>"; };
 		A77D0A5F1A2349EB00F5216D /* NewSubTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSubTaskViewController.h; sourceTree = "<group>"; };
 		A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSubTaskViewController.m; sourceTree = "<group>"; };
 		A77D0A621A2353C200F5216D /* AMTTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTTimePickerView.h; sourceTree = "<group>"; };
@@ -150,6 +150,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A717E8681A26607000681DEC /* OldStuff */ = {
+			isa = PBXGroup;
+			children = (
+				A724D7BC1A194A720041A04A /* AMTTaskView.h */,
+				A724D7BD1A194A720041A04A /* AMTTaskView.m */,
+				A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */,
+				A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */,
+				A724D7991A191BEE0041A04A /* DetailViewController.h */,
+				A724D79A1A191BEE0041A04A /* DetailViewController.m */,
+				A724D79C1A191BEE0041A04A /* Main.storyboard */,
+			);
+			name = OldStuff;
+			sourceTree = "<group>";
+		};
 		A724D7831A191BEE0041A04A = {
 			isa = PBXGroup;
 			children = (
@@ -186,13 +200,11 @@
 		A724D78F1A191BEE0041A04A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A724D7991A191BEE0041A04A /* DetailViewController.h */,
-				A724D79A1A191BEE0041A04A /* DetailViewController.m */,
-				A724D79C1A191BEE0041A04A /* Main.storyboard */,
 				A724D7931A191BEE0041A04A /* AppDelegate.h */,
 				A724D7941A191BEE0041A04A /* AppDelegate.m */,
 				A724D7901A191BEE0041A04A /* Info.plist */,
 				A724D7911A191BEE0041A04A /* main.m */,
+				A717E8681A26607000681DEC /* OldStuff */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -263,14 +275,10 @@
 		A724D7BB1A191C280041A04A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A7C802BA1A213FA500D8180E /* Cell.h */,
-				A7C802BB1A213FA500D8180E /* Cell.m */,
 				A7C802B81A21350A00D8180E /* Custom.storyboard */,
 				A724D7A11A191BEE0041A04A /* LaunchScreen.xib */,
-				A724D7BC1A194A720041A04A /* AMTTaskView.h */,
-				A724D7BD1A194A720041A04A /* AMTTaskView.m */,
-				A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */,
-				A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */,
+				A7C802BA1A213FA500D8180E /* Cell.h */,
+				A7C802BB1A213FA500D8180E /* Cell.m */,
 				A77D0A621A2353C200F5216D /* AMTTimePickerView.h */,
 				A77D0A631A2353C200F5216D /* AMTTimePickerView.m */,
 			);

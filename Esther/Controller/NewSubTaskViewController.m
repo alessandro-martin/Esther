@@ -36,6 +36,20 @@ static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[self dismissKeyboard];
+}
+
+- (void) dismissKeyboard {
+	[[self.view subviews] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		UIView *v = (UIView *)obj;
+		if ([v isFirstResponder]) {
+			[v resignFirstResponder];
+			*stop = YES;
+		}
+	}];
+}
+
 - (NSArray *)pickerData {
 	if (!_pickerData) {
 		NSMutableArray *temp = [NSMutableArray array];
@@ -137,8 +151,7 @@ static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
 
 - (BOOL) isValidName:(NSString *)name {
 	name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-	return name.length > 0;// && ![SubTask existsSubTaskWithName:name
-							//						inContext:self.moc];
+	return name.length > 0;
 }
 
 - (NSDecimalNumber *)costValueFromTextField {
@@ -206,8 +219,4 @@ numberOfRowsInComponent:(NSInteger)component {
 	}
 }
 
-//-(CGFloat) pickerView:(UIPickerView *)pickerView
-//rowHeightForComponent:(NSInteger)component {
-//	return 40.0;
-//}
 @end
