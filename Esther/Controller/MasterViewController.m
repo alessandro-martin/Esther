@@ -86,5 +86,4 @@
 	cell.textLabel.text = mainTask.mainTaskName;
 }
 
-
 @end

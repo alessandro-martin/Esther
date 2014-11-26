@@ -37,7 +37,8 @@
 		case NSFetchedResultsChangeDelete:
 			[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
 			break;
-			
+		case NSFetchedResultsChangeUpdate:
+			NSLog(@"UPDATE!");
 		default:
 			return;
 	}

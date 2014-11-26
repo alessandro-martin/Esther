@@ -16,7 +16,8 @@ static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-	self.view.backgroundColor = [UIColor flatNephritisColor];
+	//self.view.backgroundColor = [UIColor flatMidnightBlueColor];
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgoundSettingsPlain.png"]];
 	[self displayUserDefaults];
 }
 
@@ -33,8 +34,8 @@ static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSNumber *mainTasks = [defaults objectForKey:MAX_MAIN_TASKS_KEY];
 	NSNumber *subTasks = [defaults objectForKey:MAX_SUB_TASKS_KEY];
-	self.maximumMainTasksLabel.text = [NSString stringWithFormat:@"Maximum Main Tasks:%@", mainTasks];
-	self.maximumSubTasksLabel.text = [NSString stringWithFormat:@"Maximum Sub Tasks:%@", subTasks];
+	self.maximumMainTasksLabel.text = [NSString stringWithFormat:@"Current Allowed Main Tasks:%@", mainTasks];
+	self.maximumSubTasksLabel.text = [NSString stringWithFormat:@"Current Allowed Sub Tasks:%@", subTasks];
 }
 /*
 #pragma mark - Navigation

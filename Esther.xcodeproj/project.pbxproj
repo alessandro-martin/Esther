@@ -39,6 +39,8 @@
 		A77D0A641A2353C200F5216D /* AMTTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A631A2353C200F5216D /* AMTTimePickerView.m */; };
 		A77D0A661A23788700F5216D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77D0A651A23788700F5216D /* MapKit.framework */; };
 		A78B2B051A1EBFD400D6E0C4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */; };
+		A7A1F1CA1A25E4E700995FE0 /* backgoundSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1F1C91A25E4E700995FE0 /* backgoundSettings.png */; };
+		A7A1F1CC1A25E5CD00995FE0 /* backgoundSettingsPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1F1CB1A25E5CD00995FE0 /* backgoundSettingsPlain.png */; };
 		A7C802B91A21350A00D8180E /* Custom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C802B81A21350A00D8180E /* Custom.storyboard */; };
 		A7C802BC1A213FA500D8180E /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802BB1A213FA500D8180E /* Cell.m */; };
 		A7C802CA1A213FB000D8180E /* LSCollectionViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C802C01A213FB000D8180E /* LSCollectionViewHelper.m */; };
@@ -99,6 +101,8 @@
 		A77D0A651A23788700F5216D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A78B2B031A1EBFD400D6E0C4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		A7A1F1C91A25E4E700995FE0 /* backgoundSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgoundSettings.png; sourceTree = "<group>"; };
+		A7A1F1CB1A25E5CD00995FE0 /* backgoundSettingsPlain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgoundSettingsPlain.png; sourceTree = "<group>"; };
 		A7C802B81A21350A00D8180E /* Custom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Custom.storyboard; sourceTree = "<group>"; };
 		A7C802BA1A213FA500D8180E /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		A7C802BB1A213FA500D8180E /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 		A724D7BA1A191C1E0041A04A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1F1C91A25E4E700995FE0 /* backgoundSettings.png */,
+				A7A1F1CB1A25E5CD00995FE0 /* backgoundSettingsPlain.png */,
 				A73F66C51A24B9D600D98F6D /* Esther_Logo.png */,
 				A724D79F1A191BEE0041A04A /* Images.xcassets */,
 			);
@@ -416,8 +422,10 @@
 				A73F66C61A24B9D600D98F6D /* Esther_Logo.png in Resources */,
 				A724D79E1A191BEE0041A04A /* Main.storyboard in Resources */,
 				A724D7A31A191BEE0041A04A /* LaunchScreen.xib in Resources */,
+				A7A1F1CC1A25E5CD00995FE0 /* backgoundSettingsPlain.png in Resources */,
 				A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */,
 				A7C802B91A21350A00D8180E /* Custom.storyboard in Resources */,
+				A7A1F1CA1A25E4E700995FE0 /* backgoundSettings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
