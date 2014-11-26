@@ -49,7 +49,13 @@
 
 	cell.textLabel.text = mainTask.mainTaskName;
 	NSData *pngData = [NSData dataWithContentsOfFile:mainTask.mainTaskImageURL];
-	cell.imageView.image = [UIImage imageWithData:pngData];
+	UIImage *img;
+	if (!pngData) {
+		img = [UIImage imageNamed:@"placeholder"];
+	} else {
+		img = [UIImage imageWithData:pngData];
+	}
+	cell.imageView.image = img;
 	cell.backgroundColor = [UIColor clearColor];
 }
 

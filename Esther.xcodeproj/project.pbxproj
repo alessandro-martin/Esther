@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		8F2AAEC8AFCBE5369483B074 /* libPods-Esther.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */; };
+		A717E86A1A2661A700681DEC /* EstherLaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A717E8691A2661A700681DEC /* EstherLaunchScreen.png */; };
 		A724D7921A191BEE0041A04A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7911A191BEE0041A04A /* main.m */; };
 		A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7941A191BEE0041A04A /* AppDelegate.m */; };
 		A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7971A191BEE0041A04A /* MasterViewController.m */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		49847BEC205CA3FBD6A72EC5 /* Pods-Esther.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esther.release.xcconfig"; path = "Pods/Target Support Files/Pods-Esther/Pods-Esther.release.xcconfig"; sourceTree = "<group>"; };
 		A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Esther.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A717E8691A2661A700681DEC /* EstherLaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EstherLaunchScreen.png; sourceTree = "<group>"; };
 		A724D78C1A191BEE0041A04A /* Esther.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esther.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A724D7901A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A724D7911A191BEE0041A04A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A1F1C91A25E4E700995FE0 /* backgoundSettings.png */,
+				A717E8691A2661A700681DEC /* EstherLaunchScreen.png */,
 				A7A1F1CB1A25E5CD00995FE0 /* backgoundSettingsPlain.png */,
 				A73F66C51A24B9D600D98F6D /* Esther_Logo.png */,
 				A724D79F1A191BEE0041A04A /* Images.xcassets */,
@@ -434,6 +437,7 @@
 				A724D7A01A191BEE0041A04A /* Images.xcassets in Resources */,
 				A7C802B91A21350A00D8180E /* Custom.storyboard in Resources */,
 				A7A1F1CA1A25E4E700995FE0 /* backgoundSettings.png in Resources */,
+				A717E86A1A2661A700681DEC /* EstherLaunchScreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

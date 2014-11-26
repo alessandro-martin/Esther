@@ -16,7 +16,7 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Esther_Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="viK-sn-Qgo">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="EstherLaunchScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="viK-sn-Qgo">
                     <rect key="frame" x="54" y="59" width="372" height="372"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
@@ -54,6 +54,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Esther_Logo.png" width="1666" height="1798"/>
+        <image name="EstherLaunchScreen.png" width="1203" height="1297"/>
     </resources>
 </document>

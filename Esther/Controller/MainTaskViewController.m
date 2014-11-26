@@ -42,6 +42,11 @@
 }
 
 - (IBAction)mainViewDoubleTapped:(id)sender {
+	if (self.sections.count <= 1 && ((NSArray *)self.sections[0]).count == 0) {
+		// Don't add another section to an empty workspace
+		return;
+	}
+	
 	self.indexPath =[NSIndexPath indexPathForRow:0
 									   inSection:self.sectionsCount];
 	[self performSegueWithIdentifier:@"newSubTask" sender:self];
@@ -153,6 +158,14 @@
 	SubTask *subTask = (SubTask *)[data objectAtIndex:indexPath.item];
 	cell.label.text = subTask.subTaskName;
 	cell.backgroundColor = subTask.subTaskColor;
+	
+	// SHADOW
+	cell.layer.masksToBounds = NO;
+	cell.layer.shadowOpacity = 0.75f;
+	cell.layer.shadowRadius = 10.0f;
+	cell.layer.shadowOffset = CGSizeMake(15, 20);
+	cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;
+	//
     return cell;
 }
 
