@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		8F2AAEC8AFCBE5369483B074 /* libPods-Esther.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */; };
+		A7089FD91A273DCF00FA3C46 /* EditSubTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7089FD81A273DCF00FA3C46 /* EditSubTaskViewController.m */; };
 		A717E86A1A2661A700681DEC /* EstherLaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A717E8691A2661A700681DEC /* EstherLaunchScreen.png */; };
 		A724D7921A191BEE0041A04A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7911A191BEE0041A04A /* main.m */; };
 		A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A724D7941A191BEE0041A04A /* AppDelegate.m */; };
@@ -70,6 +71,8 @@
 /* Begin PBXFileReference section */
 		49847BEC205CA3FBD6A72EC5 /* Pods-Esther.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esther.release.xcconfig"; path = "Pods/Target Support Files/Pods-Esther/Pods-Esther.release.xcconfig"; sourceTree = "<group>"; };
 		A2C3E094C6DBC62EF8C309FF /* libPods-Esther.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Esther.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7089FD71A273DCF00FA3C46 /* EditSubTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSubTaskViewController.h; sourceTree = "<group>"; };
+		A7089FD81A273DCF00FA3C46 /* EditSubTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSubTaskViewController.m; sourceTree = "<group>"; };
 		A717E8691A2661A700681DEC /* EstherLaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EstherLaunchScreen.png; sourceTree = "<group>"; };
 		A724D78C1A191BEE0041A04A /* Esther.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esther.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A724D7901A191BEE0041A04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 				A7320FC21A1F6D8B00C3A125 /* NewMainTaskViewController.m */,
 				A77D0A5F1A2349EB00F5216D /* NewSubTaskViewController.h */,
 				A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */,
+				A7089FD71A273DCF00FA3C46 /* EditSubTaskViewController.h */,
+				A7089FD81A273DCF00FA3C46 /* EditSubTaskViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				A7C802CD1A213FB000D8180E /* UICollectionView+Draggable.m in Sources */,
 				A724D7C11A194C8E0041A04A /* AMTCoreDataStack.m in Sources */,
 				A7C802D01A213FC300D8180E /* MainTaskViewController.m in Sources */,
+				A7089FD91A273DCF00FA3C46 /* EditSubTaskViewController.m in Sources */,
 				A7320FC31A1F6D8B00C3A125 /* NewMainTaskViewController.m in Sources */,
 				A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */,
 				A724D7951A191BEE0041A04A /* AppDelegate.m in Sources */,

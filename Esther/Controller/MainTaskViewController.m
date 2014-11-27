@@ -3,6 +3,7 @@
 #import <UIColor+FlatColors.h>
 #import "SubTask.h"
 #import "LSCollectionViewHelper.h"
+#import "EditSubTaskViewController.h"
 
 @interface MainTaskViewController () <UICollectionViewDelegateFlowLayout>
 
@@ -28,10 +29,10 @@
 
 + (NSArray *)subTaskColors {
 	return @[
-			 [UIColor flatTurquoiseColor],
-			 [UIColor flatPeterRiverColor],
 			 [UIColor flatAmethystColor],
 			 [UIColor flatWetAsphaltColor],
+			 [UIColor flatTurquoiseColor],
+			 [UIColor flatPeterRiverColor],
 			 [UIColor flatSunFlowerColor],
 			 [UIColor flatOrangeColor],
 			 [UIColor flatEmeraldColor],
@@ -60,8 +61,8 @@
 		self.indexPath = [helper indexPathForItemClosestToPoint:[sender locationInView:self.collectionView]];
 		[self addNewSubTask];
 	} else {
-#warning EDIT SUBTASK!!!
-		NSLog(@"Here I should Edit the Subtask at %@", self.indexPath);
+		[self performSegueWithIdentifier:@"editSubTaskSegue"
+								  sender:self];
 	}
 }
 
@@ -82,7 +83,15 @@
 		controller.mainTask = self.mainTask;
 		controller.indexPath = self.indexPath;
 		controller.delegate = self;
+	} else if ([[segue identifier] isEqualToString:@"editSubTaskSegue"]) {
+		NSUInteger s = self.indexPath.section;
+		NSUInteger r =  self.indexPath.row;
+		EditSubTaskViewController *controller = (EditSubTaskViewController *)[segue destinationViewController];
+		controller.moc = self.moc;
+		controller.subTask = (SubTask *)self.sections[s][r];
 	}
+
+	
 }
 
 - (void) setupView {

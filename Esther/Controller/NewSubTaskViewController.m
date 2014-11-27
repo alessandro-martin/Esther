@@ -135,7 +135,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 	self.lblTime.backgroundColor = [UIColor flatCloudsColor];
 	self.lblMainTaskName.text =
 	[NSString stringWithFormat:@"Main Task: %@", self.mainTask.mainTaskName];
-	self.lblMainTaskName.backgroundColor = [UIColor flatWisteriaColor];
+	self.lblMainTaskName.backgroundColor = self.subTaskColor;
 	
 	[[self.txtSubTaskName.rac_textSignal
 	  map:^id(NSString *text) {
