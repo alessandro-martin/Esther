@@ -24,6 +24,11 @@
 	// Dispose of any resources that can be recreated.
 }
 
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -51,7 +56,7 @@
 	NSData *pngData = [NSData dataWithContentsOfFile:mainTask.mainTaskImageURL];
 	UIImage *img;
 	if (!pngData) {
-		img = [UIImage imageNamed:@"placeholder"];
+		img = [UIImage imageNamed:@"Logo_Keydi.png"];
 	} else {
 		img = [UIImage imageWithData:pngData];
 	}

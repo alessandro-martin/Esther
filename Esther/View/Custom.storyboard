@@ -295,6 +295,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="jqq-mi-R89"/>
                                 </constraints>
+                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

@@ -8,8 +8,9 @@ static NSInteger const NUMBER_OF_COMPONENTS_IN_PICKER_VIEW = 3;
 static NSUInteger const MAXIMUM_NUMBER_OF_DAYS = 45; // ONE MONTH AND A HALF
 static NSUInteger const MAXIMUM_NUMBER_OF_HOURS = 23;
 static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
+static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description here:";
 
-@interface NewSubTaskViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface NewSubTaskViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnDone;
 @property (weak, nonatomic) IBOutlet UIButton *btnCancel;
@@ -127,6 +128,9 @@ static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
 	self.btnDone.backgroundColor = [UIColor flatBelizeHoleColor];
 	self.btnCancel.backgroundColor = [UIColor flatAlizarinColor];
 	self.txvSubTaskDescription.backgroundColor = [UIColor flatCloudsColor];
+	self.txvSubTaskDescription.delegate = self;
+	self.txvSubTaskDescription.text = TEXTVIEW_PLACEHOLDER;
+	self.txvSubTaskDescription.textColor = [UIColor lightGrayColor];
 	self.pkrTimePickerView.backgroundColor = [UIColor flatCloudsColor];
 	self.lblTime.backgroundColor = [UIColor flatCloudsColor];
 	self.lblMainTaskName.text =
@@ -216,6 +220,22 @@ numberOfRowsInComponent:(NSInteger)component {
 		[self.pkrTimePickerView selectRow:1
 							  inComponent:component
 								 animated:YES];
+	}
+}
+
+#pragma mark UITextViewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+	if ([textView.text isEqualToString:TEXTVIEW_PLACEHOLDER]) {
+		textView.text = @"";
+		textView.textColor = [UIColor darkTextColor];
+	}
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+	if ([textView.text isEqualToString:@""]) {
+		textView.text = TEXTVIEW_PLACEHOLDER;
+		textView.textColor = [UIColor lightGrayColor];
 	}
 }
 

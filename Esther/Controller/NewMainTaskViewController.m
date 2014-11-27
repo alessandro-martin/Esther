@@ -6,7 +6,9 @@
 #import "NewMainTaskViewController.h"
 #import "MainTask.h"
 
-@interface NewMainTaskViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UIGestureRecognizerDelegate>
+static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description here:";
+
+@interface NewMainTaskViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UIGestureRecognizerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtMainTaskName;
 @property (weak, nonatomic) IBOutlet UITextView *txvMainTaskDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMainTaskImage;
@@ -116,11 +118,13 @@
 - (void) setupView {
 	self.view.backgroundColor = [UIColor flatTurquoiseColor];
 	self.txtMainTaskName.backgroundColor = [UIColor flatGreenSeaColor];
-	self.txvMainTaskDescription.backgroundColor = [UIColor flatGreenSeaColor];
 	self.imgMainTaskImage.backgroundColor = [UIColor flatGreenSeaColor];
 	self.btnDone.backgroundColor = [UIColor flatBelizeHoleColor];
 	self.btnCancel.backgroundColor = [UIColor flatAlizarinColor];
 	self.txvMainTaskDescription.backgroundColor = [UIColor flatCloudsColor];
+	self.txvMainTaskDescription.delegate = self;
+	self.txvMainTaskDescription.text = TEXTVIEW_PLACEHOLDER;
+	self.txvMainTaskDescription.textColor = [UIColor lightGrayColor];
 	
 	[[self.txtMainTaskName.rac_textSignal
 	  map:^id(NSString *text) {
@@ -189,6 +193,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 					 } completion:^(BOOL finished) {
 						 self.btnSetImage.hidden = YES;
 					 }];
+}
+
+#pragma mark UITextViewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+	if ([textView.text isEqualToString:TEXTVIEW_PLACEHOLDER]) {
+		textView.text = @"";
+		textView.textColor = [UIColor darkTextColor];
+	}
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+	if ([textView.text isEqualToString:@""]) {
+		textView.text = TEXTVIEW_PLACEHOLDER;
+		textView.textColor = [UIColor lightGrayColor];
+	}
 }
 
 @end
