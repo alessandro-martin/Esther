@@ -22,6 +22,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 @property (weak, nonatomic) IBOutlet UILabel *lblMainTaskName;
 
 @property (nonatomic, strong) NSArray *pickerData;
+@property (nonatomic, strong) NSString *currencySymbolFromLocale;
 
 @end
 
@@ -35,6 +36,15 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSString *)currencySymbolFromLocale {
+	if (!_currencySymbolFromLocale) {
+		NSLocale *theLocale = [NSLocale currentLocale];
+		_currencySymbolFromLocale = [theLocale objectForKey:NSLocaleCurrencySymbol];
+	}
+	
+	return _currencySymbolFromLocale;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -124,6 +134,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 
 - (void) setupView {
 	self.view.backgroundColor = [UIColor flatTurquoiseColor];
+	self.txtEstimatedCost.placeholder = self.currencySymbolFromLocale;
 	self.txtSubTaskName.backgroundColor = [UIColor flatGreenSeaColor];
 	self.btnDone.backgroundColor = [UIColor flatBelizeHoleColor];
 	self.btnCancel.backgroundColor = [UIColor flatAlizarinColor];

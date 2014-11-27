@@ -30,13 +30,9 @@ static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 
 - (void) setupUserDefaults {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSNumber *mainTasks = [defaults objectForKey:MAX_MAIN_TASKS_KEY];
-	NSNumber *subTasks = [defaults objectForKey:MAX_SUB_TASKS_KEY];
-	if (!mainTasks || !subTasks) {
-		[defaults setObject:@(MAX_MAIN_TASKS_DEFAULT_VALUE) forKey:MAX_MAIN_TASKS_KEY];
-		[defaults setObject:@(MAX_SUB_TASKS_DEFAULT_VALUE) forKey:MAX_SUB_TASKS_KEY];
-		[defaults synchronize];
-	} 
+	[defaults setObject:@(MAX_MAIN_TASKS_DEFAULT_VALUE) forKey:MAX_MAIN_TASKS_KEY];
+	[defaults setObject:@(MAX_SUB_TASKS_DEFAULT_VALUE) forKey:MAX_SUB_TASKS_KEY];
+	[defaults synchronize];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

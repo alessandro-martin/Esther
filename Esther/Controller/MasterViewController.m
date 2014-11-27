@@ -6,6 +6,8 @@
 
 @import QuartzCore;
 
+static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
+
 @interface MasterViewController () <NSFetchedResultsControllerDelegate>
 
 @end
@@ -46,6 +48,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	}
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier
+								  sender:(id)sender {
+	if ([identifier isEqualToString:@"newMainTask"]) {
+		if (self.fetchedResultsController.fetchedObjects.count < [self maxMainTasks]) {
+			return YES;
+		} else {
+			[self performSegueWithIdentifier:@"settingsSegue"
+									  sender:self];
+			return NO;
+		}
+	}
+	
+	return YES;
+}
+
 #pragma mark - Utility Methods
 
 - (void)configureCell:(UITableViewCell *)cell
@@ -62,6 +79,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	}
 	cell.imageView.image = img;
 	cell.backgroundColor = [UIColor clearColor];
+}
+
+- (int) maxMainTasks {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSNumber *mainTasks = [defaults objectForKey:MAX_MAIN_TASKS_KEY];
+	return [mainTasks intValue];
 }
 
 @end

@@ -5,6 +5,8 @@
 #import "LSCollectionViewHelper.h"
 #import "EditSubTaskViewController.h"
 
+static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
+
 @interface MainTaskViewController () <UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray *sections;
@@ -14,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *doubleTapGestureRecognizer;
 
 @property (strong, nonatomic) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSString *currencySymbolFromLocale;
 
 @end
 
@@ -42,9 +45,23 @@
 			 ];
 }
 
+- (NSString *)currencySymbolFromLocale {
+	if (!_currencySymbolFromLocale) {
+		NSLocale *theLocale = [NSLocale currentLocale];
+		_currencySymbolFromLocale = [theLocale objectForKey:NSLocaleCurrencySymbol];
+	}
+	
+	return _currencySymbolFromLocale;
+}
+
 - (IBAction)mainViewDoubleTapped:(id)sender {
+	if (self.subTasks.count >= [self maxSubTasks]) {
+		NSLog(@"No More SubTasks!!!");
+		return;
+	}
+	
 	if (self.sections.count <= 1 && ((NSArray *)self.sections[0]).count == 0) {
-		// Don't add another section to an empty workspace
+		NSLog(@"Can't add a section to an empty workspace");
 		return;
 	}
 	
@@ -67,31 +84,14 @@
 }
 
 - (void) addNewSubTask {
+	if (self.subTasks.count >= [self maxSubTasks]) {
+		NSLog(@"No More SubTasks!!!");
+		return;
+	}
+	
 	self.indexPath = [NSIndexPath indexPathForRow:((NSArray *)self.sections[[self.indexPath indexAtPosition:0]]).count
 										inSection:[self.indexPath indexAtPosition:0]];
 	[self performSegueWithIdentifier:@"newSubTask" sender:self];
-}
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue
-				 sender:(id)sender {
-	if ([[segue identifier] isEqualToString:@"newSubTask"]) {
-		NewSubTaskViewController *controller = (NewSubTaskViewController *)[segue destinationViewController];
-		
-		UIColor *subTaskColor = [MainTaskViewController subTaskColors][[self.indexPath indexAtPosition:0]];
-		controller.subTaskColor = subTaskColor;
-		controller.moc = self.moc;
-		controller.mainTask = self.mainTask;
-		controller.indexPath = self.indexPath;
-		controller.delegate = self;
-	} else if ([[segue identifier] isEqualToString:@"editSubTaskSegue"]) {
-		NSUInteger s = self.indexPath.section;
-		NSUInteger r =  self.indexPath.row;
-		EditSubTaskViewController *controller = (EditSubTaskViewController *)[segue destinationViewController];
-		controller.moc = self.moc;
-		controller.subTask = (SubTask *)self.sections[s][r];
-	}
-
-	
 }
 
 - (void) setupView {
@@ -165,7 +165,8 @@
 																  forIndexPath:indexPath];
     NSMutableArray *data = [self.sections objectAtIndex:indexPath.section];
 	SubTask *subTask = (SubTask *)[data objectAtIndex:indexPath.item];
-	cell.label.text = subTask.subTaskName;
+	cell.label.text = [NSString stringWithFormat:@"%@\n%@ %@", subTask.subTaskName,
+					   subTask.subTaskFinancialCost, self.currencySymbolFromLocale];
 	cell.backgroundColor = subTask.subTaskColor;
 	
 	// SHADOW
@@ -268,6 +269,36 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 	[self.collectionView.collectionViewLayout invalidateLayout]; // YESSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!
 	[self setupSections];
 	[self.collectionView reloadData];
+}
+
+#pragma mark - Segues
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue
+				 sender:(id)sender {
+	if ([[segue identifier] isEqualToString:@"newSubTask"]) {
+		NewSubTaskViewController *controller = (NewSubTaskViewController *)[segue destinationViewController];
+		
+		UIColor *subTaskColor = [MainTaskViewController subTaskColors][[self.indexPath indexAtPosition:0]];
+		controller.subTaskColor = subTaskColor;
+		controller.moc = self.moc;
+		controller.mainTask = self.mainTask;
+		controller.indexPath = self.indexPath;
+		controller.delegate = self;
+	} else if ([[segue identifier] isEqualToString:@"editSubTaskSegue"]) {
+		NSUInteger s = self.indexPath.section;
+		NSUInteger r =  self.indexPath.row;
+		EditSubTaskViewController *controller = (EditSubTaskViewController *)[segue destinationViewController];
+		controller.moc = self.moc;
+		controller.subTask = (SubTask *)self.sections[s][r];
+	}
+}
+
+#pragma mark - Utility
+
+- (int) maxSubTasks {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSNumber *subTasks = [defaults objectForKey:MAX_SUB_TASKS_KEY];
+	return [subTasks intValue];
 }
 
 @end
