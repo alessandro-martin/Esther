@@ -4,11 +4,11 @@
 #import "SubTask.h"
 #import "AMTTimePickerView.h"
 
-static NSInteger const NUMBER_OF_COMPONENTS_IN_PICKER_VIEW = 3;
-static NSUInteger const MAXIMUM_NUMBER_OF_DAYS = 45; // ONE MONTH AND A HALF
-static NSUInteger const MAXIMUM_NUMBER_OF_HOURS = 23;
-static NSUInteger const MAXIMUM_NUMBER_OF_MINUTES = 59;
-static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description here:";
+static NSInteger		const NUMBER_OF_COMPONENTS_IN_PICKER_VIEW = 3;
+static NSUInteger	const MAXIMUM_NUMBER_OF_DAYS = 45; // ONE MONTH AND A HALF
+static NSUInteger	const MAXIMUM_NUMBER_OF_HOURS = 23;
+static NSUInteger	const MAXIMUM_NUMBER_OF_MINUTES = 59;
+static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description here:";
 
 @interface NewSubTaskViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate>
 

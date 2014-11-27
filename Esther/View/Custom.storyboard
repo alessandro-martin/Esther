@@ -116,7 +116,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="Z7P-zo-O6M" secondAttribute="bottom" id="9ut-Z0-SHe"/>
                                             <constraint firstAttribute="centerX" secondItem="Z7P-zo-O6M" secondAttribute="centerX" id="TpG-fy-0cM"/>
                                             <constraint firstItem="Z7P-zo-O6M" firstAttribute="top" secondItem="Tn3-9Y-p2g" secondAttribute="topMargin" id="XiJ-j9-Fa4"/>
-                                            <constraint firstAttribute="centerY" secondItem="Z7P-zo-O6M" secondAttribute="centerY" constant="0.5" id="ecX-Lf-MBz"/>
+                                            <constraint firstAttribute="centerY" secondItem="Z7P-zo-O6M" secondAttribute="centerY" id="ecX-Lf-MBz"/>
                                             <constraint firstItem="Z7P-zo-O6M" firstAttribute="leading" secondItem="Tn3-9Y-p2g" secondAttribute="leadingMargin" constant="-4" id="fWB-2b-Yb4"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Z7P-zo-O6M" secondAttribute="trailing" constant="-4" id="shc-o8-dL6"/>
                                         </constraints>
@@ -185,35 +185,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNM-Co-8Cl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
-        </scene>
-        <!--Detail-->
-        <scene sceneID="ALf-sn-cNS">
-            <objects>
-                <viewController title="Detail" id="Y6Q-Da-ZMG" customClass="DetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7Nm-s7-ejh"/>
-                        <viewControllerLayoutGuide type="bottom" id="42Y-qv-xza"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7cf-9X-Xum" customClass="AMTGlobalTaskView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="UFA-A3-FkH" appends="YES" id="51f-66-HVs"/>
-                        </connections>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="FeW-fX-vEe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5V2-B0-a0j" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" id="UFA-A3-FkH">
-                    <connections>
-                        <action selector="userTappedMainView:" destination="Y6Q-Da-ZMG" id="brx-XX-usv"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1437" y="414"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="tok-K3-T1U">

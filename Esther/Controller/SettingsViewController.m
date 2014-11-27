@@ -1,8 +1,8 @@
 #import "SettingsViewController.h"
 #import <UIColor+FlatColors.h>
 
-static NSString * const MAX_MAIN_TASKS_KEY				= @"MaxMainTasks";
-static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
+static NSString * const MAX_MAIN_TASKS_KEY	= @"MaxMainTasks";
+static NSString * const MAX_SUB_TASKS_KEY	= @"MaxSubTasksForMainTask";
 
 
 @interface SettingsViewController ()

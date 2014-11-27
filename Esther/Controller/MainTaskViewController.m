@@ -60,6 +60,7 @@
 		self.indexPath = [helper indexPathForItemClosestToPoint:[sender locationInView:self.collectionView]];
 		[self addNewSubTask];
 	} else {
+#warning EDIT SUBTASK!!!
 		NSLog(@"Here I should Edit the Subtask at %@", self.indexPath);
 	}
 }
@@ -136,7 +137,6 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView
 				  layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-#warning Cell Size Could Depend on Time, Cost, Etc...
 	CGFloat cellSide = CGRectGetWidth(self.view.frame) / 8;
 	return CGSizeMake(cellSide, cellSide);
 }

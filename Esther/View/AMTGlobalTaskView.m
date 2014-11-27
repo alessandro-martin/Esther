@@ -17,14 +17,12 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-#warning SECTIONS!!!!
 	self.sections = 3;
 	CGFloat rectWidth = CGRectGetWidth(self.frame);
 	CGFloat rectHeight = CGRectGetHeight(self.frame) / self.sections;
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	for (int i = 0; i < self.sections; i++) {
 		UIColor *color = [UIColor colorWithHue: 170 / 255.0
-#warning Saturation Algorithm could use some improvement
 										saturation: 1.0 / (1 + i)
 										brightness: 150 / 255.0
 											 alpha: 1.0];

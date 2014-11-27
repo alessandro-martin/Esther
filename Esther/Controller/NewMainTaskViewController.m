@@ -36,7 +36,6 @@ static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description he
 }
 
 - (IBAction)btnDiscardImagePressed:(id)sender {
-#warning btnDiscardImage color not flat :D
 	self.btnSetImage.hidden = NO;
 	self.btnSetImage.alpha = 0.0;
 	[UIView animateWithDuration:0.7 animations:^{
@@ -125,6 +124,7 @@ static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description he
 	self.txvMainTaskDescription.delegate = self;
 	self.txvMainTaskDescription.text = TEXTVIEW_PLACEHOLDER;
 	self.txvMainTaskDescription.textColor = [UIColor lightGrayColor];
+	self.btnDiscardImage.backgroundColor = [UIColor flatSunFlowerColor];
 	
 	[[self.txtMainTaskName.rac_textSignal
 	  map:^id(NSString *text) {
