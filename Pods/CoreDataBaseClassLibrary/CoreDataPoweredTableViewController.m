@@ -91,6 +91,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 		NSError *error;
 		if ([self.moc hasChanges] && ![self.moc save:&error]) {
 			NSLog(@"Fatal Error: \n%@", error.localizedDescription);
+			abort();
 		}
 	}
 }

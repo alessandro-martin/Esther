@@ -87,7 +87,11 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 		abort();
 	}
 	
-#warning Dismiss Edit ViewController And Make Changes Persisten
+	[self dismissViewControllerAnimated:YES completion:^{
+		if ([self.delegate respondsToSelector:@selector(updateMainTask)]) {
+			[self.delegate updateMainTask];
+		}
+	}];
 }
 
 - (IBAction)btnNotYetPressed:(id)sender {

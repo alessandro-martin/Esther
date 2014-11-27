@@ -33,7 +33,7 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 + (NSArray *)subTaskColors {
 	return @[
 			 [UIColor flatAmethystColor],
-			 [UIColor flatWetAsphaltColor],
+			 [UIColor flatPumpkinColor],
 			 [UIColor flatTurquoiseColor],
 			 [UIColor flatPeterRiverColor],
 			 [UIColor flatSunFlowerColor],
@@ -78,8 +78,11 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 		self.indexPath = [helper indexPathForItemClosestToPoint:[sender locationInView:self.collectionView]];
 		[self addNewSubTask];
 	} else {
-		[self performSegueWithIdentifier:@"editSubTaskSegue"
-								  sender:self];
+		SubTask *s = self.sections[self.indexPath.section][self.indexPath.row];
+		if (!s.subTaskIsCompletedValue) {
+			[self performSegueWithIdentifier:@"editSubTaskSegue"
+									  sender:self];
+		}
 	}
 }
 
@@ -97,6 +100,9 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 - (void) setupView {
 	self.view.backgroundColor = [UIColor flatSilverColor];
 	self.title = self.mainTask.mainTaskName;
+	UIImageView *picView = [[UIImageView alloc] initWithImage:[self mainTaskImage]];
+	picView.frame = CGRectMake(0, 0, 40, 40);
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:picView];
 	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
 }
 
@@ -167,7 +173,8 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	SubTask *subTask = (SubTask *)[data objectAtIndex:indexPath.item];
 	cell.label.text = [NSString stringWithFormat:@"%@\n%@ %@", subTask.subTaskName,
 					   subTask.subTaskFinancialCost, self.currencySymbolFromLocale];
-	cell.backgroundColor = subTask.subTaskColor;
+	
+	cell.backgroundColor = subTask.subTaskIsCompletedValue ? [UIColor flatSilverColor] : subTask.subTaskColor;
 	
 	// SHADOW
 	cell.layer.masksToBounds = NO;
@@ -288,6 +295,7 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 		NSUInteger s = self.indexPath.section;
 		NSUInteger r =  self.indexPath.row;
 		EditSubTaskViewController *controller = (EditSubTaskViewController *)[segue destinationViewController];
+		controller.delegate = self;
 		controller.moc = self.moc;
 		controller.subTask = (SubTask *)self.sections[s][r];
 	}
@@ -299,6 +307,18 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSNumber *subTasks = [defaults objectForKey:MAX_SUB_TASKS_KEY];
 	return [subTasks intValue];
+}
+
+- (UIImage *) mainTaskImage {
+	NSData *pngData = [NSData dataWithContentsOfFile:self.mainTask.mainTaskImageURL];
+	UIImage *img;
+	if (!pngData) {
+		img = [UIImage imageNamed:@"Logo_Keydi.png"];
+	} else {
+		img = [UIImage imageWithData:pngData];
+	}
+	
+	return img;
 }
 
 @end
