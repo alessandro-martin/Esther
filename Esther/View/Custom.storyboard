@@ -426,43 +426,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your Estimated Time of Completion Was" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-tr-PsX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="Your Estimated Time of Completion Was" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-tr-PsX">
                                 <rect key="frame" x="16" y="20" width="254" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your Estimated Cost of Completion Was" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHs-16-yJn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Estimated Cost of Completion Was" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHs-16-yJn">
                                 <rect key="frame" x="325" y="20" width="259" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How Long Did it Actually Take?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-EE-J2m">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How Long Did it Actually Take?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-EE-J2m">
                                 <rect key="frame" x="16" y="77" width="254" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How Much Did it Actually Cost?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erc-yp-3Xm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="How Much Did it Actually Cost?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erc-yp-3Xm">
                                 <rect key="frame" x="325" y="77" width="259" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjL-pX-BbJ" customClass="AMTTimePickerView">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjL-pX-BbJ" customClass="AMTTimePickerView">
                                 <rect key="frame" x="16" y="134" width="254" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qUQ-iZ-bHy" id="mrL-GC-kez"/>
                                     <outlet property="delegate" destination="qUQ-iZ-bHy" id="XMy-ce-nfN"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pR0-wc-dov">
-                                <rect key="frame" x="325" y="200" width="259" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pR0-wc-dov">
+                                <rect key="frame" x="325" y="200" width="259" height="58.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xz-uC-dIk">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xz-uC-dIk">
                                 <rect key="frame" x="16" y="535" width="147" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Completed!">
@@ -473,7 +473,7 @@
                                     <action selector="btnCompletedPressed:" destination="qUQ-iZ-bHy" eventType="touchUpInside" id="VBk-er-VAn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-1U-6tp">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-1U-6tp">
                                 <rect key="frame" x="437" y="535" width="147" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Not Yet!">
@@ -496,10 +496,11 @@
                             <constraint firstItem="9xz-uC-dIk" firstAttribute="leading" secondItem="686-Ql-0Qf" secondAttribute="leadingMargin" id="0kl-Wo-Wqd"/>
                             <constraint firstItem="mKE-Cc-dB2" firstAttribute="trailing" secondItem="686-Ql-0Qf" secondAttribute="trailingMargin" id="1af-p0-9C8"/>
                             <constraint firstItem="Erc-yp-3Xm" firstAttribute="leading" secondItem="ZGo-EE-J2m" secondAttribute="trailing" constant="55" id="1jA-I2-jPj"/>
-                            <constraint firstItem="mKE-Cc-dB2" firstAttribute="top" secondItem="pR0-wc-dov" secondAttribute="bottom" constant="74" id="2vx-La-i9l"/>
+                            <constraint firstItem="mKE-Cc-dB2" firstAttribute="top" secondItem="pR0-wc-dov" secondAttribute="bottom" constant="45.5" id="2vx-La-i9l"/>
                             <constraint firstItem="eZ4-1U-6tp" firstAttribute="leading" secondItem="9xz-uC-dIk" secondAttribute="trailing" constant="274" id="6ZX-ma-4Cn"/>
                             <constraint firstItem="mKT-tr-PsX" firstAttribute="top" secondItem="Ub7-qR-3so" secondAttribute="bottom" id="9GM-M3-Mfi"/>
                             <constraint firstItem="oHs-16-yJn" firstAttribute="trailing" secondItem="686-Ql-0Qf" secondAttribute="trailingMargin" id="9z3-KY-mgc"/>
+                            <constraint firstItem="9xz-uC-dIk" firstAttribute="width" secondItem="686-Ql-0Qf" secondAttribute="width" multiplier="0.25" constant="-3" id="Bf8-ra-Jjn"/>
                             <constraint firstItem="eZ4-1U-6tp" firstAttribute="leading" secondItem="9xz-uC-dIk" secondAttribute="trailing" constant="274" id="FaQ-qq-C8r"/>
                             <constraint firstItem="oHs-16-yJn" firstAttribute="leading" secondItem="mKT-tr-PsX" secondAttribute="trailing" constant="55" id="I7u-By-gVW"/>
                             <constraint firstItem="pR0-wc-dov" firstAttribute="top" secondItem="Erc-yp-3Xm" secondAttribute="bottom" constant="74" id="Iwl-Yp-ocH"/>
@@ -521,8 +522,15 @@
                             <constraint firstItem="mKE-Cc-dB2" firstAttribute="top" secondItem="qjL-pX-BbJ" secondAttribute="bottom" constant="8" id="qg7-Qv-zi6"/>
                             <constraint firstItem="WMd-02-MJn" firstAttribute="top" secondItem="eZ4-1U-6tp" secondAttribute="bottom" constant="20" id="qqC-67-wpj"/>
                             <constraint firstItem="WMd-02-MJn" firstAttribute="top" secondItem="9xz-uC-dIk" secondAttribute="bottom" constant="20" id="u5v-6L-6Ub"/>
+                            <constraint firstItem="eZ4-1U-6tp" firstAttribute="width" secondItem="686-Ql-0Qf" secondAttribute="width" multiplier="0.25" constant="-3" id="umg-WA-J7i"/>
                             <constraint firstItem="Erc-yp-3Xm" firstAttribute="leading" secondItem="ZGo-EE-J2m" secondAttribute="trailing" constant="55" id="zGp-Il-p8V"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="iRm-xf-dbM"/>
+                                <exclude reference="1jA-I2-jPj"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="btnCompleted" destination="9xz-uC-dIk" id="kTf-5B-gYP"/>

@@ -104,6 +104,31 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	picView.frame = CGRectMake(0, 0, 40, 40);
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:picView];
 	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
+	
+	if (self.subTasks.count == 0) {
+#warning MAGIC NUMBERS!!!
+		CGFloat labelWidth = 600;
+		CGFloat labelHeight = 400;
+		CGFloat viewWidth = CGRectGetWidth(self.view.frame);
+		CGFloat viewHeight = CGRectGetHeight(self.view.frame);
+		UILabel *warning = [[UILabel alloc] initWithFrame:CGRectMake((viewWidth / 2) - labelWidth / 2,
+																	(viewHeight / 2) - labelHeight / 2,
+																	labelWidth,
+																	 labelHeight)];
+		warning.text = @"Tap do add a subtask\nAfterwards double tap to \nadd a section";
+		warning.font = [UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Helvetica" size:55] size:55];
+		warning.numberOfLines = 3;
+		warning.textAlignment = NSTextAlignmentCenter;
+		[self.view addSubview:warning];
+		[UIView animateWithDuration:3.0
+							  delay:5.0
+							options:UIViewAnimationOptionAllowUserInteraction
+						 animations:^{
+							 warning.alpha = 0.0;
+						 } completion:^(BOOL finished) {
+							 [warning removeFromSuperview];
+						 }];
+	}
 }
 
 - (void) setupSections {
@@ -152,6 +177,11 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 - (CGSize)collectionView:(UICollectionView *)collectionView
 				  layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+#warning NEEDS WORK!!!
+//	CGFloat cellHeight = CGRectGetHeight(self.view.frame) / 6;
+//	SubTask *subTask = (SubTask *)self.sections[indexPath.section][indexPath.row];
+//	CGFloat cellWidth = [subTask.subTaskTimeNeeded intValue] % 1000;
+//	return CGSizeMake(cellWidth, cellHeight);
 	CGFloat cellSide = CGRectGetWidth(self.view.frame) / 8;
 	return CGSizeMake(cellSide, cellSide);
 }

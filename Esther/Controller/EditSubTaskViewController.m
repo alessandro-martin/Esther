@@ -38,12 +38,12 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 	self.txvComments.delegate = self;
 	self.txvComments.text = @"Enter Any Observations Here:";
 	self.txvComments.textColor = [UIColor lightGrayColor];
-	self.lblActualCostTitle.backgroundColor = [UIColor flatBelizeHoleColor];
-	self.lblActualTimeTitle.backgroundColor = [UIColor flatBelizeHoleColor];
-	self.lblEstimatedCost.backgroundColor = [UIColor flatBelizeHoleColor];
+//	self.lblActualCostTitle.backgroundColor = [UIColor flatBelizeHoleColor];
+//	self.lblActualTimeTitle.backgroundColor = [UIColor flatBelizeHoleColor];
+//	self.lblEstimatedCost.backgroundColor = [UIColor flatBelizeHoleColor];
+//	self.lblEstimatedTime.backgroundColor = [UIColor flatBelizeHoleColor];
 	self.lblEstimatedCost.text = [NSString stringWithFormat:@"Estimated Cost of Completion Was %@ %@", self.subTask.subTaskFinancialCost, [self currencySymbolFromLocale]];
 	self.lblEstimatedTime.text = [NSString stringWithFormat:@"Estimated Time of Completion Was %@", [self daysHoursAndMinutesStringFromSeconds:self.subTask.subTaskTimeNeededValue]];
-	self.lblEstimatedTime.backgroundColor = [UIColor flatBelizeHoleColor];
 	self.pkrTimePickerView.backgroundColor = [UIColor flatBelizeHoleColor];
 	self.btnCompleted.backgroundColor = [UIColor flatEmeraldColor];
 	self.btnNotYet.backgroundColor = [UIColor flatAlizarinColor];
@@ -58,7 +58,8 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 	int days = hours / 24;
 	hours = hours % 24;
 	
-	return [NSString stringWithFormat:@"%dd %dh %dm", days, hours, minutes];
+	return [NSString stringWithFormat:@"%@ %dh %dm", (days > 0) ? [NSString stringWithFormat:@"%dd", days ] : @"",
+			hours, minutes];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +89,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 	}
 	
 	[self dismissViewControllerAnimated:YES completion:^{
+		[self dismissKeyboard];
 		if ([self.delegate respondsToSelector:@selector(updateMainTask)]) {
 			[self.delegate updateMainTask];
 		}
@@ -95,6 +97,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 }
 
 - (IBAction)btnNotYetPressed:(id)sender {
+	[self dismissKeyboard];
 	[self dismissViewControllerAnimated:YES
 							 completion:nil];
 

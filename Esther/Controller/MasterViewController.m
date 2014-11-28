@@ -21,6 +21,15 @@ static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
 	self.view.backgroundColor = [UIColor flatCloudsColor];
 	self.defaultCellHeight = CGRectGetHeight(self.view.frame) /  6.0;
 	self.fetchRequest = [MainTask allMainTasksFetchRequestInContext:self.moc];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(contextChanged)
+												 name:NSManagedObjectContextDidSaveNotification
+											   object:nil];
+}
+
+- (void) contextChanged {
+#warning KIND OF A HACK?
+	[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +81,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	MainTask *mainTask = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
 	cell.textLabel.text = mainTask.mainTaskName;
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [self totalCostForMainTask:mainTask],
+	double longestTime = [self timeOfLongestChainOfEventsInMainTask:mainTask];
+	NSString *longestTimeString = [self daysHoursAndMinutesStringFromSeconds:longestTime];
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\t\t\t%@ %@",
+								 longestTimeString,
+								 [self totalCostForMainTask:mainTask],
 								 [self currencySymbolFromLocale]];
 	NSData *pngData = [NSData dataWithContentsOfFile:mainTask.mainTaskImageURL];
 	UIImage *img;
@@ -94,7 +107,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (NSDecimalNumber *)totalCostForMainTask:(MainTask *)mainTask {
 	NSDecimalNumber *totalCost = [NSDecimalNumber zero];
 	for (SubTask *subTask in mainTask.subTasks) {
-		totalCost = [totalCost decimalNumberByAdding:subTask.subTaskFinancialCost];
+		if (!subTask.subTaskIsCompletedValue) {
+			totalCost = [totalCost decimalNumberByAdding:subTask.subTaskFinancialCost];
+		}
 	}
 	
 	return totalCost;
@@ -108,5 +123,43 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	return _currencySymbolFromLocale;
 }
+
+- (double) timeOfLongestChainOfEventsInMainTask:(MainTask *)mainTask {
+	NSMutableDictionary *times = [@{} mutableCopy];
+	for (SubTask *subTask in mainTask.subTasks) {
+		if (subTask.subTaskIsCompletedValue) {
+			continue;
+		}
+		NSNumber *section = subTask.subTaskScreenPositionY;
+		NSNumber *subTaskTime = subTask.subTaskTimeNeeded;
+		if ([times objectForKey:section] == nil) {
+			times[section] = subTaskTime;
+		} else {
+			times[section] = @([times[section] doubleValue] + [subTaskTime doubleValue]);
+		}
+	}
+	
+	double longestChainTime = 0;
+	for (NSNumber *time in times.allValues) {
+		if ([time doubleValue] > longestChainTime) {
+			longestChainTime = [time doubleValue];
+		}
+	}
+	
+	return longestChainTime;
+}
+
+- (NSString *)daysHoursAndMinutesStringFromSeconds:(double) timeLapse {
+	int seconds = (int) timeLapse;
+	int minutes = seconds / 60;
+	int hours = minutes / 60;
+	minutes = minutes % 60;
+	int days = hours / 24;
+	hours = hours % 24;
+	
+	return [NSString stringWithFormat:@"%@ %dh %dm", (days > 0) ? [NSString stringWithFormat:@"%dd", days ] : @"",
+			hours, minutes];
+}
+
 
 @end
