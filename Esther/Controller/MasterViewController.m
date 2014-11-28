@@ -10,6 +10,8 @@ static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
 
 @interface MasterViewController () <NSFetchedResultsControllerDelegate>
 
+@property (nonatomic, strong) NSString *currencySymbolFromLocale;
+
 @end
 
 @implementation MasterViewController
@@ -70,6 +72,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	MainTask *mainTask = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
 	cell.textLabel.text = mainTask.mainTaskName;
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [self totalCostForMainTask:mainTask],
+								 [self currencySymbolFromLocale]];
 	NSData *pngData = [NSData dataWithContentsOfFile:mainTask.mainTaskImageURL];
 	UIImage *img;
 	if (!pngData) {
@@ -85,6 +89,24 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSNumber *mainTasks = [defaults objectForKey:MAX_MAIN_TASKS_KEY];
 	return [mainTasks intValue];
+}
+
+- (NSDecimalNumber *)totalCostForMainTask:(MainTask *)mainTask {
+	NSDecimalNumber *totalCost = [NSDecimalNumber zero];
+	for (SubTask *subTask in mainTask.subTasks) {
+		totalCost = [totalCost decimalNumberByAdding:subTask.subTaskFinancialCost];
+	}
+	
+	return totalCost;
+}
+
+- (NSString *)currencySymbolFromLocale {
+	if (!_currencySymbolFromLocale) {
+		NSLocale *theLocale = [NSLocale currentLocale];
+		_currencySymbolFromLocale = [theLocale objectForKey:NSLocaleCurrencySymbol];
+	}
+	
+	return _currencySymbolFromLocale;
 }
 
 @end
