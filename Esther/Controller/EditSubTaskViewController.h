@@ -2,8 +2,9 @@
 
 #import "SubTask.h"
 #import "NewSubTaskViewController.h"
+#import <AMTTimePicker.h>
 
-@interface EditSubTaskViewController : UIViewController
+@interface EditSubTaskViewController : UIViewController <AMTTimePickerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *moc;
 @property (nonatomic, strong) SubTask *subTask;

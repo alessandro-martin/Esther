@@ -39,7 +39,6 @@
 		A76048741A26A930003897F9 /* Logo_Keydi.png in Resources */ = {isa = PBXBuildFile; fileRef = A76048731A26A930003897F9 /* Logo_Keydi.png */; };
 		A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */; };
 		A77D0A611A2349EB00F5216D /* NewSubTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */; };
-		A77D0A641A2353C200F5216D /* AMTTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A631A2353C200F5216D /* AMTTimePickerView.m */; };
 		A77D0A661A23788700F5216D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77D0A651A23788700F5216D /* MapKit.framework */; };
 		A78B2B051A1EBFD400D6E0C4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */; };
 		A7A1F1CA1A25E4E700995FE0 /* backgoundSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1F1C91A25E4E700995FE0 /* backgoundSettings.png */; };
@@ -103,8 +102,6 @@
 		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTGlobalTaskView.m; path = ../View/AMTGlobalTaskView.m; sourceTree = "<group>"; };
 		A77D0A5F1A2349EB00F5216D /* NewSubTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSubTaskViewController.h; sourceTree = "<group>"; };
 		A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSubTaskViewController.m; sourceTree = "<group>"; };
-		A77D0A621A2353C200F5216D /* AMTTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTTimePickerView.h; sourceTree = "<group>"; };
-		A77D0A631A2353C200F5216D /* AMTTimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTTimePickerView.m; sourceTree = "<group>"; };
 		A77D0A651A23788700F5216D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A78B2B031A1EBFD400D6E0C4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -290,8 +287,6 @@
 				A724D7A11A191BEE0041A04A /* LaunchScreen.xib */,
 				A7C802BA1A213FA500D8180E /* Cell.h */,
 				A7C802BB1A213FA500D8180E /* Cell.m */,
-				A77D0A621A2353C200F5216D /* AMTTimePickerView.h */,
-				A77D0A631A2353C200F5216D /* AMTTimePickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,7 +520,6 @@
 				A7CA23681A1CF639001F6F99 /* SubTask.m in Sources */,
 				A724D7921A191BEE0041A04A /* main.m in Sources */,
 				A7C802CB1A213FB000D8180E /* LSCollectionViewLayoutHelper.m in Sources */,
-				A77D0A641A2353C200F5216D /* AMTTimePickerView.m in Sources */,
 				A7C802CA1A213FB000D8180E /* LSCollectionViewHelper.m in Sources */,
 				A7CA23671A1CF639001F6F99 /* MainTask.m in Sources */,
 				A724D79B1A191BEE0041A04A /* DetailViewController.m in Sources */,

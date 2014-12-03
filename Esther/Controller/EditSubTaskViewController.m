@@ -1,19 +1,12 @@
 #import "EditSubTaskViewController.h"
 
 #import <UIColor+FlatColors/UIColor+FlatColors.h>
-#import "AMTTimePickerView.h"
 
-static NSInteger		const NUMBER_OF_COMPONENTS_IN_PICKER_VIEW = 3;
-static NSUInteger	const MAXIMUM_NUMBER_OF_DAYS = 45; // ONE MONTH AND A HALF
-static NSUInteger	const MAXIMUM_NUMBER_OF_HOURS = 23;
-static NSUInteger	const MAXIMUM_NUMBER_OF_MINUTES = 59;
 static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:";
 
-@interface EditSubTaskViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate>
+@interface EditSubTaskViewController () <UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet AMTTimePickerView *pkrTimePickerView;
-@property (weak, nonatomic) IBOutlet UILabel *lblEstimatedTime;
-@property (weak, nonatomic) IBOutlet UILabel *lblEstimatedCost;
+@property (weak, nonatomic) IBOutlet AMTTimePicker *pkrTimePickerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblActualTimeTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblActualCostTitle;
 @property (weak, nonatomic) IBOutlet UITextField *txtActualCost;
@@ -21,8 +14,8 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 @property (weak, nonatomic) IBOutlet UIButton *btnCompleted;
 @property (weak, nonatomic) IBOutlet UIButton *btnNotYet;
 
-@property (nonatomic, strong) NSArray *pickerData;
 @property (nonatomic, strong) NSString *currencySymbolFromLocale;
+@property (nonatomic) NSTimeInterval timeFromPicker;
 
 @end
 
@@ -38,28 +31,12 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 	self.txvComments.delegate = self;
 	self.txvComments.text = @"Enter Any Observations Here:";
 	self.txvComments.textColor = [UIColor lightGrayColor];
-//	self.lblActualCostTitle.backgroundColor = [UIColor flatBelizeHoleColor];
-//	self.lblActualTimeTitle.backgroundColor = [UIColor flatBelizeHoleColor];
-//	self.lblEstimatedCost.backgroundColor = [UIColor flatBelizeHoleColor];
-//	self.lblEstimatedTime.backgroundColor = [UIColor flatBelizeHoleColor];
-	self.lblEstimatedCost.text = [NSString stringWithFormat:@"Estimated Cost of Completion Was %@ %@", self.subTask.subTaskFinancialCost, [self currencySymbolFromLocale]];
-	self.lblEstimatedTime.text = [NSString stringWithFormat:@"Estimated Time of Completion Was %@", [self daysHoursAndMinutesStringFromSeconds:self.subTask.subTaskTimeNeededValue]];
+	self.txtActualCost.text = [NSString stringWithFormat:@"%@ %@", self.subTask.subTaskFinancialCost, [self currencySymbolFromLocale]];
 	self.pkrTimePickerView.backgroundColor = [UIColor flatBelizeHoleColor];
+	[self.pkrTimePickerView setTimeInterval:self.subTask.subTaskTimeNeededValue];
 	self.btnCompleted.backgroundColor = [UIColor flatEmeraldColor];
 	self.btnNotYet.backgroundColor = [UIColor flatAlizarinColor];
 	self.txtActualCost.placeholder = self.currencySymbolFromLocale;
-}
-
-- (NSString *)daysHoursAndMinutesStringFromSeconds:(double) timeLapse {
-	int seconds = (int) timeLapse;
-	int minutes = seconds / 60;
-	int hours = minutes / 60;
-	minutes = minutes % 60;
-	int days = hours / 24;
-	hours = hours % 24;
-	
-	return [NSString stringWithFormat:@"%@ %dh %dm", (days > 0) ? [NSString stringWithFormat:@"%dd", days ] : @"",
-			hours, minutes];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +56,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 - (IBAction)btnCompletedPressed:(id)sender {
 	self.subTask.subTaskFinancialCost = [self costValueFromTextField];
 	self.subTask.subTaskDescription = [self.txvComments.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	self.subTask.subTaskTimeNeededValue = [self timeIntervalFromPicker];
+	self.subTask.subTaskTimeNeededValue = self.timeFromPicker;
 	self.subTask.subTaskIsCompletedValue = YES;
 	
 	NSError *error;
@@ -117,41 +94,6 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 	}];
 }
 
-- (NSArray *)pickerData {
-	if (!_pickerData) {
-		NSMutableArray *temp = [NSMutableArray array];
-		for (int i = 0; i < NUMBER_OF_COMPONENTS_IN_PICKER_VIEW; i++) {
-			NSMutableArray *componentData = [NSMutableArray array];
-			[temp addObject:componentData];
-			NSUInteger size = 0;
-			NSString *componentTitle;
-			switch (i) {
-				case 0:
-					size = MAXIMUM_NUMBER_OF_DAYS;
-					componentTitle = @"Days";
-					break;
-				case 1:
-					size = MAXIMUM_NUMBER_OF_HOURS;
-					componentTitle = @"Hours";
-					break;
-				case 2:
-					size = MAXIMUM_NUMBER_OF_MINUTES;
-					componentTitle = @"Minutes";
-					break;
-				default:
-					break;
-			}
-			[componentData addObject:componentTitle];
-			for (int j = 0; j <= size; j++) {
-				[componentData addObject:@(j)];
-			}
-		}
-		_pickerData = temp;
-	}
-	
-	return _pickerData;
-}
-
 - (NSDecimalNumber *)costValueFromTextField {
 	NSScanner *costScanner = [NSScanner scannerWithString:self.txtActualCost.text];
 	NSDecimal costValue;
@@ -165,46 +107,11 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 	return cost;
 }
 
-- (double) timeIntervalFromPicker {
-	int days = [[self pickerView:self.pkrTimePickerView
-					 titleForRow:[self.pkrTimePickerView selectedRowInComponent:0]
-					forComponent:0] intValue];
-	int hours = [[self pickerView:self.pkrTimePickerView
-					  titleForRow:[self.pkrTimePickerView selectedRowInComponent:1]
-					 forComponent:1] intValue];;
-	int minutes = [[self pickerView:self.pkrTimePickerView
-						titleForRow:[self.pkrTimePickerView selectedRowInComponent:2]
-					   forComponent:2] intValue];
-	int timeInSeconds = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60);
-	
-	return timeInSeconds;
-}
+#pragma mark AMTTimePickerDelegate
 
-#pragma mark - UIPickerView
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-	return NUMBER_OF_COMPONENTS_IN_PICKER_VIEW;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component {
-	return ((NSArray *)self.pickerData[component]).count;
-}
-
--(NSString *)pickerView:(UIPickerView *)pickerView
-			titleForRow:(NSInteger)row
-		   forComponent:(NSInteger)component{
-	return [NSString stringWithFormat:@"%@", self.pickerData[component][row]];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView
-	  didSelectRow:(NSInteger)row
-	   inComponent:(NSInteger)component {
-	if (row == 0) {
-		[self.pkrTimePickerView selectRow:1
-							  inComponent:component
-								 animated:YES];
-	}
+- (void)amtTimePicker:(AMTTimePicker *)picker
+		didSelectTime:(NSTimeInterval)timeInterval {
+	self.timeFromPicker = timeInterval;
 }
 
 #pragma mark UITextViewDelegate

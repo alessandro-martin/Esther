@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "62FE319A9BEDD40044CECAEB"
-               BuildableName = "libPods-Esther-CoreDataBaseClassLibrary.a"
-               BlueprintName = "Pods-Esther-CoreDataBaseClassLibrary"
+               BlueprintIdentifier = "F7E1F98F0420C5CD7FCC35A0"
+               BuildableName = "libPods-Esther-AMTTimePicker.a"
+               BlueprintName = "Pods-Esther-AMTTimePicker"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

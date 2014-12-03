@@ -2,27 +2,22 @@
 
 #import "NewSubTaskViewController.h"
 #import "SubTask.h"
-#import "AMTTimePickerView.h"
 
-static NSInteger		const NUMBER_OF_COMPONENTS_IN_PICKER_VIEW = 3;
-static NSUInteger	const MAXIMUM_NUMBER_OF_DAYS = 45; // ONE MONTH AND A HALF
-static NSUInteger	const MAXIMUM_NUMBER_OF_HOURS = 23;
-static NSUInteger	const MAXIMUM_NUMBER_OF_MINUTES = 59;
 static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description here:";
 
-@interface NewSubTaskViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate>
+@interface NewSubTaskViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnDone;
 @property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 @property (weak, nonatomic) IBOutlet UITextField *txtSubTaskName;
 @property (weak, nonatomic) IBOutlet UITextView *txvSubTaskDescription;
-@property (weak, nonatomic) IBOutlet AMTTimePickerView *pkrTimePickerView;
+@property (weak, nonatomic) IBOutlet AMTTimePicker *pkrTimePickerView;
 @property (weak, nonatomic) IBOutlet UITextField *txtEstimatedCost;
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblMainTaskName;
 
-@property (nonatomic, strong) NSArray *pickerData;
 @property (nonatomic, strong) NSString *currencySymbolFromLocale;
+@property (nonatomic) NSTimeInterval timeFromPicker;
 
 @end
 
@@ -61,41 +56,6 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 	}];
 }
 
-- (NSArray *)pickerData {
-	if (!_pickerData) {
-		NSMutableArray *temp = [NSMutableArray array];
-		for (int i = 0; i < NUMBER_OF_COMPONENTS_IN_PICKER_VIEW; i++) {
-			NSMutableArray *componentData = [NSMutableArray array];
-			[temp addObject:componentData];
-			NSUInteger size = 0;
-			NSString *componentTitle;
-			switch (i) {
-				case 0:
-					size = MAXIMUM_NUMBER_OF_DAYS;
-					componentTitle = @"Days";
-					break;
-				case 1:
-					size = MAXIMUM_NUMBER_OF_HOURS;
-					componentTitle = @"Hours";
-					break;
-				case 2:
-					size = MAXIMUM_NUMBER_OF_MINUTES;
-					componentTitle = @"Minutes";
-					break;
-				default:
-					break;
-			}
-			[componentData addObject:componentTitle];
-			for (int j = 0; j <= size; j++) {
-				[componentData addObject:@(j)];
-			}
-		}
-		_pickerData = temp;
-	}
-	
-	return _pickerData;
-}
-
 - (IBAction)btnCancelPressed:(id)sender {
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -107,7 +67,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 	subTask.subTaskDescription =
 	[self.txvSubTaskDescription.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	subTask.subTaskFinancialCost = [self costValueFromTextField];
-	subTask.subTaskTimeNeededValue = [self timeIntervalFromPicker];
+	subTask.subTaskTimeNeededValue = self.timeFromPicker;
 	subTask.subTaskColor = self.subTaskColor;
 #warning Placeholder values for Lat and Long
 	subTask.subTaskLatitudeValue = 0.0f;
@@ -182,21 +142,6 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 	return cost;
 }
 
-- (double) timeIntervalFromPicker {
-	int days = [[self pickerView:self.pkrTimePickerView
-					titleForRow:[self.pkrTimePickerView selectedRowInComponent:0]
-				   forComponent:0] intValue];
-	int hours = [[self pickerView:self.pkrTimePickerView
-					  titleForRow:[self.pkrTimePickerView selectedRowInComponent:1]
-					 forComponent:1] intValue];;
-	int minutes = [[self pickerView:self.pkrTimePickerView
-						titleForRow:[self.pkrTimePickerView selectedRowInComponent:2]
-					   forComponent:2] intValue];
-	int timeInSeconds = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60);
-	
-	return timeInSeconds;
-}
-
 /*
 #pragma mark - Navigation
 
@@ -207,31 +152,11 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 }
 */
 
-#pragma mark - UIPickerView
+#pragma mark AMTTimePickerDelegate
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-	return NUMBER_OF_COMPONENTS_IN_PICKER_VIEW;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component {
-	return ((NSArray *)self.pickerData[component]).count;
-}
-
--(NSString *)pickerView:(UIPickerView *)pickerView
-			titleForRow:(NSInteger)row
-		   forComponent:(NSInteger)component{
-	return [NSString stringWithFormat:@"%@", self.pickerData[component][row]];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView
-	  didSelectRow:(NSInteger)row
-	   inComponent:(NSInteger)component {
-	if (row == 0) {
-		[self.pkrTimePickerView selectRow:1
-							  inComponent:component
-								 animated:YES];
-	}
+- (void)amtTimePicker:(AMTTimePicker *)picker
+		didSelectTime:(NSTimeInterval)timeInterval {
+	self.timeFromPicker = timeInterval;
 }
 
 #pragma mark UITextViewDelegate

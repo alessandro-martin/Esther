@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZLt-OT-IPZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZLt-OT-IPZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -426,43 +427,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="Your Estimated Time of Completion Was" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-tr-PsX">
-                                <rect key="frame" x="16" y="20" width="254" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Estimated Cost of Completion Was" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHs-16-yJn">
-                                <rect key="frame" x="325" y="20" width="259" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How Long Did it Actually Take?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-EE-J2m">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Long Did it Actually Take?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-EE-J2m">
                                 <rect key="frame" x="16" y="77" width="254" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="i7r-5O-jBd"/>
+                                    <constraint firstAttribute="height" constant="49" id="iXt-WL-4Q9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="How Much Did it Actually Cost?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erc-yp-3Xm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="How Much Did it Actually Cost?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erc-yp-3Xm">
                                 <rect key="frame" x="325" y="77" width="259" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjL-pX-BbJ" customClass="AMTTimePickerView">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjL-pX-BbJ" customClass="AMTTimePicker">
                                 <rect key="frame" x="16" y="134" width="254" height="162"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="qUQ-iZ-bHy" id="mrL-GC-kez"/>
                                     <outlet property="delegate" destination="qUQ-iZ-bHy" id="XMy-ce-nfN"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pR0-wc-dov">
-                                <rect key="frame" x="325" y="200" width="259" height="58.5"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pR0-wc-dov">
+                                <rect key="frame" x="325" y="200" width="259" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="guQ-8Y-qIu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xz-uC-dIk">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xz-uC-dIk">
                                 <rect key="frame" x="16" y="535" width="147" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Completed!">
@@ -473,7 +468,7 @@
                                     <action selector="btnCompletedPressed:" destination="qUQ-iZ-bHy" eventType="touchUpInside" id="VBk-er-VAn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-1U-6tp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-1U-6tp">
                                 <rect key="frame" x="437" y="535" width="147" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Not Yet!">
@@ -484,9 +479,12 @@
                                     <action selector="btnNotYetPressed:" destination="qUQ-iZ-bHy" eventType="touchUpInside" id="ZwD-GS-bOd"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter Any Observations Here:" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-Cc-dB2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Any Observations Here:" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-Cc-dB2">
                                 <rect key="frame" x="16" y="304" width="568" height="223"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="223" id="aDz-6Z-m2g"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -498,36 +496,31 @@
                             <constraint firstItem="Erc-yp-3Xm" firstAttribute="leading" secondItem="ZGo-EE-J2m" secondAttribute="trailing" constant="55" id="1jA-I2-jPj"/>
                             <constraint firstItem="mKE-Cc-dB2" firstAttribute="top" secondItem="pR0-wc-dov" secondAttribute="bottom" constant="45.5" id="2vx-La-i9l"/>
                             <constraint firstItem="eZ4-1U-6tp" firstAttribute="leading" secondItem="9xz-uC-dIk" secondAttribute="trailing" constant="274" id="6ZX-ma-4Cn"/>
-                            <constraint firstItem="mKT-tr-PsX" firstAttribute="top" secondItem="Ub7-qR-3so" secondAttribute="bottom" id="9GM-M3-Mfi"/>
-                            <constraint firstItem="oHs-16-yJn" firstAttribute="trailing" secondItem="686-Ql-0Qf" secondAttribute="trailingMargin" id="9z3-KY-mgc"/>
                             <constraint firstItem="9xz-uC-dIk" firstAttribute="width" secondItem="686-Ql-0Qf" secondAttribute="width" multiplier="0.25" constant="-3" id="Bf8-ra-Jjn"/>
                             <constraint firstItem="eZ4-1U-6tp" firstAttribute="leading" secondItem="9xz-uC-dIk" secondAttribute="trailing" constant="274" id="FaQ-qq-C8r"/>
-                            <constraint firstItem="oHs-16-yJn" firstAttribute="leading" secondItem="mKT-tr-PsX" secondAttribute="trailing" constant="55" id="I7u-By-gVW"/>
                             <constraint firstItem="pR0-wc-dov" firstAttribute="top" secondItem="Erc-yp-3Xm" secondAttribute="bottom" constant="74" id="Iwl-Yp-ocH"/>
-                            <constraint firstItem="Erc-yp-3Xm" firstAttribute="top" secondItem="oHs-16-yJn" secondAttribute="bottom" constant="8" id="NQl-SE-8l0"/>
+                            <constraint firstItem="ZGo-EE-J2m" firstAttribute="top" secondItem="Ub7-qR-3so" secondAttribute="bottom" constant="57" id="LRr-FS-W9c"/>
                             <constraint firstItem="pR0-wc-dov" firstAttribute="leading" secondItem="qjL-pX-BbJ" secondAttribute="trailing" constant="55" id="RtR-QA-OTi"/>
                             <constraint firstItem="qjL-pX-BbJ" firstAttribute="top" secondItem="ZGo-EE-J2m" secondAttribute="bottom" constant="8" id="TFa-xb-REh"/>
                             <constraint firstItem="ZGo-EE-J2m" firstAttribute="leading" secondItem="686-Ql-0Qf" secondAttribute="leadingMargin" id="WRg-h0-g4B"/>
                             <constraint firstItem="eZ4-1U-6tp" firstAttribute="top" secondItem="mKE-Cc-dB2" secondAttribute="bottom" constant="8" id="aEo-q1-Aix"/>
+                            <constraint firstItem="ZGo-EE-J2m" firstAttribute="firstBaseline" secondItem="Erc-yp-3Xm" secondAttribute="firstBaseline" id="bVi-7U-szD"/>
                             <constraint firstItem="Erc-yp-3Xm" firstAttribute="trailing" secondItem="686-Ql-0Qf" secondAttribute="trailingMargin" id="cSm-pl-TVm"/>
-                            <constraint firstItem="ZGo-EE-J2m" firstAttribute="top" secondItem="mKT-tr-PsX" secondAttribute="bottom" constant="8" id="cbg-8G-ZUB"/>
                             <constraint firstItem="mKE-Cc-dB2" firstAttribute="leading" secondItem="686-Ql-0Qf" secondAttribute="leadingMargin" id="dYU-PM-HMU"/>
-                            <constraint firstItem="oHs-16-yJn" firstAttribute="top" secondItem="Ub7-qR-3so" secondAttribute="bottom" id="dlf-d8-ccU"/>
                             <constraint firstItem="pR0-wc-dov" firstAttribute="trailing" secondItem="686-Ql-0Qf" secondAttribute="trailingMargin" id="eSE-zS-tVa"/>
-                            <constraint firstItem="mKT-tr-PsX" firstAttribute="leading" secondItem="686-Ql-0Qf" secondAttribute="leadingMargin" id="elZ-fK-ZNP"/>
-                            <constraint firstItem="oHs-16-yJn" firstAttribute="leading" secondItem="mKT-tr-PsX" secondAttribute="trailing" constant="55" id="iRm-xf-dbM"/>
                             <constraint firstItem="qjL-pX-BbJ" firstAttribute="leading" secondItem="686-Ql-0Qf" secondAttribute="leadingMargin" id="kVZ-lT-eEa"/>
                             <constraint firstItem="pR0-wc-dov" firstAttribute="leading" secondItem="qjL-pX-BbJ" secondAttribute="trailing" constant="55" id="lDF-Ey-iVN"/>
+                            <constraint firstItem="9xz-uC-dIk" firstAttribute="top" secondItem="mKE-Cc-dB2" secondAttribute="bottom" constant="8" symbolic="YES" id="lqC-82-k5n"/>
                             <constraint firstItem="eZ4-1U-6tp" firstAttribute="trailing" secondItem="686-Ql-0Qf" secondAttribute="trailingMargin" id="mgq-3w-Fep"/>
                             <constraint firstItem="mKE-Cc-dB2" firstAttribute="top" secondItem="qjL-pX-BbJ" secondAttribute="bottom" constant="8" id="qg7-Qv-zi6"/>
                             <constraint firstItem="WMd-02-MJn" firstAttribute="top" secondItem="eZ4-1U-6tp" secondAttribute="bottom" constant="20" id="qqC-67-wpj"/>
+                            <constraint firstItem="Erc-yp-3Xm" firstAttribute="leading" secondItem="pR0-wc-dov" secondAttribute="leading" id="sp7-ep-Nqr"/>
                             <constraint firstItem="WMd-02-MJn" firstAttribute="top" secondItem="9xz-uC-dIk" secondAttribute="bottom" constant="20" id="u5v-6L-6Ub"/>
                             <constraint firstItem="eZ4-1U-6tp" firstAttribute="width" secondItem="686-Ql-0Qf" secondAttribute="width" multiplier="0.25" constant="-3" id="umg-WA-J7i"/>
                             <constraint firstItem="Erc-yp-3Xm" firstAttribute="leading" secondItem="ZGo-EE-J2m" secondAttribute="trailing" constant="55" id="zGp-Il-p8V"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="iRm-xf-dbM"/>
                                 <exclude reference="1jA-I2-jPj"/>
                             </mask>
                         </variation>
@@ -537,8 +530,6 @@
                         <outlet property="btnNotYet" destination="eZ4-1U-6tp" id="DgG-1T-Baz"/>
                         <outlet property="lblActualCostTitle" destination="Erc-yp-3Xm" id="o2I-EM-N3i"/>
                         <outlet property="lblActualTimeTitle" destination="ZGo-EE-J2m" id="7iY-ox-Ix2"/>
-                        <outlet property="lblEstimatedCost" destination="oHs-16-yJn" id="aDe-fQ-gGc"/>
-                        <outlet property="lblEstimatedTime" destination="mKT-tr-PsX" id="0f0-zH-ntT"/>
                         <outlet property="pkrTimePickerView" destination="qjL-pX-BbJ" id="dbJ-wM-e6z"/>
                         <outlet property="txtActualCost" destination="pR0-wc-dov" id="o5o-io-LG9"/>
                         <outlet property="txvComments" destination="mKE-Cc-dB2" id="IDM-yt-oZ8"/>
@@ -609,10 +600,9 @@
                                     <action selector="btnCancelPressed:" destination="9gh-xg-4ud" eventType="touchUpInside" id="vcs-P7-wG5"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-zb-6kK" customClass="AMTTimePickerView">
+                            <pickerView contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-zb-6kK" customClass="AMTTimePicker">
                                 <rect key="frame" x="16" y="94" width="279" height="162"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="9gh-xg-4ud" id="jH0-TU-VS6"/>
                                     <outlet property="delegate" destination="9gh-xg-4ud" id="TNm-ya-GZy"/>
                                 </connections>
                             </pickerView>

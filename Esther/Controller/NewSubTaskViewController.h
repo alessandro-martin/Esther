@@ -1,5 +1,6 @@
 @import UIKit;
 #import <UIColor+FlatColors.h>
+#import <AMTTimePicker.h>
 
 #import "MainTask.h"
 
@@ -9,7 +10,7 @@
 
 @end
 
-@interface NewSubTaskViewController : UIViewController
+@interface NewSubTaskViewController : UIViewController <AMTTimePickerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *moc;
 @property (nonatomic, strong) MainTask *mainTask;
