@@ -232,10 +232,6 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
 - (BOOL)collectionView:(UICollectionView *)collectionView
 canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 		   toIndexPath:(NSIndexPath *)toIndexPath {
-// Prevent item from being moved to index 0
-//    if (toIndexPath.item == 0) {
-//        return NO;
-//    }
     return YES;
 }
 
@@ -307,7 +303,7 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 #pragma mark - NewSubTaskViewController Delegate Method
 
 - (void) updateMainTask {
-	[self.collectionView.collectionViewLayout invalidateLayout]; // YESSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!
+	[self.collectionView.collectionViewLayout invalidateLayout]; // I Tweeted about this!
 	[self setupSections];
 	[self.collectionView reloadData];
 }

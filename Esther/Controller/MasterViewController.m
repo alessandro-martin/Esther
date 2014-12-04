@@ -159,7 +159,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	int days = hours / 24;
 	hours = hours % 24;
 	
-	return [NSString stringWithFormat:@"%@ %dh %dm", (days > 0) ? [NSString stringWithFormat:@"%dd", days ] : @"",
+	return [NSString stringWithFormat:@"%@ %dh %dm", (days > 0) ?
+			[NSString stringWithFormat:@"%dd", days ] :
+			@"",
 			hours, minutes];
 }
 
