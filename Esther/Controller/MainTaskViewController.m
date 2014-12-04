@@ -102,6 +102,10 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	self.title = self.mainTask.mainTaskName;
 	UIImageView *picView = [[UIImageView alloc] initWithImage:[self mainTaskImage]];
 	picView.frame = CGRectMake(0, 0, 40, 40);
+	picView.layer.borderWidth = 1;
+	picView.layer.borderColor = [UIColor whiteColor].CGColor;
+	picView.layer.cornerRadius = CGRectGetWidth(picView.layer.frame) / 2;
+	picView.layer.masksToBounds = YES;
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:picView];
 	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
 	

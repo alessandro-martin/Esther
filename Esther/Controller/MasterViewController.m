@@ -3,6 +3,8 @@
 #import "MainTask.h"
 #import "NewMainTaskViewController.h"
 #import <UIColor+FlatColors.h>
+#import "MainTaskTableViewCell.h"
+#import "MainTaskTableViewCell.h"
 
 @import QuartzCore;
 
@@ -77,15 +79,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)configureCell:(UITableViewCell *)cell
 		  atIndexPath:(NSIndexPath *)indexPath {
+	MainTaskTableViewCell *mainTaskCell = (MainTaskTableViewCell *)cell;
 	MainTask *mainTask = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-	cell.textLabel.text = mainTask.mainTaskName;
+	
+	mainTaskCell.mainTaskNameLabel.text = mainTask.mainTaskName;
+	
 	double longestTime = [self timeOfLongestChainOfEventsInMainTask:mainTask];
 	NSString *longestTimeString = [self daysHoursAndMinutesStringFromSeconds:longestTime];
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\t\t\t%@ %@",
-								 longestTimeString,
-								 [self totalCostForMainTask:mainTask],
-								 [self currencySymbolFromLocale]];
+	mainTaskCell.mainTaskTimeLabel.text = [NSString stringWithFormat:@"%@", longestTimeString];
+	mainTaskCell.mainTaskCostLabel.text = [NSString stringWithFormat:@"%@ %@", [self totalCostForMainTask:mainTask],
+										   [self currencySymbolFromLocale]];
 	NSData *pngData = [NSData dataWithContentsOfFile:mainTask.mainTaskImageURL];
 	UIImage *img;
 	if (!pngData) {
@@ -93,8 +96,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	} else {
 		img = [UIImage imageWithData:pngData];
 	}
-	cell.imageView.image = img;
-	cell.backgroundColor = [UIColor clearColor];
+	mainTaskCell.mainTaskImage.image = img;
+	mainTaskCell.backgroundColor = [UIColor whiteColor];
 }
 
 - (int) maxMainTasks {
@@ -159,6 +162,5 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	return [NSString stringWithFormat:@"%@ %dh %dm", (days > 0) ? [NSString stringWithFormat:@"%dd", days ] : @"",
 			hours, minutes];
 }
-
 
 @end

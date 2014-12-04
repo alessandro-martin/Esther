@@ -38,6 +38,7 @@
 		A73F66C61A24B9D600D98F6D /* Esther_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A73F66C51A24B9D600D98F6D /* Esther_Logo.png */; };
 		A76048741A26A930003897F9 /* Logo_Keydi.png in Resources */ = {isa = PBXBuildFile; fileRef = A76048731A26A930003897F9 /* Logo_Keydi.png */; };
 		A76876911A1A502E001BDF01 /* AMTGlobalTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */; };
+		A779C9031A30AAD4003F77F2 /* MainTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A779C9011A30AAD4003F77F2 /* MainTaskTableViewCell.m */; };
 		A77D0A611A2349EB00F5216D /* NewSubTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */; };
 		A77D0A661A23788700F5216D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77D0A651A23788700F5216D /* MapKit.framework */; };
 		A78B2B051A1EBFD400D6E0C4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78B2B041A1EBFD400D6E0C4 /* SettingsViewController.m */; };
@@ -100,6 +101,8 @@
 		A76048731A26A930003897F9 /* Logo_Keydi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_Keydi.png; sourceTree = "<group>"; };
 		A768768F1A1A502E001BDF01 /* AMTGlobalTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTGlobalTaskView.h; path = ../View/AMTGlobalTaskView.h; sourceTree = "<group>"; };
 		A76876901A1A502E001BDF01 /* AMTGlobalTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTGlobalTaskView.m; path = ../View/AMTGlobalTaskView.m; sourceTree = "<group>"; };
+		A779C9001A30AAD4003F77F2 /* MainTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTaskTableViewCell.h; sourceTree = "<group>"; };
+		A779C9011A30AAD4003F77F2 /* MainTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTaskTableViewCell.m; sourceTree = "<group>"; };
 		A77D0A5F1A2349EB00F5216D /* NewSubTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSubTaskViewController.h; sourceTree = "<group>"; };
 		A77D0A601A2349EB00F5216D /* NewSubTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSubTaskViewController.m; sourceTree = "<group>"; };
 		A77D0A651A23788700F5216D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -287,6 +290,8 @@
 				A724D7A11A191BEE0041A04A /* LaunchScreen.xib */,
 				A7C802BA1A213FA500D8180E /* Cell.h */,
 				A7C802BB1A213FA500D8180E /* Cell.m */,
+				A779C9001A30AAD4003F77F2 /* MainTaskTableViewCell.h */,
+				A779C9011A30AAD4003F77F2 /* MainTaskTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 				A77D0A611A2349EB00F5216D /* NewSubTaskViewController.m in Sources */,
 				A7C802BC1A213FA500D8180E /* Cell.m in Sources */,
 				A7C802CC1A213FB000D8180E /* DraggableCollectionViewFlowLayout.m in Sources */,
+				A779C9031A30AAD4003F77F2 /* MainTaskTableViewCell.m in Sources */,
 				A724D7981A191BEE0041A04A /* MasterViewController.m in Sources */,
 				A7CA23681A1CF639001F6F99 /* SubTask.m in Sources */,
 				A724D7921A191BEE0041A04A /* main.m in Sources */,

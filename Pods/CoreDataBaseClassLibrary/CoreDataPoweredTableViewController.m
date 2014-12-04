@@ -1,6 +1,8 @@
 #import "CoreDataPoweredTableViewController.h"
 #import "CoreDataPoweredFetchedResultsControllerHelper.h"
 
+static NSString * const cellIdentifier = @"Cell";
+
 @interface CoreDataPoweredTableViewController ()
 
 @property (nonatomic, strong) CoreDataPoweredFetchedResultsControllerHelper *helper;
@@ -69,7 +71,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier
+															forIndexPath:indexPath];
 	[self configureCell:cell atIndexPath:indexPath];
 	
 	return cell;
