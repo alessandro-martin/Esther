@@ -28,7 +28,6 @@ static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
 }
 
 - (void) contextChanged {
-#warning KIND OF A HACK?
 	[self.tableView reloadData];
 }
 

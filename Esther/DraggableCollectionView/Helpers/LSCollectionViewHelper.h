@@ -4,8 +4,7 @@
 
 - (id)initWithCollectionView:(UICollectionView *)collectionView;
 
-#warning MY ADDENDUM
-- (NSIndexPath *)indexPathForItemClosestToPoint:(CGPoint)point;
+- (NSIndexPath *)indexPathForItemClosestToPoint:(CGPoint)point; // AMT Exposed this method
 
 @property (nonatomic, readonly) UICollectionView *collectionView;
 @property (nonatomic, readonly) UILongPressGestureRecognizer *longPressGestureRecognizer;

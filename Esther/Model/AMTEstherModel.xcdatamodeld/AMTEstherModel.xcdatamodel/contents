@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="MainTask" representedClassName="MainTask" syncable="YES">
         <attribute name="mainTaskCreationDate" attributeType="Date" syncable="YES"/>
         <attribute name="mainTaskDescription" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,7 +8,7 @@
         <attribute name="mainTaskName" attributeType="String" syncable="YES"/>
         <attribute name="mainTaskTotalCost" optional="YES" transient="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="mainTaskTotalTime" optional="YES" transient="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="subTasks" toMany="YES" deletionRule="No Action" destinationEntity="SubTask" inverseName="mainTask" inverseEntity="SubTask" syncable="YES"/>
+        <relationship name="subTasks" toMany="YES" deletionRule="Nullify" destinationEntity="SubTask" inverseName="mainTask" inverseEntity="SubTask" syncable="YES"/>
     </entity>
     <entity name="SubTask" representedClassName="SubTask" syncable="YES">
         <attribute name="subTaskColor" attributeType="Transformable" syncable="YES"/>
@@ -22,11 +22,11 @@
         <attribute name="subTaskScreenPositionX" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="subTaskScreenPositionY" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
         <attribute name="subTaskTimeNeeded" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="mainTask" maxCount="1" deletionRule="No Action" destinationEntity="MainTask" inverseName="subTasks" inverseEntity="MainTask" syncable="YES"/>
+        <relationship name="mainTask" maxCount="1" deletionRule="Nullify" destinationEntity="MainTask" inverseName="subTasks" inverseEntity="MainTask" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubTask" inverseName="parent" inverseEntity="SubTask" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MainTask" positionX="304" positionY="137" width="128" height="165"/>
-        <element name="SubTask" positionX="-144" positionY="-27" width="128" height="240"/>
+        <element name="MainTask" positionX="304" positionY="137" width="128" height="163"/>
+        <element name="SubTask" positionX="-144" positionY="-27" width="128" height="238"/>
     </elements>
 </model>

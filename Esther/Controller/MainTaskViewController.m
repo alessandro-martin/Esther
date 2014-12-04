@@ -208,7 +208,7 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	
 	// SHADOW
 	cell.layer.masksToBounds = NO;
-	cell.layer.shadowOpacity = 0.75f;
+	cell.layer.shadowOpacity = 0.45f;
 	cell.layer.shadowRadius = 10.0f;
 	cell.layer.shadowOffset = CGSizeMake(15, 20);
 	cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;

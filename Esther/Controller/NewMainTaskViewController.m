@@ -56,7 +56,6 @@ static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description he
 }
 
 - (IBAction)btnAddImagePressed:(UIButton *)sender {
-#warning Check Why Real Size and Position Don't match coords CGRect
 	[self dismissKeyboard];
 	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 	[picker setMediaTypes:@[(id)kUTTypeImage]];
