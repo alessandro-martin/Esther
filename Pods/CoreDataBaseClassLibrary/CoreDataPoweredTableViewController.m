@@ -86,7 +86,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath {
-#warning SHOULD ALSO DELETE IMAGE FROM DOCUMENTS SANDBOX
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		self.moc = [self.fetchedResultsController managedObjectContext];
 		[self.moc deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
