@@ -134,7 +134,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7P-zo-O6M">
-                                                    <rect key="frame" x="4" y="8" width="42" height="34"/>
+                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
                                                     <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -149,8 +149,8 @@
                                             <constraint firstAttribute="centerX" secondItem="Z7P-zo-O6M" secondAttribute="centerX" id="TpG-fy-0cM"/>
                                             <constraint firstItem="Z7P-zo-O6M" firstAttribute="top" secondItem="Tn3-9Y-p2g" secondAttribute="topMargin" id="XiJ-j9-Fa4"/>
                                             <constraint firstAttribute="centerY" secondItem="Z7P-zo-O6M" secondAttribute="centerY" id="ecX-Lf-MBz"/>
-                                            <constraint firstItem="Z7P-zo-O6M" firstAttribute="leading" secondItem="Tn3-9Y-p2g" secondAttribute="leadingMargin" constant="-4" id="fWB-2b-Yb4"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Z7P-zo-O6M" secondAttribute="trailing" constant="-4" id="shc-o8-dL6"/>
+                                            <constraint firstItem="Z7P-zo-O6M" firstAttribute="leading" secondItem="Tn3-9Y-p2g" secondAttribute="leadingMargin" id="fWB-2b-Yb4"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Z7P-zo-O6M" secondAttribute="trailing" id="shc-o8-dL6"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="label" destination="Z7P-zo-O6M" id="Hhw-bF-zRd"/>

@@ -1,3 +1,4 @@
+@import MapKit;
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import "NewSubTaskViewController.h"
@@ -93,11 +94,16 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 }
 
 - (void) setupView {
-	self.view.backgroundColor = [UIColor flatTurquoiseColor];
+	self.view.backgroundColor = [UIColor flatAsbestosColor];
 	self.txtEstimatedCost.placeholder = self.currencySymbolFromLocale;
-	self.txtSubTaskName.backgroundColor = [UIColor flatGreenSeaColor];
-	self.btnDone.backgroundColor = [UIColor flatBelizeHoleColor];
-	self.btnCancel.backgroundColor = [UIColor flatAlizarinColor];
+	self.txtEstimatedCost.backgroundColor = [UIColor flatCloudsColor];
+	self.txtSubTaskName.backgroundColor = [UIColor flatCloudsColor];
+	self.btnDone.backgroundColor = [UIColor flatCloudsColor];
+	[self.btnDone setTitleColor:[UIColor flatNephritisColor]
+					   forState:UIControlStateNormal] ;
+	self.btnCancel.backgroundColor = [UIColor flatCloudsColor];
+	[self.btnCancel setTitleColor:[UIColor flatAlizarinColor]
+						 forState:UIControlStateNormal];
 	self.txvSubTaskDescription.backgroundColor = [UIColor flatCloudsColor];
 	self.txvSubTaskDescription.delegate = self;
 	self.txvSubTaskDescription.text = TEXTVIEW_PLACEHOLDER;
@@ -106,8 +112,10 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 	self.lblTime.backgroundColor = [UIColor flatCloudsColor];
 	self.lblMainTaskName.text =
 	[NSString stringWithFormat:@"Main Task: %@", self.mainTask.mainTaskName];
-	self.lblMainTaskName.backgroundColor = self.subTaskColor;
+	self.lblMainTaskName.backgroundColor = [UIColor flatCloudsColor];
+	self.lblMainTaskName.textColor = self.subTaskColor;
 	
+	[self drawBorders];
 	[[self.txtSubTaskName.rac_textSignal
 	  map:^id(NSString *text) {
 		  return [NSNumber numberWithBool:[self isValidName:text]];
@@ -118,12 +126,28 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 						  animations:^{
 							  self.btnDone.alpha = [enable boolValue] ? 1.0 : 0.3;
 							  self.txtSubTaskName.backgroundColor =
-							  [enable boolValue] ? [UIColor flatCloudsColor]: [UIColor flatSunFlowerColor];
+							  [enable boolValue] ? [UIColor flatCloudsColor]: [UIColor flatSilverColor];
 						  }];
 		 
 	 }];
 }
 
+- (void) drawBorders {
+	[self.view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		UIView *v = (UIView *)obj;
+		if ([v isKindOfClass:[UITextView class]] ||
+			[v isKindOfClass:[UIButton class]] ||
+			[v isKindOfClass:[AMTTimePicker class]] ||
+			[v isKindOfClass:[UILabel class]] ||
+			[v isKindOfClass:[MKMapView class]] ||
+			[v isKindOfClass:[UITextField class]]) {
+			v.layer.borderWidth = 1.5;
+			v.layer.borderColor = self.subTaskColor.CGColor;
+			v.layer.cornerRadius = 10;
+			v.layer.masksToBounds = YES;
+		}
+	}];
+}
 - (BOOL) isValidName:(NSString *)name {
 	name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 	return name.length > 0;

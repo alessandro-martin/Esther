@@ -33,16 +33,13 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 
 + (NSArray *)subTaskColors {
 	return @[
-			 [UIColor flatAmethystColor],
-			 [UIColor flatPumpkinColor],
-			 [UIColor flatTurquoiseColor],
-			 [UIColor flatPeterRiverColor],
-			 [UIColor flatSunFlowerColor],
-			 [UIColor flatOrangeColor],
-			 [UIColor flatEmeraldColor],
-			 [UIColor flatBelizeHoleColor],
 			 [UIColor flatWisteriaColor],
-			 [UIColor flatAlizarinColor]
+			 [UIColor flatPumpkinColor],
+			 [UIColor flatGreenSeaColor],
+			 [UIColor flatBelizeHoleColor],
+			 [UIColor flatSunFlowerColor],
+			 [UIColor flatPomegranateColor],
+			 [UIColor flatNephritisColor],
 			 ];
 }
 
@@ -199,11 +196,23 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	
 	// SHADOW
 	cell.layer.masksToBounds = NO;
-	cell.layer.shadowOpacity = 0.45f;
+	cell.layer.shadowOpacity = 0.30f;
 	cell.layer.shadowRadius = 10.0f;
 	cell.layer.shadowOffset = CGSizeMake(15, 20);
 	cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;
 	//
+	
+	// BORDER
+	cell.layer.borderColor = [UIColor clearColor].CGColor;
+	cell.layer.borderWidth = 1.0f;
+	cell.layer.cornerRadius = 10.0f;
+	
+	cell.label.layer.masksToBounds = YES;
+	cell.label.layer.borderColor = [UIColor clearColor].CGColor;
+	cell.label.layer.borderWidth = 1.0f;
+	cell.label.layer.cornerRadius = 10.0f;
+	//
+	
     return cell;
 }
 
@@ -275,7 +284,7 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 					 atSection:(NSUInteger)section {
 	[data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 		SubTask *s = (SubTask *)obj;
-		s.subTaskColor = [MainTaskViewController subTaskColors][section];
+		s.subTaskColor = [MainTaskViewController subTaskColors][section % [MainTaskViewController subTaskColors].count];
 		s.subTaskScreenPositionXValue = idx;
 		s.subTaskScreenPositionYValue = section;
 		
@@ -305,7 +314,8 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 	if ([[segue identifier] isEqualToString:@"newSubTask"]) {
 		NewSubTaskViewController *controller = (NewSubTaskViewController *)[segue destinationViewController];
 		
-		UIColor *subTaskColor = [MainTaskViewController subTaskColors][[self.indexPath indexAtPosition:0]];
+		UIColor *subTaskColor = [MainTaskViewController subTaskColors][[self.indexPath indexAtPosition:0] %
+																	   [MainTaskViewController subTaskColors].count];
 		controller.subTaskColor = subTaskColor;
 		controller.moc = self.moc;
 		controller.mainTask = self.mainTask;
