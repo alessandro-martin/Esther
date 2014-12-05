@@ -27,16 +27,38 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 }
 
 - (void) setupView {
-	self.view.backgroundColor = [UIColor flatPeterRiverColor];
+	self.view.backgroundColor = [UIColor flatAsbestosColor];
+	self.lblActualCostTitle.backgroundColor = [UIColor flatCloudsColor];
+	self.lblActualTimeTitle.backgroundColor = [UIColor flatCloudsColor];
 	self.txvComments.delegate = self;
 	self.txvComments.text = @"Enter Any Observations Here:";
 	self.txvComments.textColor = [UIColor lightGrayColor];
 	self.txtActualCost.text = [NSString stringWithFormat:@"%@ %@", self.subTask.subTaskFinancialCost, [self currencySymbolFromLocale]];
-	self.pkrTimePickerView.backgroundColor = [UIColor flatBelizeHoleColor];
+	self.pkrTimePickerView.backgroundColor = [UIColor flatCloudsColor];
 	[self.pkrTimePickerView setTimeInterval:self.subTask.subTaskTimeNeededValue];
-	self.btnCompleted.backgroundColor = [UIColor flatEmeraldColor];
-	self.btnNotYet.backgroundColor = [UIColor flatAlizarinColor];
+	self.btnCompleted.backgroundColor = [UIColor flatCloudsColor];
+	self.btnNotYet.backgroundColor = [UIColor flatCloudsColor];
 	self.txtActualCost.placeholder = self.currencySymbolFromLocale;
+	[self.btnCompleted setTitleColor:[UIColor flatNephritisColor]
+							forState:UIControlStateNormal];
+	[self.btnNotYet setTitleColor:[UIColor flatAlizarinColor]
+						 forState:UIControlStateNormal];
+	[self drawBorders];
+}
+
+- (void) drawBorders {
+	[self.view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		UIView *v = (UIView *)obj;
+		if ([v isKindOfClass:[UITextView class]] ||
+			[v isKindOfClass:[UIButton class]] ||
+			[v isKindOfClass:[UILabel class]] ||
+			[v isKindOfClass:[UITextField class]]) {
+			v.layer.borderWidth = 1.0;
+			v.layer.borderColor = [UIColor blackColor].CGColor;
+			v.layer.cornerRadius = 10;
+			v.layer.masksToBounds = YES;
+		}
+	}];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -191,7 +191,9 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	SubTask *subTask = (SubTask *)[data objectAtIndex:indexPath.item];
 	cell.label.text = [NSString stringWithFormat:@"%@\n%@ %@", subTask.subTaskName,
 					   subTask.subTaskFinancialCost, self.currencySymbolFromLocale];
-	
+	cell.label.backgroundColor = subTask.subTaskIsCompletedValue ? [UIColor clearColor] : [UIColor colorWithRed:0.1
+																										  green:0.1
+																										   blue:0.1 alpha:0.3];
 	cell.backgroundColor = subTask.subTaskIsCompletedValue ? [UIColor flatSilverColor] : subTask.subTaskColor;
 	
 	// SHADOW
