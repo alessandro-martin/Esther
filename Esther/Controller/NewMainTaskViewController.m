@@ -114,16 +114,23 @@ static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description he
 }
 
 - (void) setupView {
-	self.view.backgroundColor = [UIColor flatTurquoiseColor];
-	self.txtMainTaskName.backgroundColor = [UIColor flatGreenSeaColor];
-	self.imgMainTaskImage.backgroundColor = [UIColor flatGreenSeaColor];
-	self.btnDone.backgroundColor = [UIColor flatBelizeHoleColor];
-	self.btnCancel.backgroundColor = [UIColor flatAlizarinColor];
+	self.view.backgroundColor = [UIColor flatAsbestosColor];
+	self.txtMainTaskName.backgroundColor = [UIColor flatCloudsColor];
+	self.imgMainTaskImage.backgroundColor = [UIColor clearColor];
+	self.btnDone.backgroundColor = [UIColor flatCloudsColor];
+	self.btnCancel.backgroundColor = [UIColor flatCloudsColor];
 	self.txvMainTaskDescription.backgroundColor = [UIColor flatCloudsColor];
 	self.txvMainTaskDescription.delegate = self;
 	self.txvMainTaskDescription.text = TEXTVIEW_PLACEHOLDER;
 	self.txvMainTaskDescription.textColor = [UIColor lightGrayColor];
-	self.btnDiscardImage.backgroundColor = [UIColor flatSunFlowerColor];
+	self.btnDiscardImage.backgroundColor = [UIColor flatCloudsColor];
+	[self.btnDone setTitleColor:[UIColor flatNephritisColor]
+					   forState:UIControlStateNormal];
+	[self.btnCancel setTitleColor:[UIColor flatAlizarinColor]
+						 forState:UIControlStateNormal];
+	[self.btnDiscardImage setTitleColor:[UIColor flatSunFlowerColor]
+							   forState:UIControlStateNormal];
+	[self drawBorders];
 	
 	[[self.txtMainTaskName.rac_textSignal
 	  map:^id(NSString *text) {
@@ -135,10 +142,26 @@ static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description he
 						   animations:^{
 							   self.btnDone.alpha = [enable boolValue] ? 1.0 : 0.3;
 							   self.txtMainTaskName.backgroundColor =
-							   [enable boolValue] ? [UIColor flatCloudsColor]: [UIColor flatSunFlowerColor];
+							   [enable boolValue] ? [UIColor flatCloudsColor]: [UIColor flatSilverColor];
 						   }];
 		  
 	  }];
+}
+
+- (void) drawBorders {
+	[self.view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		UIView *v = (UIView *)obj;
+		if ([v isKindOfClass:[UITextView class]] ||
+			[v isKindOfClass:[UIButton class]] ||
+			[v isKindOfClass:[UILabel class]] ||
+			[v isKindOfClass:[UITextField class]] ||
+			[v isKindOfClass:[UIImageView class]]) {
+			v.layer.borderWidth = 1.0;
+			v.layer.borderColor = [UIColor blackColor].CGColor;
+			v.layer.cornerRadius = 10;
+			v.layer.masksToBounds = YES;
+		}
+	}];
 }
 
 -(BOOL) isValidName:(NSString *)name {

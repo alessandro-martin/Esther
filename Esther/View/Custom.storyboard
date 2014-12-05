@@ -303,7 +303,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="HwU-5l-4Wc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwU-5l-4Wc">
                                 <rect key="frame" x="103" y="136" width="394" height="394"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HwU-5l-4Wc" secondAttribute="height" multiplier="1:1" id="AmB-ca-bcC"/>

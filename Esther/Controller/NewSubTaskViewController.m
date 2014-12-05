@@ -148,6 +148,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 		}
 	}];
 }
+
 - (BOOL) isValidName:(NSString *)name {
 	name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 	return name.length > 0;
