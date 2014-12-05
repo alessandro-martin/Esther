@@ -64,7 +64,7 @@ static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description he
 							   0,
 							   CGRectGetWidth(self.view.bounds) / 2,
 							   CGRectGetHeight(self.view.bounds));
-#warning iPAD ONLY!!!
+	// iPAD ONLY!!!
 	self.imagePopOverController = [[UIPopoverController alloc] initWithContentViewController:picker];
 	self.imagePopOverController.delegate = self;
 	[self.imagePopOverController presentPopoverFromRect:coords

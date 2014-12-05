@@ -69,7 +69,7 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description 
 	subTask.subTaskFinancialCost = [self costValueFromTextField];
 	subTask.subTaskTimeNeededValue = self.timeFromPicker;
 	subTask.subTaskColor = self.subTaskColor;
-#warning Placeholder values for Lat and Long
+	// Placeholder values for Lat and Long
 	subTask.subTaskLatitudeValue = 0.0f;
 	subTask.subTaskLongitudeValue = 0.0f;
 	subTask.subTaskIsCompletedValue = NO;
