@@ -19,6 +19,7 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 @property (nonatomic, strong) NSString *currencySymbolFromLocale;
 @property (nonatomic, strong) UILabel *warningLabel;
 @property (nonatomic, strong) UIImageView *rightBarButtonCustomView;
+@property (weak, nonatomic) IBOutlet UIView *popoverAnchorView;
 
 @end
 
@@ -343,6 +344,11 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 		controller.indexPath = self.indexPath;
 		controller.delegate = self;
 	} else if ([[segue identifier] isEqualToString:@"editSubTaskSegue"]) {
+		UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.indexPath];
+		self.popoverAnchorView.frame = CGRectMake(cell.center.x,
+												  cell.center.y + cell.frame.size.height / 2,
+												  1,
+												  1);
 		NSUInteger s = self.indexPath.section;
 		NSUInteger r =  self.indexPath.row;
 		EditSubTaskViewController *controller = (EditSubTaskViewController *)[segue destinationViewController];

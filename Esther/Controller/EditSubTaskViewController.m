@@ -1,5 +1,5 @@
 #import "EditSubTaskViewController.h"
-
+#import <AMTTimePicker.h>
 #import <UIColor+FlatColors/UIColor+FlatColors.h>
 
 static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:";
@@ -8,7 +8,6 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 
 @property (weak, nonatomic) IBOutlet AMTTimePicker *pkrTimePickerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblActualTimeTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblActualCostTitle;
 @property (weak, nonatomic) IBOutlet UITextField *txtActualCost;
 @property (weak, nonatomic) IBOutlet UITextView *txvComments;
 @property (weak, nonatomic) IBOutlet UIButton *btnCompleted;
@@ -28,7 +27,6 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 
 - (void) setupView {
 	self.view.backgroundColor = [UIColor flatAsbestosColor];
-	self.lblActualCostTitle.backgroundColor = [UIColor flatCloudsColor];
 	self.lblActualTimeTitle.backgroundColor = [UIColor flatCloudsColor];
 	self.txvComments.delegate = self;
 	self.txvComments.text = @"Enter Any Observations Here:";
@@ -51,7 +49,8 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 		if ([v isKindOfClass:[UITextView class]] ||
 			[v isKindOfClass:[UIButton class]] ||
 			[v isKindOfClass:[UILabel class]] ||
-			[v isKindOfClass:[UITextField class]]) {
+			[v isKindOfClass:[UITextField class]] ||
+			[v isKindOfClass:[AMTTimePicker class]]) {
 			v.layer.borderWidth = 1.0;
 			v.layer.borderColor = [UIColor blackColor].CGColor;
 			v.layer.cornerRadius = 10;
