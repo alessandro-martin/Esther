@@ -101,8 +101,12 @@ static NSString * const TEXTVIEW_PLACEHOLDER = @"Enter a detailed description he
 }
 
 - (void) saveImage:(NSString *)filePath {
-	NSData *pngData = UIImagePNGRepresentation(self.mainTaskImage);
-	[pngData writeToFile:filePath atomically:YES];
+	dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		NSData *pngData = UIImagePNGRepresentation(self.mainTaskImage);
+		[pngData writeToFile:filePath atomically:YES];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"com.alessandromartin.imageupdated"
+															object:filePath];
+	});
 }
 
 - (NSString *)imageUrlForMainTaskName:(NSString *)mainTaskName {

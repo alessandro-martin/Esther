@@ -33,12 +33,11 @@ static NSString  * 	const TEXTVIEW_PLACEHOLDER = @"Enter Any Observations Here:"
 	self.txvComments.delegate = self;
 	self.txvComments.text = @"Enter Any Observations Here:";
 	self.txvComments.textColor = [UIColor lightGrayColor];
-	self.txtActualCost.text = [NSString stringWithFormat:@"%@ %@", self.subTask.subTaskFinancialCost, [self currencySymbolFromLocale]];
+	self.txtActualCost.placeholder = [NSString stringWithFormat:@"%@ %@", self.subTask.subTaskFinancialCost, [self currencySymbolFromLocale]];
 	self.pkrTimePickerView.backgroundColor = [UIColor flatCloudsColor];
 	[self.pkrTimePickerView setTimeInterval:self.subTask.subTaskTimeNeededValue];
 	self.btnCompleted.backgroundColor = [UIColor flatCloudsColor];
 	self.btnNotYet.backgroundColor = [UIColor flatCloudsColor];
-	self.txtActualCost.placeholder = self.currencySymbolFromLocale;
 	[self.btnCompleted setTitleColor:[UIColor flatNephritisColor]
 							forState:UIControlStateNormal];
 	[self.btnNotYet setTitleColor:[UIColor flatAlizarinColor]

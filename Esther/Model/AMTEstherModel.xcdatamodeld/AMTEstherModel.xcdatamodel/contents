@@ -8,7 +8,7 @@
         <attribute name="mainTaskName" attributeType="String" syncable="YES"/>
         <attribute name="mainTaskTotalCost" optional="YES" transient="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="mainTaskTotalTime" optional="YES" transient="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="subTasks" toMany="YES" deletionRule="Nullify" destinationEntity="SubTask" inverseName="mainTask" inverseEntity="SubTask" syncable="YES"/>
+        <relationship name="subTasks" toMany="YES" deletionRule="Cascade" destinationEntity="SubTask" inverseName="mainTask" inverseEntity="SubTask" syncable="YES"/>
     </entity>
     <entity name="SubTask" representedClassName="SubTask" syncable="YES">
         <attribute name="subTaskColor" attributeType="Transformable" syncable="YES"/>

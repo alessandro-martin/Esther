@@ -27,10 +27,19 @@ static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
 											 selector:@selector(contextChanged)
 												 name:NSManagedObjectContextDidSaveNotification
 											   object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(imageSaved) name:@"com.alessandromartin.imageupdated"
+											   object:nil];
 }
 
 - (void) contextChanged {
 	[self.tableView reloadData];
+}
+
+- (void) imageSaved {
+	[self.tableView performSelectorOnMainThread:@selector(reloadData)
+									 withObject:nil
+								  waitUntilDone:YES];
 }
 
 - (void)didReceiveMemoryWarning {
