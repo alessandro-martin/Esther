@@ -18,6 +18,7 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (nonatomic, strong) NSString *currencySymbolFromLocale;
 @property (nonatomic, strong) UILabel *warningLabel;
+@property (nonatomic, strong) UIImageView *rightBarButtonCustomView;
 
 @end
 
@@ -29,6 +30,9 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	
 	[self setupView];
 	[self setupSections];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(imageSaved) name:@"com.alessandromartin.imageupdated"
+											   object:nil];
 }
 
 + (NSArray *)subTaskColors {
@@ -98,13 +102,9 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 - (void) setupView {
 	self.view.backgroundColor = [UIColor flatSilverColor];
 	self.title = self.mainTask.mainTaskName;
-	UIImageView *picView = [[UIImageView alloc] initWithImage:[self mainTaskImage]];
-	picView.frame = CGRectMake(0, 0, 40, 40);
-	picView.layer.borderWidth = 1;
-	picView.layer.borderColor = [UIColor whiteColor].CGColor;
-	picView.layer.cornerRadius = CGRectGetWidth(picView.layer.frame) / 2;
-	picView.layer.masksToBounds = YES;
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:picView];
+	[self setupRightBarButtonCustomView];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+											  initWithCustomView:self.rightBarButtonCustomView];
 	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
 	
 	if (self.subTasks.count == 0) {
@@ -122,6 +122,25 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 		self.warningLabel.textAlignment = NSTextAlignmentCenter;
 		[self.view addSubview:self.warningLabel];
 	}
+}
+
+- (void) imageSaved {
+	[self setupRightBarButtonCustomView];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+											  initWithCustomView:self.rightBarButtonCustomView];
+	[self.navigationController.navigationBar performSelectorOnMainThread:@selector(setNeedsDisplay)
+															  withObject:nil
+														   waitUntilDone:YES];
+}
+
+- (void) setupRightBarButtonCustomView {
+	self.rightBarButtonCustomView = [[UIImageView alloc] initWithImage:[self mainTaskImage]];
+	self.rightBarButtonCustomView.frame = CGRectMake(0, 0, 40, 40);
+	self.rightBarButtonCustomView.contentMode = UIViewContentModeScaleAspectFill;
+	self.rightBarButtonCustomView.layer.borderWidth = 1;
+	self.rightBarButtonCustomView.layer.borderColor = [UIColor whiteColor].CGColor;
+	self.rightBarButtonCustomView.layer.cornerRadius = CGRectGetWidth(self.rightBarButtonCustomView.layer.frame) / 2;
+	self.rightBarButtonCustomView.layer.masksToBounds = YES;
 }
 
 - (void) setupSections {
