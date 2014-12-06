@@ -1,5 +1,5 @@
 PODS:
-  - AMTTimePicker (0.1.0)
+  - AMTTimePicker (0.1.2)
   - CoreDataBaseClassLibrary (0.0.1)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -47,7 +47,7 @@ PODS:
   - UIColor+FlatColors (0.0.2)
 
 DEPENDENCIES:
-  - AMTTimePicker
+  - AMTTimePicker (~> 0.1.2)
   - CoreDataBaseClassLibrary (~> 0.0.1)
   - libextobjc
   - pop
@@ -55,7 +55,7 @@ DEPENDENCIES:
   - UIColor+FlatColors
 
 SPEC CHECKSUMS:
-  AMTTimePicker: 5e18f48f188dfd2b2197f130d1bc4a3cbb68b958
+  AMTTimePicker: a7c3cd1ca791cd5736e5d97ac79a88f131893670
   CoreDataBaseClassLibrary: c0a99e124ab48f1aeb3026188a0f4cdfd29f595e
   libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
   pop: 2f14a1ea61339767af9e66741b418c831b3844df

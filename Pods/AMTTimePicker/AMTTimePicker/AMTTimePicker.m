@@ -117,15 +117,21 @@ static NSUInteger	const maxNumberOfMinutes = 59;
 }
 
 - (double) timeIntervalFromPicker {
-	int days		= [[self pickerView:self
-						titleForRow:[self selectedRowInComponent:0]
-					   forComponent:0] intValue];
-	int hours	= [[self pickerView:self
-					    titleForRow:[self selectedRowInComponent:1]
-					   forComponent:1] intValue];
-	int minutes = [[self pickerView:self
-						titleForRow:[self selectedRowInComponent:2]
-					   forComponent:2] intValue];
+	UILabel *daysView = (UILabel *)[self pickerView:self
+										 viewForRow:[self selectedRowInComponent:0]
+									   forComponent:0
+										reusingView:nil];
+	UILabel *hoursView = (UILabel *)[self pickerView:self
+										  viewForRow:[self selectedRowInComponent:1]
+										forComponent:1
+										 reusingView:nil];
+	UILabel *minutesView = (UILabel *)[self pickerView:self
+											viewForRow:[self selectedRowInComponent:2]
+										  forComponent:2
+										   reusingView:nil];
+	int days		= [[[daysView attributedText] string] intValue];
+	int hours	= [[[hoursView attributedText] string] intValue];
+	int minutes = [[[minutesView attributedText] string] intValue];
 	int timeInSeconds = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60);
 	
 	return timeInSeconds;
@@ -144,10 +150,35 @@ numberOfRowsInComponent:(NSInteger)component {
 
 #pragma mark - UIPickerViewDelegate Methods
 
--(NSString *)pickerView:(UIPickerView *)pickerView
-			titleForRow:(NSInteger)row
-		   forComponent:(NSInteger)component{
-	return [NSString stringWithFormat:@"%@", self.pickerData[component][row]];
+//-(NSString *)pickerView:(UIPickerView *)pickerView
+//			titleForRow:(NSInteger)row
+//		   forComponent:(NSInteger)component{
+//	return [NSString stringWithFormat:@"%@", self.pickerData[component][row]];
+//}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView
+			viewForRow:(NSInteger)row
+		  forComponent:(NSInteger)component
+		   reusingView:(UILabel *)recycledLabel {
+	UILabel *label = recycledLabel;
+	if (!label) {
+		label = [[UILabel alloc] init];
+		label.backgroundColor = [UIColor clearColor];
+		label.textAlignment = NSTextAlignmentCenter;
+	}
+	
+	UIFont *font = [UIFont fontWithName:@"Helvetica"
+								   size:14.0];
+	NSDictionary *attributedStringDictionary = @{
+												 NSFontAttributeName : font
+												 };
+	NSAttributedString *attrString =
+	[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", self.pickerData[component][row]]
+									attributes:attributedStringDictionary];
+
+	label.attributedText = attrString;
+	
+	return label;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView

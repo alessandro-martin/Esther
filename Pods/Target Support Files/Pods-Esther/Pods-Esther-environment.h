@@ -10,7 +10,7 @@
 #define COCOAPODS_POD_AVAILABLE_AMTTimePicker
 #define COCOAPODS_VERSION_MAJOR_AMTTimePicker 0
 #define COCOAPODS_VERSION_MINOR_AMTTimePicker 1
-#define COCOAPODS_VERSION_PATCH_AMTTimePicker 0
+#define COCOAPODS_VERSION_PATCH_AMTTimePicker 2
 
 // CoreDataBaseClassLibrary
 #define COCOAPODS_POD_AVAILABLE_CoreDataBaseClassLibrary

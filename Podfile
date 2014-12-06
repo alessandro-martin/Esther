@@ -9,7 +9,7 @@ target "Esther" do
 	pod 'UIColor+FlatColors'
 	pod 'libextobjc'
 	pod 'CoreDataBaseClassLibrary', '~> 0.0.1'
-	pod 'AMTTimePicker'
+	pod 'AMTTimePicker', '~> 0.1.2'
 end
 
 target "EstherTests" do
