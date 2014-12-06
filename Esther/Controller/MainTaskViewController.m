@@ -345,8 +345,10 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 		controller.delegate = self;
 	} else if ([[segue identifier] isEqualToString:@"editSubTaskSegue"]) {
 		UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.indexPath];
+		NSLog(@"%f %f", cell.center.x, cell.center.y);
+		NSLog(@"%@", NSStringFromCGRect(cell.frame));
 		self.popoverAnchorView.frame = CGRectMake(cell.center.x,
-												  cell.center.y + cell.frame.size.height / 2,
+												  cell.center.y + (cell.frame.size.height / 2) - self.collectionView.contentOffset.y,
 												  1,
 												  1);
 		NSUInteger s = self.indexPath.section;
