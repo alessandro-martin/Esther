@@ -37,9 +37,9 @@ static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
 }
 
 - (void) imageSaved {
-	[self.tableView performSelectorOnMainThread:@selector(reloadData)
-									 withObject:nil
-								  waitUntilDone:YES];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self.tableView reloadData];
+	});
 }
 
 - (void)didReceiveMemoryWarning {

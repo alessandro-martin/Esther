@@ -126,12 +126,13 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 }
 
 - (void) imageSaved {
-	[self setupRightBarButtonCustomView];
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-											  initWithCustomView:self.rightBarButtonCustomView];
-	[self.navigationController.navigationBar performSelectorOnMainThread:@selector(setNeedsDisplay)
-															  withObject:nil
-														   waitUntilDone:YES];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self setupRightBarButtonCustomView];
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+												  initWithCustomView:self.rightBarButtonCustomView];
+		[self.navigationController.navigationBar setNeedsDisplay];
+		[[NSNotificationCenter defaultCenter] removeObserver:self];
+	});
 }
 
 - (void) setupRightBarButtonCustomView {
