@@ -20,6 +20,7 @@ static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
 	self.view.backgroundColor = [UIColor flatSilverColor];
 	self.defaultCellHeight = CGRectGetHeight(self.view.frame) /  6.0;
 	self.fetchRequest = [MainTask allMainTasksFetchRequestInContext:self.moc];

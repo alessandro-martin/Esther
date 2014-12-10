@@ -7,7 +7,7 @@ static NSUInteger const MAX_MAIN_TASKS_DEFAULT_VALUE	= 5;
 static NSString * const MAX_SUB_TASKS_KEY				= @"MaxSubTasksForMainTask";
 static NSUInteger const MAX_SUB_TASKS_DEFAULT_VALUE		= 10;
 
-@interface AppDelegate () //<UISplitViewControllerDelegate>
+@interface AppDelegate ()
 
 @property (nonatomic, strong) NSManagedObjectContext *moc;
 
