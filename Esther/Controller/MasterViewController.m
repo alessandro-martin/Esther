@@ -29,7 +29,8 @@ static NSString * const MAX_MAIN_TASKS_KEY = @"MaxMainTasks";
 												 name:NSManagedObjectContextDidSaveNotification
 											   object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(imageSaved) name:@"com.alessandromartin.imageupdated"
+											 selector:@selector(imageSaved)
+												 name:@"com.alessandromartin.imageupdated"
 											   object:nil];
 }
 

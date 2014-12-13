@@ -223,6 +223,9 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	cell.layer.shadowRadius = 10.0f;
 	cell.layer.shadowOffset = CGSizeMake(15, 20);
 	cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;
+#warning Try This
+	//	cell.layer.shouldRasterize = YES;
+	//	cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
 	//
 	
 	// BORDER
