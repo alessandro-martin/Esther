@@ -109,19 +109,20 @@ static NSString * const MAX_SUB_TASKS_KEY = @"MaxSubTasksForMainTask";
 	[self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
 	
 	if (self.subTasks.count == 0) {
-		CGFloat labelWidth = self.view.bounds.size.width * 0.6;
-		CGFloat labelHeight = self.view.bounds.size.height * 0.6;
-		CGFloat viewWidth = CGRectGetWidth(self.view.frame);
-		CGFloat viewHeight = CGRectGetHeight(self.view.frame);
-		self.warningLabel = [[UILabel alloc] initWithFrame:CGRectMake((viewWidth / 2) - labelWidth / 2,
-																	  (viewHeight / 2) - labelHeight / 2,
-																	  labelWidth,
-																	  labelHeight)];
-		self.warningLabel.text = @"Tap do add a subtask\nAfterwards double tap to \nadd a section";
-		self.warningLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Helvetica" size:55] size:55];
-		self.warningLabel.numberOfLines = 3;
-		self.warningLabel.textAlignment = NSTextAlignmentCenter;
-		[self.view addSubview:self.warningLabel];
+		self.navigationItem.prompt = @"Tap do add a subtask, afterwards double tap to add a section";
+//		CGFloat labelWidth = self.view.bounds.size.width * 0.6;
+//		CGFloat labelHeight = self.view.bounds.size.height * 0.6;
+//		CGFloat viewWidth = CGRectGetWidth(self.view.frame);
+//		CGFloat viewHeight = CGRectGetHeight(self.view.frame);
+//		self.warningLabel = [[UILabel alloc] initWithFrame:CGRectMake((viewWidth / 2) - labelWidth / 2,
+//																	  (viewHeight / 2) - labelHeight / 2,
+//																	  labelWidth,
+//																	  labelHeight)];
+//		self.warningLabel.text = @"Tap do add a subtask\nAfterwards double tap to \nadd a section";
+//		self.warningLabel.font = [UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Helvetica" size:55] size:55];
+//		self.warningLabel.numberOfLines = 3;
+//		self.warningLabel.textAlignment = NSTextAlignmentCenter;
+//		[self.view addSubview:self.warningLabel];
 	}
 }
 
@@ -325,8 +326,11 @@ didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath
 #pragma mark - NewSubTaskViewController Delegate Method
 
 - (void) updateMainTask {
-	if ([self.view.subviews containsObject:self.warningLabel]) {
-		[self.warningLabel removeFromSuperview];
+//	if ([self.view.subviews containsObject:self.warningLabel]) {
+//		[self.warningLabel removeFromSuperview];
+//	}
+	if (self.navigationItem.prompt) {
+		self.navigationItem.prompt = nil;
 	}
 	[self.collectionView.collectionViewLayout invalidateLayout]; // I Tweeted about this!
 	[self setupSections];
