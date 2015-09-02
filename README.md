@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # README #
 
 This README would normally document whatever steps are necessary to get your application up and running.
@@ -33,4 +32,3 @@ Esther
 ======
 
 Esther is an Estimates Helper app that you'll soon see on the app store!
->>>>>>> 34739c439e0f7f82153a00265f1c99b2e3a70239
